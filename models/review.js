@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      FavoriteRoom.belongsTo(models.User, {
-        foreignKey: 'user_id'
-      });
-      FavoriteRoom.belongsTo(models.Room, {
-        foreignKey: 'room_id'
-      });
+      // // define association here
+      // FavoriteRoom.belongsTo(models.User, {
+      //   foreignKey: 'user_id'
+      // });
+      // FavoriteRoom.belongsTo(models.Room, {
+      //   foreignKey: 'room_id'
+      // });
     }
   }
   Review.init({
@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Review',
+    tableName: 'review'
   });
   return Review;
 };

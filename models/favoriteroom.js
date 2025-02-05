@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      FavoriteRoom.belongsTo(models.User, {
-        foreignKey: 'user_id'
-      });
-      FavoriteRoom.belongsTo(models.Room, {
-        foreignKey: 'room_id'
-      });
+      // FavoriteRoom.belongsTo(models.User, {
+      //   foreignKey: 'user_id'
+      // });
+      // FavoriteRoom.belongsTo(models.Room, {
+      //   foreignKey: 'room_id'
+      // });
     }
   }
   FavoriteRoom.init({
@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'FavoriteRoom',
+    tableName: 'favoriteRoom'
   });
   return FavoriteRoom;
 };
