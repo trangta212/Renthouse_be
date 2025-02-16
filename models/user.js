@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const bcrypt = require('bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -32,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     tableName: 'user',
+  });
+  User.addHook("beforeCreate", async (user) => {
+    const saltRounds = 10;
+    user.password = await bcrypt.hash(user.password, saltRounds);
   });
   return User;
 };

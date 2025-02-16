@@ -16,4 +16,11 @@ const createUser = async (userData) => {
     throw error;
   }
 };
-module.exports = {createUser};
+const checkLogin = async (userData) => {
+     const existUser = await db.User.findOne({
+        where: { email: userData.email },
+      });
+      return existUser;
+}
+
+module.exports = {createUser, checkLogin};
