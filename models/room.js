@@ -22,13 +22,22 @@ module.exports = (sequelize, DataTypes) => {
   }
   Room.init({
     room_name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    price_per_month: DataTypes.BIGINT,
+    description: DataTypes.TEXT,
+    price_per_month: DataTypes.FLOAT,
     area: DataTypes.INTEGER,
     status: DataTypes.STRING,
-    room_images: DataTypes.TEXT,
+    room_images: {
+      type: DataTypes.TEXT,
+      get() {
+          return JSON.parse(this.getDataValue('room_images')); // Lấy dữ liệu dưới dạng mảng
+      },
+      set(value) {
+          this.setDataValue('room_images', JSON.stringify(value)); // Lưu dưới dạng chuỗi JSON
+      }
+      },
     rating: DataTypes.INTEGER,
     type: DataTypes.STRING,
+    address : DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Room',

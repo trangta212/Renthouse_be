@@ -14,16 +14,16 @@ const scrapeController = async (browserInstance) => {
     let browser = await browserInstance;
     // Gọi đúng tên hàm
     const categories = await scrapers.scrapeCategory(browser, url);
-    const selectCategory = categories.filter((category, index) => indexs.some(i => i === index));
-    let result1 = await scrapers.scraper(browser, urlHanoi);
-    fs.writeFileSync('./crawl_data/dataphongtro.json', JSON.stringify(result1),(err) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-    );
+    // const selectCategory = categories.filter((category, index) => indexs.some(i => i === index));
+    //    let result1 = await scrapers.scraper(browser, urlHanoi);
+    //    fs.writeFileSync('./crawl_data/dataphongtro.json', JSON.stringify(result1),(err) => {
+    //    if (err) {
+    //     console.log(err);
+    //  }
+    // }
+    // );
     // let result2 = await scrapers.scraper(browser, urlHanoi2);
-    // fs.writeFileSync('datanhanguyencan.json', JSON.stringify(result2),(err) => {
+    // fs.writeFileSync('./crawl_data/datanhanguyencan.json', JSON.stringify(result2),(err) => {
     //   if (err) {
     //     console.log(err);
     //   }
@@ -37,14 +37,14 @@ const scrapeController = async (browserInstance) => {
     // }
     // );
     // let result4 = await scrapers.scraper(browser, urlHanoi4);
-    // fs.writeFileSync('datachungcumini.json', JSON.stringify(result4),(err) => {
+    // fs.writeFileSync('./crawl_data/datachungcumini.json', JSON.stringify(result4),(err) => {
     //   if (err) {
     //     console.log(err);
     //   }
     // }
     // );
     // let result5 = await scrapers.scraper(browser, urlHanoi5);
-    // fs.writeFileSync('datacanhodichvu.json', JSON.stringify(result5),(err) => {
+    // fs.writeFileSync('./crawl_data/datacanhodichvu.json', JSON.stringify(result5),(err) => {
     //   if (err) {
     //     console.log(err);
     //   }
