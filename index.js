@@ -6,6 +6,7 @@ const sequelize = require("./config/dbConfig");
 const authRoutes = require("./routes/authRoutes");
 const roomRoutes = require("./routes/roomRoutes");
 const paymentRoute = require("./routes/paymentRoutes");
+const postRoutes = require("./routes/postRoutes");
 // const startBrowser = require('./crawl_data/browser');
 // const scrapeController = require('./crawl_data/scrapeController');
 // const importRooms = require('./crawl_data/importRoom');
@@ -39,6 +40,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/room", roomRoutes);
 app.use("/api/v1/payment", paymentRoute);
+app.use("/api/v1/post", postRoutes);
 
 // Kết nối database
 const connectDB = async () => {
