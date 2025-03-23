@@ -17,7 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       // User.hasMany(models.Review, {
       //   foreignKey: 'room_id'
       // });
-
+      Room.hasMany(models.RentPost, {
+        foreignKey: 'room_id'
+      });
     }
   }
   Room.init({
@@ -29,12 +31,21 @@ module.exports = (sequelize, DataTypes) => {
     room_images: {
       type: DataTypes.TEXT,
       get() {
-          return JSON.parse(this.getDataValue('room_images')); // Lấy dữ liệu dưới dạng mảng
+        const rawValue = this.getDataValue('room_images');
+        // Nếu rawValue không tồn tại hoặc là chuỗi rỗng, trả về mảng rỗng
+        if (!rawValue) return [];
+        try {
+          return JSON.parse(rawValue);
+        } catch (error) {
+          // Nếu xảy ra lỗi khi parse, trả về mảng rỗng để tránh crash
+          return [];
+        }
       },
       set(value) {
-          this.setDataValue('room_images', JSON.stringify(value)); // Lưu dưới dạng chuỗi JSON
+        this.setDataValue('room_images', JSON.stringify(value));
       }
-      },
+    }
+    ,    
     rating: DataTypes.INTEGER,
     type: DataTypes.STRING,
     address : DataTypes.TEXT,
