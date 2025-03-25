@@ -32,12 +32,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       get() {
         const rawValue = this.getDataValue('room_images');
-        // Nếu rawValue không tồn tại hoặc là chuỗi rỗng, trả về mảng rỗng
         if (!rawValue) return [];
         try {
           return JSON.parse(rawValue);
         } catch (error) {
-          // Nếu xảy ra lỗi khi parse, trả về mảng rỗng để tránh crash
           return [];
         }
       },

@@ -11,7 +11,8 @@ const createPost = async (postData) => {
       price_per_month,
       type,
       area,
-      // address,
+      address,
+      status,
       room_images = [],
     } = postData;
 console.log("📦 Post postData:", postData)
@@ -49,7 +50,7 @@ console.log("📦 Post postData:", postData)
           price_per_month,
           type,
           area,
-          // address,
+          address,
           room_images
         },
         { transaction: t }
@@ -60,7 +61,7 @@ console.log("📦 Post postData:", postData)
         {
           user_id: user.id,
           room_id: room.id,
-          status: "active",
+          status: "pending",
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -93,7 +94,7 @@ const updatePost = async (id, postData) => {
       price_per_month,
       type,
       area,
-      // address,
+      address,
       status,
       room_images,
       start_date,
@@ -154,7 +155,7 @@ const updatePost = async (id, postData) => {
             price_per_month: price_per_month || post.Room.price_per_month,
             type: type || post.Room.type,
             area: area || post.Room.area,
-            // address: address || post.Room.address,
+            address: address || post.Room.address,
             room_images: room_images || post.Room.room_images,
             updated_at: new Date(),
           },
@@ -166,7 +167,7 @@ const updatePost = async (id, postData) => {
       }
       console.log(room_images);
       // 4. Update status của post nếu có
-      if ((status, start_date, expire)) {
+      if ((status || start_date || expire)) {
         await db.RentPost.update(
           {
             status,
@@ -197,7 +198,7 @@ const updatePost = async (id, postData) => {
               "price_per_month",
               "type",
               "area",
-              // "address",
+              "address",
               "room_images",
             ],
           },

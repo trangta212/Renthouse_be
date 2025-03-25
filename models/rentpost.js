@@ -19,7 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     room_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
     start_date: DataTypes.DATEONLY,
-    expire: DataTypes.DATEONLY
+    expire: DataTypes.DATEONLY,
+    status: {
+      type: DataTypes.STRING,
+      defaultValue: "pending", // Giá trị mặc định cho bản ghi mới
+    },
   }, {
     sequelize,
     modelName: 'RentPost',

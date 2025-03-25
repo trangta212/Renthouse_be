@@ -55,6 +55,9 @@ const updatePostController = async (req, res) => {
         area: req.body.area,
         address: req.body.address,
         status: req.body.status,
+        room_images: req.body.room_images,
+        start_date: req.body.start_date,
+        expire: req.body.expire
       };
   
       // Validate dữ liệu đầu vào

@@ -9,11 +9,12 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.changeColumn("room", "description", {
-      type: Sequelize.TEXT,
-      allowNull: false,
-    });
-  },
+    await queryInterface.changeColumn("rentpost", "status", {
+      type: Sequelize.STRING,
+      defaultValue: "pending",
+  })
+  }
+  ,
 
   async down (queryInterface, Sequelize) {
     /**
@@ -22,9 +23,9 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.changeColumn("room", "description", {
+    await queryInterface.changeColumn("RentPosts", "status", {
       type: Sequelize.STRING,
-      allowNull: false,
+      defaultValue: null, // Nếu rollback, bỏ defaultValue
     });
   }
 };
