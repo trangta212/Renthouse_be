@@ -98,7 +98,7 @@ const updatePost = async (id, postData) => {
       status,
       room_images,
       start_date,
-      expire,
+      expire
     } = postData;
     console.log("📦 Received postData:", postData);
 
@@ -145,7 +145,7 @@ const updatePost = async (id, postData) => {
         price_per_month ||
         type ||
         area ||
-        // address ||
+        address ||
         room_images
       ) {
         await db.Room.update(

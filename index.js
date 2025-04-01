@@ -7,9 +7,11 @@ const authRoutes = require("./routes/authRoutes");
 const roomRoutes = require("./routes/roomRoutes");
 const paymentRoute = require("./routes/paymentRoutes");
 const postRoutes = require("./routes/postRoutes");
-// const startBrowser = require('./crawl_data/browser');
-// const scrapeController = require('./crawl_data/scrapeController');
-// const importRooms = require('./crawl_data/importRoom');
+const startBrowser = require('./crawl_data/browser');
+const scrapeController = require('./crawl_data/scrapeController');
+const importRooms = require('./crawl_data/importRoom');
+const favoriteRoutes = require('./routes/favoriteRoutes');
+
 
 const { createServer } = require("http");
 const { Server } = require("socket.io");
@@ -37,10 +39,11 @@ app.use(
 );
 
 // Định nghĩa route
-app.use("/api/auth", authRoutes);
-app.use("/api/room", roomRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/room", roomRoutes);
 app.use("/api/v1/payment", paymentRoute);
 app.use("/api/v1/post", postRoutes);
+app.use("/api/v1/favorite", favoriteRoutes);
 
 // Kết nối database
 const connectDB = async () => {

@@ -34,6 +34,7 @@ const createNewUser = async (req, res) => {
     });
   }
 };
+
 const checkingLogin = async (req, res) => {
   try{
     const userData = req.body;
@@ -72,4 +73,5 @@ const checkingLogin = async (req, res) => {
     });
   }
 };
+
 module.exports = { createNewUser, checkingLogin };

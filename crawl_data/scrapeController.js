@@ -14,7 +14,7 @@ const scrapeController = async (browserInstance) => {
     let browser = await browserInstance;
     // Gọi đúng tên hàm
     const categories = await scrapers.scrapeCategory(browser, url);
-    // const selectCategory = categories.filter((category, index) => indexs.some(i => i === index));
+    const selectCategory = categories.filter((category, index) => indexs.some(i => i === index));
     //    let result1 = await scrapers.scraper(browser, urlHanoi);
     //    fs.writeFileSync('./crawl_data/dataphongtro.json', JSON.stringify(result1),(err) => {
     //    if (err) {
@@ -30,7 +30,7 @@ const scrapeController = async (browserInstance) => {
     // }
     // );
     // let result3 = await scrapers.scraper(browser, urlHanoi3);
-    // fs.writeFileSync('datachungcu.json', JSON.stringify(result3),(err) => {
+    // fs.writeFileSync('./crawl_data/datachungcu.json', JSON.stringify(result3),(err) => {
     //   if (err) {
     //     console.log(err);
     //   }

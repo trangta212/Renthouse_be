@@ -14,8 +14,30 @@ const getListRoom = async (roomData) => {
 }
  
 const getRoomById = async (id) => {
-  const room = await db.Room.findByPk(id);
-  return room;
+  try {
+    const room = await db.Room.findOne({
+      where: { id: id },
+      include: {
+        model: db.RentPost,
+        include: {
+          model: db.User,
+          attributes: ["id", "lastName", "email"], // Chỉ lấy các thông tin cần thiết
+        },
+      },
+    });
+
+    if (!room) {
+      console.log("Room not found");
+      return null;
+    }
+
+    console.log("Room:", room);
+    return room;
+  } catch (error) {
+    console.error("Error fetching room with user:", error);
+  }
 };
+
+
 
 module.exports = {getListRoom , getRoomById};

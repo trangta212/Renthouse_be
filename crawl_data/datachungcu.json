@@ -1,364 +1,689 @@
 [
   {
     "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010204_1740112091.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010205_1740112091.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010206_1740112096.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010207_1740112098.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010208_1740112101.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010195_1740112104.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010194_1740112107.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010190_1740112109.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010196_1740112121.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010186_1740112119.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010189_1740112113.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010201_1740112129.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010203_1740112133.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010114_1740112136.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010116_1740112138.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010117_1740112142.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/21/1000010113_1740112145.jpg"
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/702-02_1742959768.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/702-06_1742959768.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/702-08_1742959770.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/702-07_1742959769.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/0-6_1742959766.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/702-09_1742959770.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/702-15_1742959771.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/0-5_1742959766.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/702-21_1742959772.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/26/map_1742959833.jpg"
     ],
-    "room_name": "Cho thuê căn hộ không gian rộng rãi, thoáng mát.",
-    "address": "Bạch Đằng, Phường Chương Dương Độ, Quận Hoàn Kiếm, Hà Nội - Xem bản đồ",
-    "rating": "2",
-    "price_per_month": "5 triệu/tháng",
-    "area": "60 m2",
-    "description": [
-      "Cho thuê căn hộ không gian rộng rãi, thoáng mát.",
-      "Đt/zalo: 0904.117.399",
-      "Đ/c: ngõ 349 Bạch Đằng, Chương Dương, Hoàn Kiếm, HN. Cách hồ Gươm 1km",
-      "Giá thuê: từ 5 triệu - 7 triệu/tháng, điện 4k/số, nước 50k/người/tháng."
-    ],
-    "createdAt": [
-      "675102",
-      "Tin VIP 3",
-      "Thứ 6, 11:32 21/02/2025",
-      "Thứ 6, 11:32 28/02/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/302-3_1739506140.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/302-3_1739506140.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/302-4_1739506140.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/302-5_1739506143.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/302-5_1739506144.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/302_1739506145.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/501-2_1739506146.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/501-5_1739506148.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/501-6_1739506149.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-03_1739506151.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-06_1739506152.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-08_1739506153.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-09_1739506153.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-15_1739506154.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-17_1739506155.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-19_1739506156.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-20_1739506158.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-22_1739506161.jpg"
-    ],
-    "room_name": "CCMN full đồ cho thuê tại ngõ 100 Nguyễn Xiển, Nguyễn Trãi, ban công. Chính chủ cho thuê",
-    "address": "Nguyễn Xiển, Phường Thanh Xuân Bắc, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
+    "room_name": "CHÍNH CHỦ CHO THUÊ CCMN full đồ 25m2 Ở Ngay tại Ngõ 100 Nguyễn Xiển, Thanh Xuân",
+    "address": "67 ngõ 100 Đường Nguyễn Xiển, Phường Hạ Đình, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
     "rating": "2",
     "price_per_month": "5.5 triệu/tháng",
-    "area": "20 m2",
+    "area": "25 m2",
     "description": [
-      "Địa chỉ: Số 67 ngõ 100 Nguyễn Xiển, Quận Thanh Xuân, HN. Hoặc đi từ ngõ 475 Nguyễn Trãi vào (đi qua trường mầm non Thanh Xuân Nam), 2 đường thông nhau.",
-      "Ngõ rộng ô tô quay đầu, giao thông di chuyển thuận lợi",
-      "Full tiện ích, khu vực dân trí cao, dùng vân tay, không chung chủ, giờ giấc tự do",
-      "Hiện đang trống 3 phòng tầng 3, 6, 7.",
-      "Đảm bảo PCCC tốt, camera 24/7, có thang máy, thang bộ, thoát hiểm riêng biệt tại từng phòng.",
-      "Tất cả các phòng thiết kế đồng bộ mới keng, NT đầy đủ riêng biệt, có ban công từng phòng, giặt tại phòng và phơi tại ban công trong phòng.",
-      "Giá thuê: 5tr5/tháng, HĐ tối thiểu 6 tháng, đóng 1 cọc 1. Không cho thuê phòng dưới 6 tháng và không nhận cọc giữ phòng nếu không qua xem phòng và trao đổi trực tiếp",
-      "Ảnh và video phòng trống trong bài đăng, chị là chủ nhà ưu tiên các bạn qua xem trực tiếp. Qua xem phòng gọi trước 30p nhé. Chị Hiền (40 tuổi ) 0964 887 960 Zalo Hiencola"
+      "Phòng rộng, có ban công, full nội thất, thang máy, khóa vân tay, PCCC đạt chuẩn.",
+      "An ninh đảm bảo, giờ giấc tự do, không chung chủ.",
+      "Giá thuê: 5.5 triệu/tháng (HĐ 6 tháng, cọc 1 tháng)",
+      "Địa chỉ: 67 ngõ 100 Nguyễn Xiển, Thanh Xuân, Hà Nội (hoặc vào từ ngõ 475 Nguyễn Trãi)",
+      "Hiện còn 3 phòng full nội thất, hình ảnh thực tế trong bài đăng.",
+      "Liên hệ: Chị Hiền ( 40 tuổi) - (0964 887 960 - có Zalo). Gọi trước 30 phút khi đến xem phòng"
     ],
+    "lastName": "Nguyễn Hiền",
+    "phone_number": "0964887960",
+    "profile_picture": "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/14/702-22_1739503874.jpg",
     "createdAt": [
-      "674590",
+      "677765",
       "Tin VIP 3",
-      "Thứ 3, 08:56 18/02/2025",
-      "Thứ 2, 11:10 24/02/2025"
+      "Thứ 4, 10:45 26/03/2025",
+      "Thứ 3, 10:45 01/04/2025"
     ]
   },
   {
     "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/125c72ec6d66af38f6771_1680689552.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/125c72ec6d66af38f6771_1680689552.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/e36069a90ae4d6ba8ff52_1697099034.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/a8793bb058fd84a3ddec4_1697099033.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/81aee740f8ca3a9463db4_1680689550.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/9ae32f7a30f0f2aeabe13_1680689547.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/485329de3654f40aad452_1680689555.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/2232bc3da2b760e939a67_1680689554.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/706642ed5c679e39c7768_1680689556.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/fd1ae4d4fb5e3900604f6_1680689557.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/58f41d567e1ba245fb0a6_1697099033.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/04/05/1a24830b9d815fdf06909_1680689547.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/b91cf947970a5154081b_1697098948.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/be318b71e53c23627a2d_1697098948.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/1_1697098967.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/9c2672ec0655c40b9d44_1697098967.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/744b5bcc3581f3dfaa90_1697098967.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/10/12/04967dfba6b660e839a7_1697098969.jpg"
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/z6456701913685-266c37e1256ab8cc204db299086f1087_1743409517.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/z6456701916518-c0f445d59852ca1378f52053fc8dd93b_1743409516.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/z6456701918745-4944d1756e02771e9a262a5b16cc88d4_1743409519.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/z6456701919429-c715ede466621318f23bd74e7a5257b2_1743409519.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/z6456701924167-57901fd2f0eb9cfc0b0561eee733a2fc_1743409521.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/z6456701928681-d2c659f809bf06b56ec9c08d515e751e_1743409521.jpg"
     ],
-    "room_name": "Cho thuê Căn Studio Full đồ 2-6-12 tháng tại 204 Trần Duy Hưng, Gần Big C, Charmvit Tower, Ks Grand Plaza",
-    "address": "204 Trần Duy Hưng, Phường Trung Hòa, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
+    "room_name": "CHÍNH CHỦ KHAI TRƯƠNG TOÀ CĂN HỘ DỊCH VỤ TAM GIÁC VÀNG BÁCH - KINH - XÂY",
+    "address": "121 Phố Lê Thanh Nghị, Phường Đồng Tâm, Quận Hai Bà Trưng, Hà Nội - Xem bản đồ",
     "rating": "",
-    "price_per_month": "5.5 triệu/tháng",
+    "price_per_month": "6 triệu/tháng",
+    "area": "30 m2",
+    "description": [
+      "CHÍNH CHỦ KHAI TRƯƠNG TOÀ CĂN HỘ DỊCH VỤ TAM GIÁC VÀNG BÁCH - KINH - XÂY",
+      "Địa chỉ : 121 Lê Thanh Nghị - Quận: HBT",
+      "* Trống :",
+      "Giá : 5.5 - 6 - 6.5 Tr",
+      "Dạng phòng : Studio",
+      "Thang : Máy",
+      "Nội thất : Điều hoà, nóng lạnh, giường, tủ quần áo, tủ lạnh, tủ bếp, hút mùi, bếp từ, rèm, máy giặt riêng - chung, máy sấy chung.",
+      "Dịch vụ : Điện: 4k/số. Nước: 30k/khối. Wifi: 100k/phòng. Dịch vụ chung: 200k/người ( Thang máy, vệ sinh, rác, điện chung, máy giặt chung, máy sấy chung ).",
+      "Free 1 xe",
+      "* Lưu ý:",
+      "- Đóng 1 cọc 2",
+      "- Nhận 1 xe",
+      "KHUYẾN MÃI : HĐ 1 năm TẶNG 1 tháng",
+      "HĐ 6 tháng TẶNG 1tr",
+      "LIÊN HỆ : Mr Lâm 0934 584 591"
+    ],
+    "lastName": "Phạm Tùng Lâm",
+    "phone_number": "0975243437",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "678199",
+      "Tin miễn phí",
+      "Thứ 2, 15:25 31/03/2025",
+      "Chủ Nhật, 15:25 29/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/1_1743403783.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/2_1743403783.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/a1_1743403784.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/a2_1743403784.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/a3_1743403785.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/a12_1743403785.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/31/a21_1743403786.jpg"
+    ],
+    "room_name": "Cho thuê CCMN căn góc, Hoàng Đạo Thành, Thanh Xuân, Hà nội",
+    "address": "80 Đường Hoàng Đạo Thành, Phường Khương Đình, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "6 triệu/tháng",
+    "area": "37 m2",
+    "description": [
+      "Cho thuê CCMN căn góc, Hoàng Đạo Thành, Thanh Xuân, Hà nội",
+      "1N + 1 Kh + 1wc, S = 37m2",
+      "Full = Đhòa + nóng lạnh + tủ áo quần + tủ bếp + máy giặt, tủ lạnh, điều hòa, nệm.v.v, chỉ cần sách vali đến sống.",
+      "(Ô tô đỗ dưới tầng hầm, gần chợ trường MN, 1,2)",
+      "Giá 6tr/tháng.",
+      "LH Mr.Khánh 0913.372.132. Mr.Thắng: 0947.909.107"
+    ],
+    "lastName": "Tran Khanh",
+    "phone_number": "0913372132",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "678192",
+      "Tin miễn phí",
+      "Thứ 2, 13:50 31/03/2025",
+      "Chủ Nhật, 13:50 29/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/20/img-1207_1742443222.png",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/20/img-1206_1742443222.png",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/20/img-1209_1742443225.png",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/20/img-1210_1742443225.png",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/20/img-1211_1742443227.png",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/20/img-1212_1742443227.png",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/20/img-1208_1742443229.png"
+    ],
+    "room_name": "Cho thuê CH 90m, 2pn, 2VS ( Trần Phú -HĐong) toà Ellipse ( không MG)",
+    "address": "10 Đường Trần Phú, Phường Mỗ Lao, Quận Hà Đông, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "10 triệu/tháng",
+    "area": "90 m2",
+    "description": [
+      "Cho thuê CH toà Ellipses Tower - 10 Trần Phú - Ha Dong ( Không MGioi)",
+      "90m2, 2 ngủ, 2 tolet",
+      "Nội thất gồm tủ bếp và bếp từ, nóng lạnh, 2 tủ quần áo, thiết bị vệ sinh, Tivi, Điều Hoà, sàn gỗ..",
+      "Tầng 19, view đẹp, đi bộ 3p ra lối lên tàu điện. Gần trạm xăng",
+      "CH thuộc toà nhà cho phép đăng ký kinh doanh làm VP",
+      "️ giá thuê: 10 triệu/ tháng.(Nhận nhà 1/4)",
+      "0948933233"
+    ],
+    "lastName": "Yến Trần",
+    "phone_number": "0948933233",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "674942",
+      "Tin miễn phí",
+      "Thứ 4, 12:45 19/02/2025",
+      "Thứ 3, 12:45 20/05/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2021/08/17/img-1629111179134-1629167810772_1629171850.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2021/08/17/img-1629111179134-1629167810772_1629171850.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2021/08/17/img-1629111179216-1629167810892_1629171872.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2021/08/17/img-1629111179100-1629167810727_1629171876.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2021/08/17/img-1629111179173-1629167810834_1629171888.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2021/08/17/img-1629111179065-1629167810681_1629171895.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2021/08/17/img-1629111178986-1629167810551_1629171906.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2021/08/17/img-1629111178949-1629167810439_1629171902.jpg"
+    ],
+    "room_name": "CHÍNH CHỦ CHO THUÊ CĂN HỘ CHUNG CƯ MINI 1N1K 40m2 FULL ĐỒ TẠI MỄ TRÌ, NAM TỪ LIÊM, HÀ NỘI",
+    "address": "Đường Mễ Trì Thượng, Phường Mễ Trì, Quận Nam Từ Liêm, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "5.6 triệu/tháng",
+    "area": "40 m2",
+    "description": [
+      "Chính chủ cho thuê căn hộ CCMN tại số 12, ngõ 89 Mễ Trì Thượng, Mễ Trì, Nam Từ Liêm, Hà Nội (ngay trường cấp 1 Mễ Trì, cuối ngõ 4 Đồng Me đi vào khoảng 30m) diện tích 40m2, 1 ngủ 1 khách, bếp ngăn riêng biệt với phòng ngủ không lo ám mùi.",
+      "- Vị trí: Cách trường mầm non Mễ Trì Hạ 50m, cách trường cấp 1&2 Mễ trì 50m, cách chợ Mễ Trì Hạ 100m, cách đường Mễ Trì 150m, cách đường Lê Quang Đạo 200m, cách The Garden 200m, cách Keangnam Phạm Hùng 500m...",
+      "- Tiện ích:",
+      "+ Điều hòa",
+      "+ Nóng lạnh",
+      "+ Tủ lạnh",
+      "+ Máy giặt",
+      "+ Giường, táp, bàn phấn, rèm,",
+      "+ Tủ quần áo",
+      "+ Bàn ghế",
+      "+ Tủ bếp, bếp từ, hút mùi",
+      "+ Khu bếp ngăn tách riêng phòng ngủ",
+      "+ Có ban công, cửa sổ thoáng mát",
+      "+ Thang máy tốc độ cao",
+      "+ Để xe miễn phí",
+      "+ Giờ giấc thoải mái",
+      "+ Khóa vân tay, camera từng tầng, wifi tốc độ cao...",
+      "+ Ô tô 16 chỗ vào sát nhà",
+      "+ Bãi gửi ôtô cách nhà 50m",
+      "+ Có vệ sinh lau dọn hàng tuần sạch sẽ.",
+      "- Diện tích 35m2 - Giá: 5.2tr/tháng (1N1K)",
+      "- Diện tích 40m2 - Giá: 5.6tr/tháng (setup được 2N1K)",
+      "Cam kết Phòng như hình",
+      "- LHCC: Lực 0969139826",
+      "(Nhà mới, khách chỉ việc xách vali vào ở)"
+    ],
+    "lastName": "Lực",
+    "phone_number": "0969139826",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "314893",
+      "Tin thường",
+      "Thứ 7, 11:37 29/03/2025",
+      "Thứ 5, 11:37 03/04/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2216_1741687389.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2217_1741687389.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2219_1741687391.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2220_1741687391.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2218_1741687393.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2221_1741687393.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2222_1741687396.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2223_1741687396.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2226_1741687398.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2225_1741687398.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2224_1741687399.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/11/img-2227_1741687400.jpg"
+    ],
+    "room_name": "Căn hộ cao cấp rộng thoáng, full nội thất, giá 6,8 triệu/phòng/tháng",
+    "address": "Đường Giáp Nhất, Phường Nhân Chính, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "6.8 triệu/tháng",
     "area": "25 m2",
     "description": [
-      "Cho thuê Căn hộ Studio Full đồ tiện nghi tại 204 Trần Duy Hưng, Trung Hòa, Cầu Giấy, Hà Nội",
-      "Thuê ngắn hạn - dài hạn theo NGÀY/TUẦN/THÁNG",
-      "- Vị trí: Tọa lạc tại mặt phố Trần Duy Hưng, tuyến đường trung tâm, rất thuận tiện di chuyển. Đối diện Khách sạn Grand Plaza, Tòa nhà Charmvit Tower. Cách Vincom D'Capitale Trần Duy Hưng 300m, Cách Công viên Thanh Xuân 500m, cách Siêu thị Big C Thăng Long 300m, Cách Trung Tâm hội nghị Quốc Gia 1km,...",
-      "+++ Nội thất từng căn hộ: Điều hoà, nóng lạnh, tủ lạnh, giường, tủ quần áo, táp, bàn ghế, máy giặt máy sấy chung.",
-      "+++ Thiết bị bếp: Bếp từ, Lò vi sóng, Ấm siêu tốc, Nồi cơm điện, bát đũa",
-      "+++ Dịch vụ:",
-      "* Khu bếp chung đầy đủ trang thiết bị: điều hòa, bàn bếp bồn rửa, bàn ăn, bếp từ",
-      "* Khu giặt sấy: Máy giặt - Máy sấy (Khách tự giặt hoặc có thể đăng ký dịch vụ giặt sấy)",
-      "+++ An ninh: Khóa vân tay cổng, khóa phòng smart, camera an ninh từng tầng, PCCC đầy đủ",
-      "+++ Dọn dẹp: Thay ga gối, dọn phòng theo yêu cầu",
-      "- Giờ giấc thoải mái, thuận tiện, an toàn, tiện nghi",
-      "CHÍNH CHỦ KHÔNG MẤT PHÍ - CAM KẾT ẢNH THẬT 100%",
-      "Lh: call, sms, zalo"
+      "Căn hộ cao cấp rộng thoáng, full nội thất, giá 6,8 triệu/phòng/tháng",
+      "Gần nhiều trường đại học, trung học, tiểu học….",
+      "Nội thất đầy đủ: tủ lạnh, máy giặt riêng, điều hòa, nóng lạnh, 2 giường ….",
+      "Nhà WC riêng",
+      "Phí dịch vụ 150k/người",
+      "Wifi 100k/người",
+      "Số điện 4K/số",
+      "Nước 35k/khối",
+      "2 xe ( k đạp điện)",
+      "Nhà mới 20ngày nữa vào ở ngay"
     ],
+    "lastName": "Nguyễn văn thành",
+    "phone_number": "0867867286",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
     "createdAt": [
-      "605313",
-      "Tin thường",
-      "Thứ 7, 13:30 15/02/2025",
-      "Thứ 3, 13:30 25/02/2025"
+      "676570",
+      "Tin miễn phí",
+      "Thứ 3, 17:23 11/03/2025",
+      "Thứ 2, 17:23 09/06/2025"
     ]
   },
   {
     "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2022/08/03/4f462a177212b04ce90323_1659520123.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2022/08/03/4f462a177212b04ce90323_1659520123.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2022/08/03/5fe176b02eb5ecebb5a425_1659520123.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2022/08/03/8b266c703475f62baf6419_1659520125.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2022/08/03/56a3b5a841ad83f3dabc22_1659520125.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2022/08/03/8907293cdd391f67462820_1659520127.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2022/08/03/623042611a64d83a817527_1659520128.jpg"
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/21/1000005068_1742527953.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/21/1000005068_1742527953.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/21/1000005067_1742527953.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/21/1000005066_1742527956.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/21/1000005064_1742527957.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/21/1000005062_1742527964.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/21/1000005063_1742527966.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/21/1000005061_1742527978.jpg"
     ],
-    "room_name": "Cho thuê căn hộ Studio từ ngày/tuần/tháng Full nội thất 204 Trần Duy Hưng. Gần BigC, Vincom D'capitale, Charmvit Tower",
-    "address": "204 Đường Trần Duy Hưng, Phường Trung Hòa, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
+    "room_name": "CHO THUÊ CĂN HỘ MINI FULL NỘI THẤT – NGÕ 105 XUÂN LA, TÂY HỒ – BAN CÔNG, THANG MÁY, Ô TÔ ĐỖ CỬA",
+    "address": "Ngõ 105 Đường Xuân La, Phường Xuân La, Quận Tây Hồ, Hà Nội - Xem bản đồ",
     "rating": "",
-    "price_per_month": "8 triệu/tháng",
-    "area": "25 m2",
-    "description": [
-      "Cho thuê Căn hộ Studio Full đồ tiện nghi tại 204 Trần Duy Hưng, Trung Hòa, Cầu Giấy, Hà Nội",
-      "Thuê ngắn hạn - dài hạn theo NGÀY/TUẦN/THÁNG",
-      "- Vị trí: Tọa lạc tại mặt phố Trần Duy Hưng, tuyến đường trung tâm, rất thuận tiện di chuyển. Đối diện Khách sạn Grand Plaza, Tòa nhà Charmvit Tower. Cách Vincom D'Capitale Trần Duy Hưng 300m, Cách Công viên Thanh Xuân 500m, cách Siêu thị Big C Thăng Long 300m, Cách Trung Tâm hội nghị Quốc Gia 1km,...",
-      "+++ Nội thất từng căn hộ: Điều hoà, nóng lạnh, tủ lạnh, giường, tủ quần áo, táp, bàn ghế, máy giặt máy sấy chung.",
-      "+++ Thiết bị bếp: Bếp từ, Lò vi sóng, Ấm siêu tốc, Nồi cơm điện, bát đũa",
-      "+++ Dịch vụ:",
-      "* Khu bếp chung đầy đủ trang thiết bị: điều hòa, bàn bếp bồn rửa, bàn ăn, bếp từ",
-      "* Khu giặt sấy: Máy giặt - Máy sấy (Khách tự giặt hoặc có thể đăng ký dịch vụ giặt sấy)",
-      "+++ An ninh: Khóa vân tay cổng, khóa phòng smart, camera an ninh từng tầng, PCCC đầy đủ",
-      "+++ Dọn dẹp: Thay ga gối, dọn phòng theo yêu cầu",
-      "- Giờ giấc thoải mái, thuận tiện, an toàn, tiện nghi",
-      "CHÍNH CHỦ KHÔNG MẤT PHÍ - CAM KẾT ẢNH THẬT 100%",
-      "Lh: call, sms, zalo"
-    ],
-    "createdAt": [
-      "605327",
-      "Tin thường",
-      "Thứ 7, 13:31 15/02/2025",
-      "Thứ 3, 13:31 25/02/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/5d2e3f42e11a4144180b12_1716552559.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/5d2e3f42e11a4144180b12_1716552559.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/5d025211d64876162f5931_1716552559.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/68dcad707328d3768a398_1716552560.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/522e65b2bbea1bb442fb11_1716552561.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/552d3684e8dc488211cd9_1716552561.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/7885dfd10189a1d7f89813_1716552563.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/c10b3998e7c0479e1ed110_1716552563.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/0a5d460f9b573b09624628_1716552565.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/056b780ea55605085c4723_1716552565.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/5348d12d0c75ac2bf56424_1716552566.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/7531f953240b8455dd1a26_1716552566.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/59350e56d30e73502a1f25_1716552567.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/07552030fd685d36047921_1716552567.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/81301054cd0c6d52341d27_1716552568.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/24/fca3e5c9389198cfc18029_1716552568.jpg"
-    ],
-    "room_name": "Cho thuê CCMN Full đồ, Ban công cửa sổ thoáng ngay 73 Hoàng Ngân",
-    "address": "73 Đường Hoàng Ngân, Phường Nhân Chính, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "4.8 triệu/tháng",
-    "area": "25 m2",
-    "description": [
-      "Cho thuê CCMN nhà mới tinh, full đồ, rộng thoáng, có ban công cửa sổ tại 73 Hoàng Ngân, Quan Nhân",
-      "- Vị trí trung tâm, thuận tiện đi lại. Đi thông sang Lê Văn Lương. Ngay gần chợ Quan Nhân, cầu Cống Mọc",
-      "- Ngõ 73 Hoàng Ngân đi vào 350m, nhà cực rộng, thoáng, có ban công cửa sổ, khép kín, FULL ĐỒ A-z luôn",
-      "- Nội thất từng căn hộ: Điều hoà, nóng lạnh, tủ lạnh, máy giặt chung (có thể lắp riêng - tính phí), giường ngủ, tủ quần áo, bộ bàn 02 ghế, hệ tủ bếp bồn rửa, hút mùi, rèm cửa, moden wifi",
-      "- Thang máy, khoá vân tay, camera an ninh đảm bảo",
-      "- Để xe tầng 1, không tính phí",
-      "- Không chung chủ. Giờ thoải mái",
-      "- Vệ sinh chung hàng tuần sạch sẽ.",
-      "CHÍNH CHỦ KHÔNG MẤT PHÍ - CAM KẾT ẢNH THẬT",
-      "LH: 0877 828 666 sms, call, zalo"
-    ],
-    "createdAt": [
-      "655050",
-      "Tin thường",
-      "Thứ 7, 13:32 15/02/2025",
-      "Thứ 3, 13:32 25/02/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/6db5b6b0ebf73ca965e639_1719394625.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/6db5b6b0ebf73ca965e639_1719394625.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/5abf701b125cc5029c4d40_1719394624.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/66d7db31bc766b28326746_1719394625.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/4c1d6519385eef00b64f37_1719394624.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/07172a137754a00af94538_1719394626.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/935347c52582f2dcab9341_1719394627.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/27368892e8d53f8b66c444_1719394628.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/a0f892ebf1ac26f27fbd43_1719394628.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/c22264c40383d4dd8d9245_1719394629.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/d0b7d3abb0ec67b23efd42_1719394629.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/26/1131daa4c8c1149f4dd07_1719394626.jpg"
-    ],
-    "room_name": "Cho thuê Studio Full đồ ngắn hạn ngày/tuần/tháng tại 204 Trần Duy Hưng, đối diện Charmvit Tower, Vincom D'Capital",
-    "address": "204 Trần Duy Hưng, Phường Trung Hòa, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "6.2 triệu/tháng",
-    "area": "25 m2",
-    "description": [
-      "Cho thuê Căn hộ Studio Full đồ tiện nghi tại 204 Trần Duy Hưng, Trung Hòa, Cầu Giấy, Hà Nội",
-      "Thuê ngắn hạn - dài hạn theo NGÀY/TUẦN/THÁNG",
-      "- Vị trí: Tọa lạc tại mặt phố Trần Duy Hưng, tuyến đường trung tâm, rất thuận tiện di chuyển. Đối diện Khách sạn Grand Plaza, Tòa nhà Charmvit Tower. Cách Vincom D'Capitale Trần Duy Hưng 300m, Cách Công viên Thanh Xuân 500m, cách Siêu thị Big C Thăng Long 300m, Cách Trung Tâm hội nghị Quốc Gia 1km,...",
-      "+++ Nội thất từng căn hộ: Điều hoà, nóng lạnh, tủ lạnh, giường, tủ quần áo, táp, bàn ghế, máy giặt máy sấy chung.",
-      "+++ Thiết bị bếp: Bếp từ, Lò vi sóng, Ấm siêu tốc, Nồi cơm điện, bát đũa",
-      "+++ Dịch vụ:",
-      "* Khu bếp chung đầy đủ trang thiết bị: điều hòa, bàn bếp bồn rửa, bàn ăn, bếp từ",
-      "* Khu giặt sấy: Máy giặt - Máy sấy (Khách tự giặt hoặc có thể đăng ký dịch vụ giặt sấy)",
-      "+++ An ninh: Khóa vân tay cổng, khóa phòng smart, camera an ninh từng tầng, PCCC đầy đủ",
-      "+++ Dọn dẹp: Thay ga gối, dọn phòng theo yêu cầu",
-      "- Giờ giấc thoải mái, thuận tiện, an toàn, tiện nghi",
-      "CHÍNH CHỦ KHÔNG MẤT PHÍ - CAM KẾT ẢNH THẬT 100%",
-      "Lh: call, sms, zalo"
-    ],
-    "createdAt": [
-      "605632",
-      "Tin thường",
-      "Thứ 7, 13:33 15/02/2025",
-      "Thứ 3, 13:33 25/02/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/09/09/5cef8465ecca25947cdb9_1725872740.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/09/09/5cef8465ecca25947cdb9_1725872740.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/09/09/71bf8dfce5532c0d75427_1725872740.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/09/09/89f4630f07a0cefe97b114_1725872742.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/09/09/a822a61ac2b50beb52a413_1725872742.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/09/09/f8b2ef9887374e6917265_1725872744.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/09/09/f210e7158fba46e41fab4_1725872744.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/04/11/efbea8c8f4d5018b58c45_1712819154.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/04/11/8f09dc02801f75412c0e1_1712819150.jpg"
-    ],
-    "room_name": "Cho thuê CCMN full đồ, khép kín, cửa sổ ngõ 66A Triều khúc, cạnh DH CNGTVT, Nhạc Họa, Kiến Trúc, Mật Mã, An Ninh",
-    "address": "111 Triều Khúc, Phường Thanh Xuân Nam, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "3.6 triệu/tháng",
-    "area": "28 m2",
-    "description": [
-      "Chính chủ cho thuê phòng CCMN full đồ có ban công, khép kín tại ngõ 66A Triều Khúc",
-      "Gần ĐH Thăng Long, ĐH Công Nghệ Giao Thông Vận Tải, ĐH Nhân Văn, ĐH Hà Nội.",
-      "- Nội thất: Điều hoà, nóng lạnh, tủ lạnh, máy giặt chung, giường tủ bàn ghế, bàn làm việc.",
-      "- Nhà lô góc cực thoáng mát, ban công cửa sổ rộng, vân tay camera an ninh.",
-      "- Full đồ tiện nghi, chỉ việc vào ở.",
-      "- Không chung chủ. Giờ thoải mái.",
-      "- Vệ sinh hàng tuần.",
-      "- Chính chủ không mất phí.",
-      "Lh 0877 828 666"
-    ],
-    "createdAt": [
-      "589417",
-      "Tin thường",
-      "Thứ 7, 13:34 15/02/2025",
-      "Thứ 3, 13:34 25/02/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/999c189bc67c1d22446d2_1723438392.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/999c189bc67c1d22446d2_1723438392.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/1fa2465498b343ed1aa25_1723438384.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/3abb6f4db1aa6af433bb6_1723438385.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/3cda3445eaa231fc68b37_1723438387.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/96c0955f4bb890e6c9a98_1723438388.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/124f9aa044479f19c6564_1723438389.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/743b49e697014c5f15103_1723438391.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/08/12/phong-b2_1723438394.jpg"
-    ],
-    "room_name": "Cho thuê căn CCMN 2 không gian ngủ Full đồ, có gác, cửa sổ đi lối ngã tư Lê Văn Lương - Hoàng Đạo Thúy or 144 Quan Nhân",
-    "address": "36 Lê Văn Lương, Phường Nhân Chính, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "4.8 triệu/tháng",
-    "area": "25 m2",
-    "description": [
-      "Cho thuê phòng Studio, CCMN nhà mới tinh, full đồ, cực sang xịn mịn tại số 20C/144 Quan Nhân hoặc đi Lê Văn Lương vào 300m",
-      "- Trung tâm Quan Nhân, gần Hồ Quan Nhân, cách Lê Văn Lương 300m. cách Center Point Hoàng Đạo Thúy 500m....",
-      "- Ngõ 144 Quân Nhân đi vào 500m, nhà cực nhiều cửa sổ thoáng, ngõ thông sang Lê Văn Lương, Gửi oto cách nhà 300m",
-      "- Gần chợ, gần trường học, các quán ăn, coffee, trung tâm tấp nập",
-      "- Đường xá to đẹp, oto đỗ cửa, khu dân trí cao",
-      "- Căn hộ Studio Khép kín, cửa sổ thoáng, FULL ĐỒ A-z luôn",
-      "- Nội thất từng căn hộ: Khóa từ cửa phòng, điều hoà, nóng lạnh, tủ lạnh, 02 không gian ngủ (1 gác + 1 giường), 2 hệ tủ quần áo, bàn học, giá sách, bàn ăn thông minh, hệ thống tủ bếp bồn rửa, rèm cửa. Máy giặt máy sấy chung",
-      "- Thang máy, khoá Vân tay, camera an ninh",
-      "- Để xe free",
-      "- K chung chủ. Giờ thoải mái",
-      "- Vệ sinh chung hàng tuần sạch sẽ.",
-      "CHÍNH CHỦ K MẤT PHÍ - CAM KẾT ẢNH THẬT 100%"
-    ],
-    "createdAt": [
-      "605698",
-      "Tin thường",
-      "Thứ 7, 13:35 15/02/2025",
-      "Thứ 3, 13:35 25/02/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/15/1dbf7c5cfd9f2cc1758e9_1739601931.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/15/1dbf7c5cfd9f2cc1758e9_1739601931.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/15/9d92b9da3819e947b0086_1739601931.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/07/23/14d74135023cd3628a2d13_1690081723.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/15/67ea72a2f361223f7b703_1739601932.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/15/90b2d1e8502b8175d83a7_1739601933.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/15/2d98033cfeae24f07dbf58_1739601931.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/15/d090fad87b1baa45f30a4_1739601934.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/07/23/6_1690081721.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2023/07/23/7_1690081722.jpg"
-    ],
-    "room_name": "Studio Full đồ a-z tại 20 Nguyễn Chánh, Cầu Giấy, Gần Big C Thăng Long, DH LĐXH, Phương Đông",
-    "address": "204 Trần Duy Hưng, Phường Trung Hòa, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "5.5 triệu/tháng",
+    "price_per_month": "5.8 triệu/tháng",
     "area": "35 m2",
     "description": [
-      "Cho thuê căn Studio sang xịn mịn 8 tầng mới tinh ngay ngõ 204 Trần Duy Hưng",
-      "- Vị trí: Đối diện Grand Plaza Hotel, Tòa văn phòng Charmvit tower, cách Big C 500m, cách Nguyễn Chánh 300m",
-      "- Gần trường DH Lao động xã hội, Dh Luật, Hành Chính, Phương Đông, gần chợ trung kính, hồ trung kính - Vị trí Trung Tâm, di chuyển cực thuận tiện",
-      "- Studio Khép kín, có ban công, FULL ĐỒ A-z luôn",
-      "- Nội thất từng căn hộ: Điều hoà, nóng lạnh, tủ lạnh, máy giặt riêng, giường, tủ quần áo, bàn phấn, tủ giày, bộ sofa văng, bộ bàn ăn 4 ghế, hệ thống tủ bếp bồn rửa, rèm cửa.",
-      "- Thang máy, khoá Vân tay, camera an ninh",
-      "- Để xe free",
-      "- K chung chủ. Giờ thoải mái",
-      "- Vệ sinh chung hàng tuần sạch sẽ.",
-      "CHÍNH CHỦ K MẤT PHÍ - CAM KẾT ẢNH THẬT",
-      "Lh: 0877.828.666 call, sms, zalo"
+      "Địa chỉ: Ngõ 105 Xuân La, Tây Hồ",
+      "Diện tích: 35m² – có thang máy, ban công, ô tô đỗ cửa",
+      "Không chung chủ – Giờ giấc tự do",
+      "Nội thất đầy đủ:",
+      "Giường, tủ quần áo",
+      "Điều hòa, nóng lạnh",
+      "Tủ lạnh, sofa, bàn trà",
+      "Bếp từ, tủ bếp trên dưới, máy hút mùi",
+      "Máy giặt + máy sấy chung",
+      "Chi phí dịch vụ:",
+      "Điện: 4k/số",
+      "Nước: 100k/người",
+      "Mạng: 100k/phòng",
+      "Dịch vụ chung: 180k/người",
+      "Giới hạn 2 xe/phòng",
+      "Thanh toán: Cọc 1 tháng – Hợp đồng từ 6-12 tháng"
     ],
+    "lastName": "Bùi Công Chính",
+    "phone_number": "0386925893",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
     "createdAt": [
-      "595766",
-      "Tin thường",
-      "Thứ 7, 13:46 15/02/2025",
-      "Thứ 3, 13:46 25/02/2025"
+      "677389",
+      "Tin miễn phí",
+      "Thứ 6, 10:34 21/03/2025",
+      "Thứ 5, 10:34 19/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z5032490235182-808156389b7008cf98d9582b9259310b_1719818049.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z4785630044587-9bd5990ac53c202818219a5ddb57b883_1719818056.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z4785630046677-1a514f864cdf0fc0862099e7a9facc68_1719818056.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z4785630048359-f3d6efed341702de3669ccf366271f90_1719818057.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z4785630061263-c7493698623f975642f5fc9ca08b47f3_1719818060.jpg"
+    ],
+    "room_name": "Cho thuê căn hộ 1n1k kim giang - bắc linh đàm nhà mới xây , siêu thoáng",
+    "address": "Kim Giang, Phường Kim Giang, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "4.8 triệu/tháng",
+    "area": "35 m2",
+    "description": [
+      "CHO THUÊ CĂN HỘ 1N1K NGÕ 634 KIM GIANG - BẮC LINH ĐÀM- ĐẠI HỌC THĂNG LONG",
+      "Địa chỉ: Ngõ 634 Kim Giang- Ngay Cầu Bắc Linh Đàm",
+      "GIÁ: 4tr8",
+      "Phòng đã được setup đầy đủ đồ: Giường,tủ,sofa,nóng lạnh,điều hòa,tủ bếp,hút mùi,bàn trang điểm,máy giặt chung,...",
+      "Tiện ích: Ra vào vân tay,có thang máy,an ninh tốt",
+      "Không chung chủ,giờ giấc thoải mái",
+      "️ LH: 0965383653 (zalo)"
+    ],
+    "lastName": "lê mai hoài anh",
+    "phone_number": "0965383653",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "658666",
+      "Tin miễn phí",
+      "Thứ 3, 09:00 11/02/2025",
+      "Thứ 2, 09:00 12/05/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/17/z6399413318949-c973570f352772de5f40eb09fafa8b03_1742181021.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/17/z6399413325897-534c1b086826c211d18669b53e35050d_1742181021.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/17/z6399413344480-1c64831fa7d72ec752efef972ed545b5_1742181022.jpg"
+    ],
+    "room_name": "CHO THUÊ CĂN HỘ 93M² 3 PHÒNG NGỦ- TÒA K2, THE K PARK, HÀ ĐÔNG – 12 TRIỆU/THÁNG",
+    "address": "Lê Trọng Tấn, Phường Phúc La, Quận Hà Đông, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "12 triệu/tháng",
+    "area": "93 m2",
+    "description": [
+      "CHO THUÊ CĂN HỘ 93M² - TÒA K2, THE K PARK, HÀ ĐÔNG – 12 TRIỆU/THÁNG",
+      "Thông tin căn hộ:",
+      "Diện tích: 93m²",
+      "Thiết kế: 3 phòng ngủ, 2 vệ sinh",
+      "Nội thất: Đồ nội thất gắn tường (bếp, tủ âm tường, điều hòa, rèm cửa, nóng lạnh, v.v.)",
+      "Tình trạng: Nhà sạch đẹp, thoáng mát, vào ở ngay",
+      "Giá thuê: 12 triệu/tháng",
+      "Tiện ích khu vực:",
+      "️ Gần trung tâm thương mại, trường học, bệnh viện",
+      "️ Bãi đỗ xe rộng rãi, an ninh 24/7",
+      "️ Khu dân cư văn minh, yên tĩnh",
+      "Liên hệ: [Số điện thoại/Zalo] để xem nhà trực tiếp!"
+    ],
+    "lastName": "Nguyễn Diệp",
+    "phone_number": "0904590258",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "677027",
+      "Tin miễn phí",
+      "Thứ 2, 10:10 17/03/2025",
+      "Chủ Nhật, 10:10 15/06/2025"
+    ]
+  },
+  {
+    "room_images": [],
+    "room_name": "Cho thuê căn hộ chung cư KĐT Đồng Tàu, Thịnh Liệt, Hoàng Mai, Hà Nội",
+    "address": "Tòa N1 KĐT Đồng Tàu, Thịnh Liệt, Hoàng Mai, Hà Nội Đường Thịnh Liệt, Phường Thịnh Liệt, Quận Hoàng Mai, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "6 triệu/tháng",
+    "area": "53 m2",
+    "description": [
+      "Chính chủ cho thuê căn hộ chung cư.",
+      "Địa chỉ: Tâng 8, Tòa N1, KĐT Đồng Tàu, Thịnh Liệt, Hoàng Mai, Hà Nội",
+      "Vị trí cách UBND quận Hoàng Mai 100m.",
+      "Nhà mới, chưa sử dụng.",
+      "Diện tích: 53m2, căn góc, 2 mặt thoáng. 1 phòng khách, 2 ngủ, 1wc."
+    ],
+    "lastName": "Nga",
+    "phone_number": "0763247659",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "675184",
+      "Tin miễn phí",
+      "Thứ 7, 18:05 22/02/2025",
+      "Thứ 6, 18:05 23/05/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/14/484025826-2162854620890157-7850612444604930071-n_1741885228.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/14/484260561-2162854590890160-9179455856652191378-n_1741885228.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/14/484489388-2162854580890161-8998278526233516174-n_1741885230.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/14/484592665-2162854517556834-8819236761606857214-n_1741885231.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/14/download_1741885232.jpg"
+    ],
+    "room_name": "cho thuê chung cư mini vào ở ngay liên hệ 0964517627 anh hào",
+    "address": "100 Trung Kính, Phường Trung Hòa, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "9.5 triệu/tháng",
+    "area": "45 m2",
+    "description": [
+      "full đồ nội thất dịch vụ",
+      "1ngủ 1 khách",
+      "PCCC an toàn đầy đủ"
+    ],
+    "lastName": "quách văn hào",
+    "phone_number": "0964517627",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "676766",
+      "Tin miễn phí",
+      "Thứ 6, 15:43 14/03/2025",
+      "Thứ 5, 15:43 12/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/09/img-20250309-001259_1741454073.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/09/img-20250309-001301_1741454072.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/09/img-20250309-001301-1_1741454072.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/09/img-20250309-001300_1741454072.jpg"
+    ],
+    "room_name": "Hoàng Quốc Việt, Cầu Giấy chỉ 3tr",
+    "address": "Phường Nghĩa Đô, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "3 triệu/tháng",
+    "area": "25 m2",
+    "description": [
+      "Ngõ 2 Hoàng Quốc Việt - Nghĩa Đô - Cầu Giấy",
+      "⏰ Trống - 24/30p tầng 1 - 2 - 3 -4 - 5",
+      "Giá - 3tr - 3tr3",
+      "Diện tích 25m2",
+      "Nội thất",
+      "giường,tủ quần áo,kệ bếp, điều hòa, nóng lạnh, kệ bếp,máy giặt chung ,ko chung chủ, giờ giấc thoải mái",
+      "Liên hệ: 0583760238"
+    ],
+    "lastName": "Hoàng Khánh An",
+    "phone_number": "0583760238",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "676360",
+      "Tin miễn phí",
+      "Chủ Nhật, 00:14 09/03/2025",
+      "Thứ 7, 00:14 07/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/08/1_1741446441.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/08/2_1741446441.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/08/z3007447104058-aca3437a15822ed5d87589848f492cf6_1741446441.jpg"
+    ],
+    "room_name": "ＣＨＯ ＴＨＵÊ ＣĂＮ ＨỘ － ＴẬＰ ＴＨỂ ＫＩＭ ＬＩÊＮ",
+    "address": "Phố Lương Định Của, Phường Kim Liên, Quận Đống Đa, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "4 triệu/tháng",
+    "area": "25 m2",
+    "description": [
+      "Đ̣ ̉: Tầng 4, Tập thể Kim Liên, Phường Kim Liên, quận Đống Đa, Hà Nội.",
+      "̣̂ ́:",
+      "•1 phòng ngủ - 20m2",
+      "•1 công trình phụ (bếp + phòng tắm + WC) – 5m2",
+      "̣̂ ́ ̀:",
+      "•Cửa sổ rộng hướng Đông Nam: thoáng mát về mùa hè, ấm áp về mùa đông",
+      "•Nội thất cơ bản: điều hòa, máy giặt, bình nóng lanh, bàn/ ghế, tủ, đệm, giường, etc.",
+      "•Điện nước: giá nhà nước.",
+      "̣̂ ́ :",
+      "•Chợ dân sinh: 20m",
+      "•Bệnh viện Bạch Mai/ Việt Pháp/ Lão khoa/ Da liễu trung ương: 800m",
+      "•Trường học",
+      "Trường Tiểu học Kim Liên: 120m",
+      "Trường THCS Đống Đa: 280m",
+      "Trường THPT Kim Liên: 650m/ Trường THPT Lê Quý Đôn: 1.5km",
+      "Học viện Ngân Hàng: 900m",
+      "Đại học Bách Khoa: 1.1km",
+      "Đại học Công Đoàn: 1.7km",
+      "Đại học Thủy Lợi: 1.4km",
+      "Đại học Y: 900m",
+      "Phòng phù hợp với gia đinh & nhóm bạn nữ share nhau. Gia chủ cần tìm người thuê lâu dài & ổn định. Hợp đồng ít nhất 1 năm",
+      "Giá thuê: VND 4,000,000/tháng",
+      "̣̂ ̣̂: 0397928756 (cô Lan - Chính chủ – miễn trung gian)"
+    ],
+    "lastName": "Nguyen Thi Thu Huong",
+    "phone_number": "0979016928",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "676359",
+      "Tin miễn phí",
+      "Thứ 7, 22:07 08/03/2025",
+      "Thứ 6, 22:07 06/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6376587355045-0977fac5f79b08e4211d742f9b1f99bc_1741161481.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6376587355045-0977fac5f79b08e4211d742f9b1f99bc_1741161481.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6376587356798-4c6ca0a1ecd662626cfe2bd9eb2fce89_1741161481.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6376587357157-2fc57cde5519b8d808b8f71d762ca905_1741161481.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6376587358626-c8a00718bcde3dabfc5e4a86f065b542_1741161481.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6376587391353-a97338391b463af947e268975938a294_1741161482.jpg"
+    ],
+    "room_name": "[HOT] Chính chủ cho Thuê nhanh - Chung cư 97m2 - Tòa V3 Victoria Văn Phú",
+    "address": "Đường Văn Phú, Phường Phú La, Quận Hà Đông, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "11 triệu/tháng",
+    "area": "97 m2",
+    "description": [
+      "Do mình có lịch đi công tác 6 tháng nên có nhu cầu cho thuê ngắn hạn giá ưu đãi cho CHCC ở Tòa V3 - Victoria Văn Phú Hà Đông. (Cam kết chính chủ nhà cho thuê)",
+      "- Diện tích 97m², 2 phòng ngủ, 2 nhà vệ sinh.",
+      "- Đồ đạc đầy đủ, tiện nghi hiện vẫn đang sử dụng.",
+      "- Thời gian cho thuê: 6 tháng, dự kiến bắt đầu thuê từ 15/03/2025",
+      "- Giá thuê: 11.000.000VND/tháng. Tiền phí dịch vụ: Chủ nhà đóng, điện nước bên thuê đóng hàng tháng.",
+      "- Xem nhà tận nơi, chính chủ cho thuê, không qua trung gian.",
+      "Thích hợp cho các gia định cần ở 1 thời gian ngắn, hoặc sinh viên/ người đi làm có nhu cầu thuê trọ ngắn hạn.",
+      "Vui lòng liên hệ SĐT để xem nhà trực tiếp, nhanh chóng"
+    ],
+    "lastName": "Hai Anh",
+    "phone_number": "0389869532",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "676128",
+      "Tin miễn phí",
+      "Thứ 4, 14:58 05/03/2025",
+      "Thứ 3, 14:58 03/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h12_1741160820.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h11_1741160820.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h10_1741160822.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h9_1741160823.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h8_1741160825.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h7_1741160825.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h6_1741160827.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h5_1741160828.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h4_1741160829.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h2_1741160830.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h3_1741160832.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/h1_1741160832.jpg"
+    ],
+    "room_name": "Chung Cư Tây Hồ Riverview, Phố Thượng Thụy, Phú Thượng, Tây Hồ, Hà Nội",
+    "address": "425 Đường An Dương Vương, Phường Phú Thượng, Quận Tây Hồ, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "15 triệu/tháng",
+    "area": "92 m2",
+    "description": [
+      "Căn hộ chung cư cho thuê tại Tây Hồ River View, Thượng Thụy, Phú Thượng, Tây Hồ, Hà Nội với diện tích 92m2 và nội thất đầy đủ.",
+      "+ 3 phòng ngủ rộng rãi, thoáng mát.",
+      "+ 2 toilet tiện nghi, sạch sẽ.",
+      "+ Hướng cửa chính Bắc, ban công Nam, đón gió mát.",
+      "+ Giá cho thuê 15 triệu VND, hợp lý cho không gian sống thoải mái.",
+      "- Điểm nhấn:",
+      "Căn hộ được thiết kế hiện đại, không gian mở, mang lại cảm giác gần gũi với thiên nhiên. Với nội thất đầy đủ, căn hộ sẵn sàng cho cuộc sống ngay lập tức.",
+      "- Khu vực xung quanh:",
+      "Bệnh viện Nam Thăng Long, trường tiểu học Đông Ngạc B, trường tiểu học Phú Thượng, trường quốc tế Liên Hợp Quốc Hà Nội chỉ cách vài phút di chuyển, thuận tiện cho cuộc sống hàng ngày.",
+      "Liên hệ ngay để biết thêm chi tiết và đặt lịch xem căn hộ: 0904604891 - Trịnh Tiến Thành."
+    ],
+    "lastName": "Trịnh Tiến Thành",
+    "phone_number": "0904604891",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "676127",
+      "Tin miễn phí",
+      "Thứ 4, 14:47 05/03/2025",
+      "Thứ 3, 14:47 03/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6341595067340-5f479ca978c7c85ce43ede1b5f28bc40_1741148799.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6341595050805-d4e1d68c994855c256e3056f4d1a34be_1741148794.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6341595060063-3ce8b44532377fb28f956c4290041e83_1741148794.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6341595067121-338fadd9bcfefd2c49ecc9eafe66d3f7_1741148796.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6341595076685-9f7562faa5ac3fa409b8db9f70ec8f81_1741148796.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6341595075480-f164d3d96d8ae5030363e7927acdf806_1741148799.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/05/z6341595066332-149821000bc5a0d87c4ac86b5223b14f_1741148802.jpg"
+    ],
+    "room_name": "THUÊ CHUNG CƯ THANH LIỆT - CĂN GÓC - THANH TRÌ, HN",
+    "address": "P3A1 - X20 Đường Nguyễn Khuyến, Xã Tân Triều, Huyện Thanh Trì, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "6 triệu/tháng",
+    "area": "61 m2",
+    "description": [
+      "Căn hộ 2PN, ban công thoáng – Gần chợ, trường học, bệnh viện!",
+      "Chỉ 6 triệu/tháng – Điện nước giá dân!",
+      "Diện tích: 61m², tầng 3 – Căn góc siêu sáng",
+      "Thiết kế: 2 phòng ngủ, có ban công",
+      "Đầy đủ PCCC",
+      "Tiện ích xung quanh:",
+      "Chợ Quang, THCS Thanh Liệt, BV 103",
+      "Bến xe buýt ngay trước nhà",
+      "Nằm trên trục đường Kim Giang, giao thông thuận tiện",
+      "Địa chỉ: P3A1 - X20, Thôn Vực, Thanh Liệt (Chung cư X20 - Bộ Quốc Phòng)"
+    ],
+    "lastName": "Trung",
+    "phone_number": "0588510661",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "676096",
+      "Tin miễn phí",
+      "Thứ 4, 11:27 05/03/2025",
+      "Thứ 3, 11:27 03/06/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/01/img-20250224-205138_1740831779.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/01/img-20250224-205136_1740831781.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/01/img-20250224-205144_1740831777.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/01/img-20250224-205147_1740831774.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/01/img-20250224-205145_1740831776.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/01/img-20250224-205148_1740831774.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/03/01/img-20250224-205139_1740831778.jpg"
+    ],
+    "room_name": "Cho Thuê Căn Hộ Chung Cư - Đình Thôn, HN - 50m2 - 2 ngủ 2 nvs",
+    "address": "Đình Thôn, Phường Mễ Trì, Quận Nam Từ Liêm, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "8 triệu/tháng",
+    "area": "50 m2",
+    "description": [
+      "Cho Thuê Căn Hộ Chung Cư",
+      "-Địa chỉ: 26 ngõ 50 Đình Thôn, HN",
+      "-Diện tích 50m2, 2 phòng ngủ, 2 nvs, 2 điều hoà, 1 tủ gỗ, 1 tủ nhựa, 1 giường gỗ.",
+      "-Tầng 9, có thang máy, nhà để xe, đường rộng 5m",
+      "-Giá dịch vụ giá gốc có thể thuê lâu dài"
+    ],
+    "lastName": "Tô Văn Hợp",
+    "phone_number": "0399880856",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "675791",
+      "Tin miễn phí",
+      "Thứ 7, 19:28 01/03/2025",
+      "Thứ 6, 19:28 30/05/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/z6346506764021-4b0070f481e6576d9583405bdf813136_1740379566.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/z6346506768904-0f95661f78e38c2569115df8bb19fbb6_1740379566.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/z6346506771133-21ddec76c2c4a7406927401a6428c6de_1740379566.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/z6346506779695-2971f1c332075e6f7c96175e284ce80f_1740379566.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/z6346506780972-855ccd4ea894299f0c5e7ee616872dba_1740379567.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/z6346506785104-dde479996a1e0ef35e14324062c92f72_1740379567.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/z6346506793149-855983502fb2ad4292e666e0fed6d56f_1740379567.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/z6346506819318-3239b6ebe7a2f55913df982612309a10_1740379567.jpg"
+    ],
+    "room_name": "CHO THUÊ CĂN HỘ 1N1K TẠI VINHOMESGREENBAY",
+    "address": "26 Đường Mễ Trì Thượng, Phường Mễ Trì, Quận Nam Từ Liêm, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "12.5 triệu/tháng",
+    "area": "45 m2",
+    "description": [
+      "HÀNG HIẾM - SIÊU HOT",
+      "VINHOMESGREENBAY duy nhất cho thuê căn 1N1K - 45m2 - giá tốt nhất thị trường",
+      "* Giá cực tốt: 12,5tr/tháng - có bớt nếu khách có thiện chí thuê nhanh",
+      "* Siêu phẩm nhà đẹp - view nhìn Thành phố cực thoáng",
+      "Liên hệ sđt/Zalo: 0362961698 Em Trung để xem nhà 24/7 và trao đổi thêm thông tin"
+    ],
+    "lastName": "Tạ Thành Trung",
+    "phone_number": "0362961698",
+    "profile_picture": "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/24/104624828-1431375293730061-343618516174070302-n_1740379255.jpg",
+    "createdAt": [
+      "675304",
+      "Tin miễn phí",
+      "Thứ 2, 13:46 24/02/2025",
+      "Chủ Nhật, 13:46 25/05/2025"
+    ]
+  },
+  {
+    "room_images": [
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/03/z6284241270140-c9eaec301533a7f10e63cbced4e06851_1738573839.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/03/z6284241310184-e8fd0344fe202be80a1bbd1c2eb621fa_1738573839.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/03/z6284241318098-78349ce4d89fea9de74066f8db34cfcf_1738573840.jpg",
+      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/03/z6284241324753-63f9b36ad2ed8b2be83b520e1c33b4cb_1738573840.jpg"
+    ],
+    "room_name": "Cho Hộ Gia đình thuê phòng 40m2 - Bếp - WC-Khép kín- Máy giặt - Điều hòa-Tủ lạnh-Thang máy",
+    "address": "16B ngõ 173 Trung Kính, Phường Yên Hòa, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
+    "rating": "",
+    "price_per_month": "7 triệu/tháng",
+    "area": "40 m2",
+    "description": [
+      "Cho Hộ Gia đình thuê phòng 40m2 đầy đủ tiện ích:",
+      "- Bếp - WC-Khép kín",
+      "- Máy giặt - Điều hòa-Tủ lạnh - Giường - Tủ Quần áo - Kệ tivi - Tủ giầy",
+      "-Thang máy; thang bộ; ban công riêng",
+      "- Nhà mới xây sạch đẹp; Khu TT BCA – An ninh bảo vệ tốt 24/24.",
+      "Liên hệ chủ nhà: Ông Hột - 0973403260"
+    ],
+    "lastName": "Tuan Nguyen Anh",
+    "phone_number": "0982982118",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
+    "createdAt": [
+      "673888",
+      "Tin miễn phí",
+      "Thứ 2, 16:12 03/02/2025",
+      "Chủ Nhật, 16:12 04/05/2025"
     ]
   },
   {
@@ -388,289 +713,14 @@
       "Internet, truyền hình cáp",
       "Thang máy, đổ rác"
     ],
+    "lastName": "Phạm Thị Quỳnh",
+    "phone_number": "0982091492",
+    "profile_picture": "https://phongtro123.com/images/default-user.svg",
     "createdAt": [
       "675090",
       "Tin miễn phí",
       "Thứ 6, 10:40 21/02/2025",
       "Thứ 5, 10:40 22/05/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/img-1206_1739943707.png",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/img-1207_1739943707.png",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/img-1209_1739943720.png",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/img-1210_1739943718.png",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/img-1211_1739943725.png",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/img-1212_1739943730.png",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/img-1208_1739943741.png"
-    ],
-    "room_name": "Cho thuê CH 90m, 2pn, 2VS ( Trần Phú -HĐong) toà Ellipse ( không MG)",
-    "address": "10 Đường Trần Phú, Phường Mỗ Lao, Quận Hà Đông, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "10 triệu/tháng",
-    "area": "90 m2",
-    "description": [
-      "Cho thuê CH toà Ellipses Tower - 10 Trần Phú - Ha Dong ( Không MGioi)",
-      "90m2, 2 ngủ, 2 tolet",
-      "Nội thất gồm tủ bếp và bếp từ, nóng lạnh, 2 tủ quần áo, thiết bị vệ sinh, Tivi, Điều Hoà, sàn gỗ..",
-      "Tầng 19, view đẹp, đi bộ 3p ra lối lên tàu điện. Gần trạm xăng",
-      "CH thuộc toà nhà cho phép đăng ký kinh doanh làm VP",
-      "️ giá thuê: 10 triệu/ tháng.(Nhận nhà 1/4)",
-      "0948933233"
-    ],
-    "createdAt": [
-      "674942",
-      "Tin miễn phí",
-      "Thứ 4, 12:45 19/02/2025",
-      "Thứ 3, 12:45 20/05/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1129_1735275336.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1129_1735275336.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1132_1735275336.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1134_1735275337.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1136_1735275337.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1137_1735275337.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1133_1735275337.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1130_1735275337.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1131_1735275338.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1128_1735275338.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1127_1735275338.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/12/27/img-1125_1735275339.jpg"
-    ],
-    "room_name": "(Không MG) cho thuê Vinhomes Gardenia 2pn,76m",
-    "address": "Hàm Nghi, Phường Cầu Diễn, Quận Nam Từ Liêm, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "17.5 triệu/tháng",
-    "area": "76 m2",
-    "description": [
-      "Vinhomes Gardenia - Hàm Nghi",
-      "Diện tích rộng rãi 76m², 2pn, 2vs, ban công rộng thoải mái cho gia đình sinh hoạt.",
-      "Nội thất đầy đủ, chỉ việc dọn vào ở ngay.",
-      "Gồm 2 phòng ngủ và 2 phòng tắm, phù hợp cho gia đình nhỏ hoặc nhóm bạn.",
-      "Các dịch vụ miễn phí: bể bơi bốn mùa, phòng tập Gym, sân tennis và các sân thể thao khác..",
-      "Thời gian cho thuê linh hoạt, tối thiểu 1 năm. Ưu tiên hộ gia đình và người nước",
-      "Siêu thị và các cửa hàng ở dưới chân tòa nhà, chợ cách 100 m",
-      "Gần bệnh viện Quốc tế Dolife, bệnh viện thể thao Việt Nam, bệnh viện 19 - 8 Bộ Công An.",
-      "Công viên Mai Dịch phục vụ nhu cầu giải trí.",
-      "Các trường học như trường mầm non Lê Quý Đôn, trường Nhật Bản Hà Nội, trường Đại học Ngoại ngữ - ĐHQGHN...."
-    ],
-    "createdAt": [
-      "672824",
-      "Tin miễn phí",
-      "Thứ 6, 11:56 27/12/2024",
-      "Thứ 5, 11:56 27/03/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z5032490235182-808156389b7008cf98d9582b9259310b_1719818049.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z4785630044587-9bd5990ac53c202818219a5ddb57b883_1719818056.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z4785630046677-1a514f864cdf0fc0862099e7a9facc68_1719818056.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z4785630048359-f3d6efed341702de3669ccf366271f90_1719818057.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/01/z4785630061263-c7493698623f975642f5fc9ca08b47f3_1719818060.jpg"
-    ],
-    "room_name": "Cho thuê căn hộ 1n1k kim giang - bắc linh đàm nhà mới xây , siêu thoáng",
-    "address": "Kim Giang, Phường Kim Giang, Quận Thanh Xuân, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "4.8 triệu/tháng",
-    "area": "35 m2",
-    "description": [
-      "CHO THUÊ CĂN HỘ 1N1K NGÕ 634 KIM GIANG - BẮC LINH ĐÀM- ĐẠI HỌC THĂNG LONG",
-      "Địa chỉ: Ngõ 634 Kim Giang- Ngay Cầu Bắc Linh Đàm",
-      "GIÁ: 4tr8",
-      "Phòng đã được setup đầy đủ đồ: Giường,tủ,sofa,nóng lạnh,điều hòa,tủ bếp,hút mùi,bàn trang điểm,máy giặt chung,...",
-      "Tiện ích: Ra vào vân tay,có thang máy,an ninh tốt",
-      "Không chung chủ,giờ giấc thoải mái",
-      "️ LH: 0965383653 (zalo)"
-    ],
-    "createdAt": [
-      "658666",
-      "Tin miễn phí",
-      "Thứ 3, 09:00 11/02/2025",
-      "Thứ 2, 09:00 12/05/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/cg4-copy_1739937800.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/cg2_1739937800.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/cg5_1739937800.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/cg3-copy_1739937800.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/cg1-copy-copy-copy_1739937801.jpg"
-    ],
-    "room_name": "Chính chủ cho thuê phòng xinh tại Ngõ 79 Cầu Giấy",
-    "address": "Ngõ 79 Cầu Giấy Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "6 triệu/tháng",
-    "area": "35 m2",
-    "description": [
-      "Cho thuê căn hộ ở ngõ 79 Cầu Giấy full đồ nội thất có gác xép, máy giặt riêng, có sofa giường ở được 3-4 người",
-      "- Có ban công sáng thoáng",
-      "- Gần chợ, các ĐH như ĐH quốc gia Hà Nội, ĐH giao thông vận tải, ĐH sư phạm HN ĐH báo chí tuyên truyền..",
-      "- Không chung chủ, giờ giấc tự do",
-      "- An ninh tốt",
-      "LH: 0925511518"
-    ],
-    "createdAt": [
-      "674926",
-      "Tin miễn phí",
-      "Thứ 4, 11:03 19/02/2025",
-      "Thứ 3, 11:03 20/05/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/md6-copy_1739937340.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/md5-copy_1739937340.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/md4_1739937342.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/19/md3-copy_1739937342.jpg"
-    ],
-    "room_name": "CCMN mới tinh giá chỉ từ 5tr ở NGÕ 402 MỸ ĐÌNH giao đình thôn",
-    "address": "4 ngõ 402/42 Đường Mỹ Đình, Phường Mỹ Đình 1, Quận Nam Từ Liêm, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "5 triệu/tháng",
-    "area": "35 m2",
-    "description": [
-      "CHDV siêu hot tại đường Mỹ Đình, Phường Mỹ Đình 1, Nam Từ Liêm, Hà Nội. 1 PN, 1 WC, giá chỉ từ 5 triệu VND.",
-      "Không gian thoáng đãng, thiết kế đơn giản nhưng đầy đủ tiện nghi., có ban công siêu thoáng đón gió.",
-      "Khu vực giặt sấy rộng rãi, sạch sẽ, tầng thượng set up bàn ghế cây cối siêu chill.",
-      "Thời gian cho thuê cực kỳ linh hoạt.",
-      "Phù hợp với những ai thích sự riêng tư mà vẫn muốn có không gian sống thoải mái.",
-      "Giao giữa đường Đình Thôn, khu vực sầm uất.",
-      "Cách trường học khoảng 1km, gần siêu thị, chợ và công viên, cung Thiếu Nhi, SVĐ Mỹ Đình, The Garden, Big C, Bảo tàng lịch sử."
-    ],
-    "createdAt": [
-      "674924",
-      "Tin miễn phí",
-      "Thứ 4, 10:57 19/02/2025",
-      "Thứ 3, 10:57 20/05/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828154517-f991e3a5e56053cde916ea4699a2626c_1739801453.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828731027-bdf85dfa03e7e4ee7cce2f6dbe8f0605_1739801454.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828941683-7a52ceed7128b1812f8a29075a6ee57b_1739801454.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828952113-e53f92124dd400ff2f1fa6aa079fbf36_1739801455.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828965000-600b084ee465ac27640aa4276d1fc247_1739801455.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828149206-129b31b98f4560063cd7f72cd6b6398d_1739801453.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828156141-9dd882986d3105fd73b0ab824931aec8_1739801453.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828179000-2acc1c1410219a89cd41942ddc12b7f3_1739801453.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828385010-003f97295903c87610429a6551d85b92_1739801454.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828679488-cf16d9602f188ff5c8463194c41b9103_1739801454.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828884416-213cf110f6f8439e77d4c0cce5077a0a_1739801454.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/02/17/z6310828947212-7d2076d86bb5d4ef16b233b3172268eb_1739801455.jpg"
-    ],
-    "room_name": "Cho thuê căn hộ 3PN, 2WC tại N03-T6 Ngoại Giao Đoàn, 22 triệu, 134m2",
-    "address": "Phường Xuân Tảo, Quận Bắc Từ Liêm, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "22 triệu/tháng",
-    "area": "134 m2",
-    "description": [
-      "Căn hộ chung cư N03-T6 Ngoại Giao Đoàn nằm ở vị trí đắc địa tại Phường Xuân Tảo, Bắc Từ Liêm, Hà Nội. Với diện tích 134m2, căn hộ này được thiết kế hiện đại và đầy đủ nội thất, sẵn sàng cho cuộc sống tiện nghi.",
-      "+ 3 phòng ngủ rộng rãi, thoáng mát với ánh sáng tự nhiên tràn ngập.",
-      "+ 2 phòng tắm tiện lợi, giúp tiết kiệm thời gian cho cả gia đình.",
-      "+ Phòng khách sang trọng, phù hợp cho những buổi gặp gỡ và thư giãn.",
-      "+ Ban công hướng Nam, đem đến không gian thoáng đãng và dễ chịu.",
-      "+ Nội thất đầy đủ với điều hòa, tủ lạnh, giường ngủ, và nhiều tiện nghi khác.",
-      "+ Giá cho thuê chỉ 22 triệu VND/tháng với thời gian thuê linh hoạt, đặt cọc - tháng, trả tiền 3 tháng 1 lần",
-      "Căn hộ còn có các tiện ích nổi bật như hệ thống an ninh 24/7 và dịch vụ chăm sóc khách hàng chuyên nghiệp, đảm bảo cuộc sống an toàn và thoải mái cho mọi cư dân.",
-      "Xung quanh căn hộ, cư dân sẽ dễ dàng tiếp cận với các tiện ích như bệnh viện Tim Hà Nội - cơ sở 2, siêu thị Winmart+, công viên Hòa Bình, và nhiều trường học chất lượng. Tất cả đều mang lại sự thuận tiện cho cuộc sống hàng ngày.",
-      "Để biết thêm chi tiết và sắp xếp xem căn hộ, liên hệ ngay với Nguyễn Thị Minh Phương - Sdt: 0912933877."
-    ],
-    "createdAt": [
-      "674799",
-      "Tin thường",
-      "Thứ 2, 21:15 17/02/2025",
-      "Thứ 3, 21:15 04/03/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/01/22/7021_1737527740.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/01/22/7023_1737527740.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/01/22/7029_1737527741.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2025/01/22/70211_1737527741.jpg"
-    ],
-    "room_name": "Chính chủ cho thuê căn hộ 1K 1N full đồ tại Tô Ngọc Vân, Tây Hồ",
-    "address": "Tô Ngọc Vân, Phường Quảng An, Quận Tây Hồ, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "8 triệu/tháng",
-    "area": "45 m2",
-    "description": [
-      "Chính chủ cho thuê căn hộ 1K 1N full đồ tại Tô Ngọc Vân, Tây Hồ.",
-      "Đầy đủ nội thất, điều hòa, tủ lạnh, máy giặt máy sấy, thang máy, nồi niêu bát đũa... Chỉ việc mang quần áo tới ở.",
-      "Không gian thoáng mát yên tĩnh, đi vài bước chân ra Hồ Tây, chợ, siêu thị gần nhà...",
-      "Địa chỉ: 3b ngõ 32/18 Tô Ngọc Vân, Tây Hồ, HN.",
-      "Giá thuê: 8tr /tháng.",
-      "Liên hệ chính chủ"
-    ],
-    "createdAt": [
-      "650131",
-      "Tin thường",
-      "Thứ 2, 14:50 17/02/2025",
-      "Thứ 7, 14:50 22/02/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/02/1_1717298586.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/02/2_1717298586.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/02/3_1717298590.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/02/5_1717298596.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/02/7_1717298596.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/06/02/8_1717298598.jpg"
-    ],
-    "room_name": "Cho thuê căn hộ 2 phòng ngủ mặt phố Tô Ngọc Vân 75m²",
-    "address": "Đường Tô Ngọc Vân, Phường Quảng An, Quận Tây Hồ, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "10 triệu/tháng",
-    "area": "75 m2",
-    "description": [
-      "Cho thuê căn hộ 2 phòng ngủ mặt phố Tô Ngọc Vân 75m².",
-      "- Căn hộ được thiết kế gồm 2 phòng ngủ, 1 phòng khách, 1 phòng bếp riêng biệt, nhà mới, đầy đủ nội thất.",
-      "Diện tích 75m² rộng rãi thoáng mát. Phòng nào cũng đầy đủ ánh sáng tự nhiên.",
-      "- Giá: 10 triệu/tháng.",
-      "- Địa chỉ: Số 5 Tô Ngọc Vân, Tây Hồ, Hà Nội.",
-      "- Liên hệ chính chủ:. Phòng như ảnh"
-    ],
-    "createdAt": [
-      "655369",
-      "Tin thường",
-      "Thứ 2, 14:50 17/02/2025",
-      "Thứ 7, 14:50 22/02/2025"
-    ]
-  },
-  {
-    "room_images": [
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/29/z5487541692883-06c33cce5d337406272e94a19ea1be96_1716967559.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/29/z5487541693237-86ee2ecdf9383c025acffbf50a22421e_1716967559.jpg",
-      "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/05/29/z5487541694738-262279a2a3cacc5c3bebf164970f07f2_1716967562.jpg"
-    ],
-    "room_name": "CCMN full nội thất mới 100% máy giặt riêng, PCCC, đường Lạc Long Quân",
-    "address": "Lạc Long Quân, Phường Nghĩa Đô, Quận Cầu Giấy, Hà Nội - Xem bản đồ",
-    "rating": "",
-    "price_per_month": "5 triệu/tháng",
-    "area": "25 m2",
-    "description": [
-      "CCMN full nội thất mới 100% máy giặt riêng, PCCC, đường Lạc Long Quân",
-      "- Địa chỉ : Số 19B ngõ 269 Lạc Long Quân",
-      "- Phòng Studio gác xép 25m2",
-      "- Thang máy. Đặc biệt PCCC đầy đủ, có thang thoát hiểm ngoài trời, rất an toàn",
-      "- Nội thất : Full đồ , điều hòa, nóng lạnh, giường, tủ quần áo,tủ lạnh, bếp, máy giặt, chăn ga gối đệm...",
-      "- Dịch vụ : Điện 4k. Các chi phí khác tổng 300k/người ( bao gồm nước, wifi, thang máy, vệ sinh, rác...)",
-      "- Giá thuê: 5 triệu",
-      "- Lh chính chủ: Phòng như ảnh 100%"
-    ],
-    "createdAt": [
-      "656015",
-      "Tin thường",
-      "Thứ 2, 14:50 17/02/2025",
-      "Thứ 7, 14:50 22/02/2025"
     ]
   }
 ]
