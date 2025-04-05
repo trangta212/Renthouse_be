@@ -21,6 +21,6 @@ router.get("/messages", getMessages);
 router.post("/mark-as-read", markAsRead);
 
 // Gửi tin nhắn
-// router.post("/send", sendMessage);
+router.post("/send", sendMessage);
 
 module.exports = router;
