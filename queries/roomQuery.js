@@ -6,6 +6,15 @@ const getListRoom = async (roomData) => {
       where: {
          status: 'available',
       },
+      include: [
+        {
+          model: db.RentPost,
+          include: {
+            model: db.User,
+            attributes: ["id", "lastName", "email"], // Chỉ lấy các thông tin cần thiết
+          },
+        },
+      ],
     });
     return existroom; 
   } catch (error) {
@@ -21,7 +30,7 @@ const getRoomById = async (id) => {
         model: db.RentPost,
         include: {
           model: db.User,
-          attributes: ["id", "lastName", "email"], // Chỉ lấy các thông tin cần thiết
+          attributes: ["id", "lastName", "email","phone_number"], // Chỉ lấy các thông tin cần thiết
         },
       },
     });
