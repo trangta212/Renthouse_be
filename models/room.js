@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 const {
   Model
 } = require('sequelize');
@@ -17,7 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       // User.hasMany(models.Review, {
       //   foreignKey: 'room_id'
       // });
-
+      Room.hasOne(models.RentPost, {
+        foreignKey: 'room_id'
+      });
     }
   }
   Room.init({
@@ -29,12 +31,19 @@ module.exports = (sequelize, DataTypes) => {
     room_images: {
       type: DataTypes.TEXT,
       get() {
-          return JSON.parse(this.getDataValue('room_images')); // Lấy dữ liệu dưới dạng mảng
+        const rawValue = this.getDataValue('room_images');
+        if (!rawValue) return [];
+        try {
+          return JSON.parse(rawValue);
+        } catch (error) {
+          return [];
+        }
       },
       set(value) {
-          this.setDataValue('room_images', JSON.stringify(value)); // Lưu dưới dạng chuỗi JSON
+        this.setDataValue('room_images', JSON.stringify(value));
       }
-      },
+    }
+    ,    
     rating: DataTypes.INTEGER,
     type: DataTypes.STRING,
     address : DataTypes.TEXT,

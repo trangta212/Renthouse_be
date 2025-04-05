@@ -2067,10 +2067,10 @@
   "resolved" "https://registry.npmjs.org/sequelize-pool/-/sequelize-pool-7.1.0.tgz"
   "version" "7.1.0"
 
-"sequelize@^6.37.5":
-  "integrity" "sha512-4Slqjqpktofs7AVqWviFOInzP9w8ZRQDhF+DnRtm4WKIdIATpyzGgedyseP3xbgpBxapvfQcJv6CeIdZe4ZL2A=="
-  "resolved" "https://registry.npmjs.org/sequelize/-/sequelize-6.37.6.tgz"
-  "version" "6.37.6"
+"sequelize@^6.37.7":
+  "integrity" "sha512-mCnh83zuz7kQxxJirtFD7q6Huy6liPanI67BSlbzSYgVNl5eXVdE2CN1FuAeZwG1SNpGsNRCV+bJAVVnykZAFA=="
+  "resolved" "https://registry.npmjs.org/sequelize/-/sequelize-6.37.7.tgz"
+  "version" "6.37.7"
   dependencies:
     "@types/debug" "^4.1.8"
     "@types/validator" "^13.7.17"

@@ -7,12 +7,13 @@ const authRoutes = require("./routes/authRoutes");
 const roomRoutes = require("./routes/roomRoutes");
 const paymentRoute = require("./routes/paymentRoutes");
 const postRoutes = require("./routes/postRoutes");
-// const startBrowser = require('./crawl_data/browser');
-// const scrapeController = require('./crawl_data/scrapeController');
-// const importRooms = require('./crawl_data/importRoom');
+const favoriteRoutes = require("./routes/favoriteRoutes");
+const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
 
 const { createServer } = require("http");
 const { Server } = require("socket.io");
+const websocketController = require("./controllers/webSocketController"); // Import WebSocket Controller
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -37,10 +38,13 @@ app.use(
 );
 
 // Định nghĩa route
-app.use("/api/auth", authRoutes);
-app.use("/api/room", roomRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/room", roomRoutes);
 app.use("/api/v1/payment", paymentRoute);
 app.use("/api/v1/post", postRoutes);
+app.use("/api/v1/favorite", favoriteRoutes);
+app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/chat", chatRoutes);
 
 // Kết nối database
 const connectDB = async () => {
@@ -57,10 +61,26 @@ const connectDB = async () => {
 io.on("connection", (socket) => {
   console.log(`🔗 New client connected: ${socket.id}`);
 
+  // Lưu socket ID cho user
+  socket.on("authenticate", (userId) => {
+    socket.join(`user_${userId}`);
+    console.log(`User ${userId} authenticated with socket ${socket.id}`);
+  });
+
+  // Handle disconnect
   socket.on("disconnect", () => {
     console.log(`❌ Client disconnected: ${socket.id}`);
   });
 });
+
+// Thêm socket.io vào request object
+app.use((req, res, next) => {
+  req.io = io;
+  next();
+});
+
+// Initialize WebSocket controller
+websocketController(io); // Pass Socket.IO instance to WebSocket controller
 
 // Error handling middleware - đặt trước server.listen
 app.use((err, req, res, next) => {
@@ -80,4 +100,3 @@ server.listen(port, async () => {
   // scrapeController(browser);
   // importRooms();
 });
-
