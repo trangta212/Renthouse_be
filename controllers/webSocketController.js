@@ -132,7 +132,12 @@ module.exports = (io) => {
             content,
             timestamp: message.createdAt,
           });
-
+          io.to(`user_${senderEmail}`).emit("receive_message", {
+            id: message.id,
+            senderEmail,
+            content,
+            timestamp: message.createdAt,
+          });
           // Gửi xác nhận về người gửi
           socket.emit("message_sent", {
             success: true,
