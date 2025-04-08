@@ -184,7 +184,7 @@ module.exports = (io) => {
   });
 
   // Test log khi khởi tạo
-  setInterval(() => {
-    console.log("WebSocket server heartbeat check");
-  }, 10000);
+  // setInterval(() => {
+  //   console.log("WebSocket server heartbeat check");
+  // }, 10000);
 };
