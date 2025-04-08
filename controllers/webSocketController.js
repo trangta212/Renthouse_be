@@ -8,10 +8,10 @@ module.exports = (io) => {
     console.log("\n=== NEW CONNECTION ===");
     console.log("Socket ID:", socket.id);
 
-    // Test log để kiểm tra console có hoạt động
-    setInterval(() => {
-      console.log("Heartbeat check - Socket:", socket.id);
-    }, 5000);
+    // // Test log để kiểm tra console có hoạt động
+    // setInterval(() => {
+    //   console.log("Heartbeat check - Socket:", socket.id);
+    // }, 5000);
 
     // Xử lý authenticate
     socket.on("authenticate", async (data) => {
