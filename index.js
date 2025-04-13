@@ -145,6 +145,7 @@ const favoriteRoutes = require("./routes/favoriteRoutes");
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const roomSearchRoutes = require("./routes/roomSearchRoutes");
+const depositRoutes = require("./routes/depositRoutes");
 
 // Định nghĩa route
 app.use("/api/v1/auth", authRoutes);
@@ -155,6 +156,7 @@ app.use("/api/v1/favorite", favoriteRoutes);
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/chat", chatRoutes);
 app.use("/api/v1", roomSearchRoutes);
+app.use("/api/v1/deposit", depositRoutes);
 
 // Kết nối database
 const connectDB = async () => {
