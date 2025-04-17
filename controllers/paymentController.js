@@ -2,7 +2,7 @@ const vnpay = require("../middlewares/vnpayMiddleware");
 const { ProductCode, VnpLocale } = require("vnpay");
 const paymentByVnPay = (req, res ) => {
   const returnUrl =
-    req.body?.returnUrl || "http://localhost:8000/api/v1/payment/vnpay-return";
+    req.body?.returnUrl || "http://localhost:3000/api/v1/payment/vnpay-return";
 
   // Tạo URL thanh toán
   const paymentUrl = vnpay.buildPaymentUrl({

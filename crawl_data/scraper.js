@@ -107,19 +107,24 @@ const scrapeCategory = (browser, url) =>
                     
 
                     // Thông tin liên hệ
-                    // const contactData = await pageDetails.$$eval(
-                    //     'div.row.mt-3 > div.col-md-9.col-lg-8 > div.bg-white.shadow-sm.rounded.p-4.mb-3 > div.mb-4',
-                    //     (els) => {
-                    //         return els
-                    //             .map((el) => ({
-                    //                 imageAcc: el.querySelector('div.d-flex > img')?.src || '', // Lấy đường dẫn hình ảnh
-                    //                 nameAcc: el.querySelector('div.ms-3 > div.d-flex > div.fs-5-5.fw-medium.me-2')?.innerText || '', // Tên tài khoản
-                    //                 phoneAcc: el.querySelector('div.ms-3 > div.d-flex.mt-3 > a.btn.btn-green.text-white.d-flex.justify-content-center.rounded-4')?.innerText || '', // Số điện thoại
-                    //                 zaloAcc: el.querySelector('div.ms-3 > div.d-flex.mt-3 > a.btn.btn-primary.text-white.d-flex.justify-content-center.ms-2.rounded-4')?.href || '', // Zalo (sử dụng href thay vì link)
-                    //             }))
-                    //             .filter((item) => item.imageAcc || item.nameAcc || item.phoneAcc || item.zaloAcc); // Lọc bỏ object rỗng
-                    //     }
-                    // );
+                    const contactData = await pageDetails.$$eval(
+                        'div.row.mt-3 > div.col-md-9.col-lg-8 > div.bg-white.shadow-sm.rounded.p-4.mb-3 > div.mb-4',
+                        (els) => {
+                            return els
+                                .map((el) => ({
+                                    imageAcc: el.querySelector('div.d-flex > img')?.src || '', // Lấy đường dẫn hình ảnh
+                                    nameAcc: el.querySelector('div.ms-3 > div.d-flex > div.fs-5-5.fw-medium.me-2')?.innerText || '', // Tên tài khoản
+                                    phoneAcc: el.querySelector('div.ms-3 > div.d-flex.mt-3 > a.btn.btn-green.text-white.d-flex.justify-content-center.rounded-4')?.innerText || '', // Số điện thoại
+                                }))
+                                .filter((item) => item.imageAcc || item.nameAcc || item.phoneAcc || item.zaloAcc); // Lọc bỏ object rỗng
+                        }
+                    );
+                    const firstContact = contactData[0] || {};
+
+                    detailData.lastName = firstContact.nameAcc;
+                    detailData.phone_number = firstContact.phoneAcc;
+                    detailData.profile_picture = firstContact.imageAcc;
+            
                     
                     // detailData.contactData = contactData;
                    // thông tin về thời gian đăng bài 

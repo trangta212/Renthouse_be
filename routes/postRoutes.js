@@ -1,9 +1,14 @@
-const express = require("express"); 
-const route = express.Router();
-const { createPostController } = require("../controllers/postController");
+const express = require("express");
+const router = express.Router();
+const {
+  createPostController,
+  updatePostController,
+} = require("../controllers/postController");
 
-route.post("/create-post", createPostController);
+// Route để tạo post mới
+router.post("/create-post", createPostController);
 
-module.exports = route;
+// Route để update post
+router.put("/update-post/:id", updatePostController);
 
-
+module.exports = router;
