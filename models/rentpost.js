@@ -10,8 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      RentPost.belongsTo(models.User, { foreignKey: 'user_id' }); 
-      RentPost.belongsTo(models.Room, { foreignKey: 'room_id' }); 
+      RentPost.belongsTo(models.User, { foreignKey: 'user_id' }); // Khóa ngoại trong bảng RentPost
+      RentPost.belongsTo(models.Room, { foreignKey: 'room_id'}); // Khóa ngoại trong bảng RentPost
+      RentPost.hasOne(models.Deposit, {
+        foreignKey: 'post_id', // Khóa ngoại trong bảng Deposit
+        as: 'deposit' // Alias để truy vấn khi tìm Deposit từ RentPost
+      });
     }
   }
   RentPost.init({

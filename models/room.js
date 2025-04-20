@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       Room.hasOne(models.RentPost, {
         foreignKey: 'room_id'
       });
+      Room.hasMany(models.Notification, {
+        foreignKey: 'room_id'
+      });
+      
     }
   }
   Room.init({

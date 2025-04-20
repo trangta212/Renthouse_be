@@ -1,39 +1,62 @@
 const db = require("../models/index");
 const moment = require("moment");
+const { Notification } = require("../models");
 
 const createDeposit = async (depositData) => {
   try {
     const {
       fullNameIndentify,
       phone_number,
+      identifyNumber,
       room_id,             // giả sử bạn truyền room_id
       status,
       deposit_amount,
       deposit_day,         // ví dụ: "13/4/2025"
       date_of_birth,
-      user_id              // cần truyền user_id nếu cập nhật user
+      user_id    ,          // cần truyền user_id nếu cập nhật user
+      address,
+      cccd_images,
     } = depositData;
 
     console.log("📦 Data of deposit:", depositData);
 
     const result = await db.sequelize.transaction(async (t) => {
       // 1. Cập nhật user
-      const user = await db.User.update(
+      const [user, created] = await db.User.upsert(
         {
-          fullNameIndentify,
-          phone_number,
-          date_of_birth,
+          id: user_id, // rất quan trọng để xác định update hay insert
+          fullNameIndentify: fullNameIndentify,
+          phone_number: phone_number,
+          date_of_birth: moment(date_of_birth, 'D/M/YYYY').format('YYYY-MM-DD'),
+          identifyNumber: identifyNumber,
+          address: address,
+          cccd_images: cccd_images,
           updated_at: new Date(),
         },
-        { where: { id: user_id }, transaction: t }
+        { transaction: t }
       );
+      
+      console.log(created ? "👶 Created new user" : "🔁 Updated existing user");
+      // Truy vấn rentpost
+      // 1. Lấy RentPost
+       const rentPost = await db.RentPost.findOne({
+          where: { room_id },
+          transaction: t,
+           });
+
+if (!rentPost) throw new Error("Không tìm thấy RentPost");
+
+// 2. Lấy Room
+const room = await db.Room.findByPk(room_id, { transaction: t });
+
+
+      if (!rentPost) {
+        throw new Error("Không tìm thấy bài đăng (RentPost) cho room_id đã cung cấp.");
+      }
 
       // 2. Tạo bản ghi Deposit
       const depositDateConverted = moment(deposit_day, "D/M/YYYY").toDate();
-      const rentPost = await db.RentPost.findOne({
-        where: { room_id: room_id },
-        transaction: t,
-      });
+     
       
       if (!rentPost) {
         throw new Error("Không tìm thấy bài đăng (RentPost) cho room_id đã cung cấp.");
@@ -46,7 +69,8 @@ const createDeposit = async (depositData) => {
         {
           user_id: user_id,
           post_id: postId,        
-          amount: deposit_amount,
+          deposit_amount: deposit_amount,
+          deposit_day: deposit_day,
           status: status,
           created_at: new Date(),
           updated_at: new Date(),
@@ -55,10 +79,28 @@ const createDeposit = async (depositData) => {
         { transaction: t }
       );
 
+      // 3. Gửi thông báo cho chủ trọ
+      const roomName = rentPost.room?.room_name || `ID ${room_id}`;
+      const formattedDate = moment(deposit_day).format("HH:mm - DD/MM/YYYY");
+
+      const notification = await Notification.create({
+        user_id: rentPost.user_id,  // Gửi thông báo cho chủ trọ của RentPost
+        room_id: rentPost.room_id,
+        message: message = `Phòng "${roomName}" của bạn đã được đặt cọc trước ${deposit_amount.toLocaleString()} VND vào lúc ${formattedDate}. Bạn có đồng ý xác nhận việc đặt cọc này không?`,
+        is_read: false,
+        time: new Date(),
+      });
+
+      // Cập nhật notification_id vào Deposit
+      await deposit.update({ notification_id: notification.id }, { transaction: t });
+
+      console.log(`📬 Notification sent to owner (user_id: ${rentPost.user_id})`);
+
       return {
         message: "Deposit created successfully",
         deposit,
         user,
+        notification,
       };
     });
 
@@ -68,6 +110,7 @@ const createDeposit = async (depositData) => {
     throw error;
   }
 };
+
 module.exports = {
   createDeposit
 };

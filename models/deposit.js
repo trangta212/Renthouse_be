@@ -11,6 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Deposit.belongsTo(models.User, {
+        foreignKey: 'user_id',
+        as: 'user'
+      });
+      Deposit.belongsTo(models.RentPost, {
+        foreignKey: 'post_id',
+        as: 'rentPost'
+      });
+      Deposit.belongsTo(models.Notification, {
+        foreignKey: 'notification_id',
+        as: 'notification'
+      });
     }
   }
   Deposit.init({
@@ -20,7 +32,15 @@ module.exports = (sequelize, DataTypes) => {
     deposit_day: DataTypes.STRING,
     status: DataTypes.STRING,
     created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    updated_at: DataTypes.DATE,
+    notification_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Notification', // Tên bảng Notifications
+        key: 'id', // Khóa chính của bảng Notifications
+      },
+      allowNull: true, // Cho phép null vì không phải lúc nào cũng có thông báo
+    },
   }, {
     sequelize,
     modelName: 'Deposit',

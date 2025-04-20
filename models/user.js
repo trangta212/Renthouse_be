@@ -29,6 +29,13 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: "receiverId",
           as: "receivedMessages",
         });
+      User.hasMany(models.Notification, {
+        foreignKey: 'user_id'
+      });
+      User.hasMany(models.Deposit, {
+        foreignKey: 'user_id',
+        as: 'deposit'
+      });
     }
   }
   User.init({
@@ -39,7 +46,11 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.STRING,
     phone_number: DataTypes.BIGINT,
     address: DataTypes.STRING,
-    profile_picture: DataTypes.TEXT
+    profile_picture: DataTypes.TEXT,
+    fullNameIndentify: DataTypes.STRING,
+    identifyNumber: DataTypes.BIGINT,
+    date_of_birth: DataTypes.DATE,
+    cccd_images: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'User',
