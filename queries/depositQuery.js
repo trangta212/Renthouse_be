@@ -80,13 +80,15 @@ const room = await db.Room.findByPk(room_id, { transaction: t });
       );
 
       // 3. Gửi thông báo cho chủ trọ
-      const roomName = rentPost.room?.room_name || `ID ${room_id}`;
-      const formattedDate = moment(deposit_day).format("HH:mm - DD/MM/YYYY");
+      const userName = await db.User.findByPk(user_id, { transaction: t });
+      if (!userName) {
+        throw new Error("Không tìm thấy thông tin người dùng.");
+      }
 
       const notification = await Notification.create({
         user_id: rentPost.user_id,  // Gửi thông báo cho chủ trọ của RentPost
         room_id: rentPost.room_id,
-        message: message = `Phòng "${roomName}" của bạn đã được đặt cọc trước ${deposit_amount.toLocaleString()} VND vào lúc ${formattedDate}. Bạn có đồng ý xác nhận việc đặt cọc này không?`,
+        message: message = `Phòng của bạn đã được đặt cọc trước ${deposit_amount.toLocaleString()} VND vào lúc ${deposit_day} từ ${userName.fullNameIndentify}. Bạn có đồng ý xác nhận việc đặt cọc này không?`,
         is_read: false,
         time: new Date(),
       });
