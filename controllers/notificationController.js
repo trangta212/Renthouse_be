@@ -7,6 +7,7 @@ const { getUserNotificationsQuery ,
   findUserById,
   createNotification
 } = require("../queries/notificationQuery");
+const { processRefund } = require("./paymentController");
 
 const getUserNotifications = async (req, res) => {
     try {
@@ -56,14 +57,28 @@ const getUserNotifications = async (req, res) => {
       } else if (action === 'refund') {
         // Process refund
         const refundResult = await processRefund(deposit);
+        
         if (!refundResult.success) {
+          // Cập nhật trạng thái hoàn tiền thất bại
+          await deposit.update({ 
+            status: 'refund_failed',
+            refund_status: 'refund_failed',
+            refund_reason: refundResult.error || "Lỗi khi hoàn tiền"
+          });
+          
           return res.status(500).json({ 
             success: false, 
-            message: "Lỗi khi hoàn tiền. Vui lòng thử lại sau." 
+            message: refundResult.message || "Lỗi khi hoàn tiền. Vui lòng thử lại sau." 
           });
         }
         
-        await updateDepositStatus(deposit, 'refund');
+        // Cập nhật trạng thái hoàn tiền thành công
+        await deposit.update({ 
+          status: 'refunded',
+          refund_status: 'refunded',
+          refund_reason: "Chủ trọ từ chối đặt cọc"
+        });
+        
         message = `Đặt cọc của bạn đã bị từ chối. Số tiền ${deposit.deposit_amount.toLocaleString()} VND đã được hoàn trả về tài khoản của bạn.`;
         notifyTenant = await createNotification(userRenting.id, notification.room_id, message);
       } else {
@@ -77,7 +92,7 @@ const getUserNotifications = async (req, res) => {
         success: true,
         message: action === 'accept' 
           ? "Chủ trọ đã xác nhận cho thuê. Đặt cọc chuyển sang trạng thái 'accept'."
-          : "Chủ trọ đã từ chối và hoàn tiền đặt cọc. Đặt cọc chuyển sang trạng thái 'refund'.",
+          : "Chủ trọ đã từ chối và hoàn tiền đặt cọc. Đặt cọc chuyển sang trạng thái 'refunded'.",
         deposit,
         notificationUpdated: notification,
         notifyTenant,

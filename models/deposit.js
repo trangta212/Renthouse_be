@@ -41,6 +41,31 @@ module.exports = (sequelize, DataTypes) => {
       },
       allowNull: true, // Cho phép null vì không phải lúc nào cũng có thông báo
     },
+    payment_method: {
+      type: DataTypes.STRING,
+      comment: 'momo | vnpay'
+    },
+    trans_id: {
+      type: DataTypes.STRING,
+      comment: 'Transaction ID từ MoMo hoặc VNPay'
+    },
+    order_id: {
+      type: DataTypes.STRING,
+      comment: 'Mã đơn hàng gửi đi'
+    },
+    refund_status: {
+      type: DataTypes.STRING,
+      defaultValue: 'not_refunded',
+      comment: 'not_refunded | refunded | refund_failed'
+    },
+    refund_reason: {
+      type: DataTypes.STRING,
+      comment: 'Lý do hoàn tiền'
+    },
+    partnerCode: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
   }, {
     sequelize,
     modelName: 'Deposit',

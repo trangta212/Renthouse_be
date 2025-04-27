@@ -16,6 +16,12 @@ const createDeposit = async (depositData) => {
       user_id    ,          // cần truyền user_id nếu cập nhật user
       address,
       cccd_images,
+      payment_method,
+      trans_id,
+      order_id,
+      payment_time,
+      refund_reason,
+      partnerCode
     } = depositData;
 
     console.log("📦 Data of deposit:", depositData);
@@ -75,6 +81,12 @@ const room = await db.Room.findByPk(room_id, { transaction: t });
           created_at: new Date(),
           updated_at: new Date(),
           depositDate: depositDateConverted, // nếu có trường này
+          payment_method: payment_method,
+          trans_id: trans_id,
+          order_id: order_id,
+          payment_time: payment_time,
+          refund_reason: refund_reason,
+          partnerCode: partnerCode,
         },
         { transaction: t }
       );
