@@ -125,6 +125,7 @@ const room = await db.Room.findByPk(room_id, { transaction: t });
   }
 };
 
+
 module.exports = {
   createDeposit
 };

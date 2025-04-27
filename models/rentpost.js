@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'post_id', // Khóa ngoại trong bảng Deposit
         as: 'deposit' // Alias để truy vấn khi tìm Deposit từ RentPost
       });
+      RentPost.hasOne(models.Contract, {
+        foreignKey: 'post_id', // Khóa ngoại trong bảng Contract
+      });
     }
   }
   RentPost.init({

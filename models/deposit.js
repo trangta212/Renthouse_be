@@ -23,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'notification_id',
         as: 'notification'
       });
+      Deposit.hasOne(models.Contract, {
+        foreignKey: 'deposit_id',
+      });
     }
   }
   Deposit.init({

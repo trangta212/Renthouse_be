@@ -47,6 +47,7 @@ const chatRoutes = require("./routes/chatRoutes");
 const roomSearchRoutes = require("./routes/roomSearchRoutes");
 const depositRoutes = require("./routes/depositRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
+const contractRoutes = require("./routes/contractRoutes");
 
 // Định nghĩa route
 app.use("/api/v1/auth", authRoutes);
@@ -59,6 +60,7 @@ app.use("/api/v1/chat", chatRoutes);
 app.use("/api/v1", roomSearchRoutes);
 app.use("/api/v1/deposit", depositRoutes);
 app.use("/api/v1/notification", notificationRoutes);
+app.use("/api/v1/contract", contractRoutes);
 
 // Kết nối database
 const connectDB = async () => {
