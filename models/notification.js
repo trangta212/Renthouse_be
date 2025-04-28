@@ -30,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     room_id: DataTypes.INTEGER,
     message: DataTypes.TEXT,
     is_read: DataTypes.BOOLEAN,
-    time: DataTypes.DATE
+    time: DataTypes.DATE,
+    type: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Notification',

@@ -30,6 +30,7 @@ const getDepositController = async (req, res) => {
           success: true,
           message: "Thông tin người dùng",
           data: depositdataControl,
+          type:"notification"
       });
   } catch (error) {
       console.error("❌ Lỗi khi lấy thông tin người dùng:", error.message);

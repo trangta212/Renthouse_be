@@ -26,7 +26,8 @@ const processContactAction = async (req, res) => {
     return res.status(200).json({
       success: true,
       message:"Hợp đồng thuê phòng của bạn đã được thiết lập. Vui lòng kiểm tra thông tin chi tiết trong file đính kèm mà chúng tôi đã gửi đến email của bạn.",
-      data: result.deposit
+      data: result.deposit,
+      type:"contract"
     });
   } catch (error) {
     console.error("❌ Error processing contact action:", error);

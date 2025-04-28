@@ -100,6 +100,7 @@ const room = await db.Room.findByPk(room_id, { transaction: t });
       const notification = await Notification.create({
         user_id: rentPost.user_id,  // Gửi thông báo cho chủ trọ của RentPost
         room_id: rentPost.room_id,
+        type:"deposit",
         message: message = `Phòng của bạn đã được đặt cọc trước ${deposit_amount.toLocaleString()} VND vào lúc ${deposit_day} từ ${userName.fullNameIndentify}. Bạn có đồng ý xác nhận việc đặt cọc này không?`,
         is_read: false,
         time: new Date(),
@@ -115,6 +116,7 @@ const room = await db.Room.findByPk(room_id, { transaction: t });
         deposit,
         user,
         notification,
+        type: "notification",
       };
     });
 

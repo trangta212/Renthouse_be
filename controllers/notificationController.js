@@ -5,7 +5,8 @@ const { getUserNotificationsQuery ,
   findDepositByNotificationId,
   updateDepositStatus,
   findUserById,
-  createNotification
+  createNotification,
+  getUserNotificationsWithType
 } = require("../queries/notificationQuery");
 const { processRefund } = require("./paymentController");
 
@@ -53,7 +54,17 @@ const getUserNotifications = async (req, res) => {
       if (action === 'accept') {
         await updateDepositStatus(deposit, 'accept');
         message = `Đặt cọc của bạn đã được chủ trọ chấp nhận. Vui lòng xác nhận và tiến hành thiết lập hợp đồng.`;
-        notifyTenant = await createNotification(userRenting.id, notification.room_id, message);
+        type ="contract"
+        notifyTenant 
+        // = await createNotification(userRenting.id, notification.room_id, message , type);
+        = await notification.update({
+          message: message,
+          type: type,
+          status: 'accepted', // Ví dụ, nếu bạn muốn cập nhật trạng thái của notification
+          room_id: notification.room_id, // Giữ nguyên room_id nếu cần
+          user_id: userRenting.id, // Cập nhật lại thông tin người thuê nếu cần
+          // Bạn có thể thêm hoặc chỉnh sửa thêm các trường khác tùy theo yêu cầu
+        });
       } else if (action === 'refund') {
         // Process refund
         const refundResult = await processRefund(deposit);
@@ -78,9 +89,17 @@ const getUserNotifications = async (req, res) => {
           refund_status: 'refunded',
           refund_reason: "Chủ trọ từ chối đặt cọc"
         });
-        
+        type = "cancel"
         message = `Đặt cọc của bạn đã bị từ chối. Số tiền ${deposit.deposit_amount.toLocaleString()} VND đã được hoàn trả về tài khoản của bạn.`;
-        notifyTenant = await createNotification(userRenting.id, notification.room_id, message);
+        notifyTenant
+        = await notification.update({
+          message: message,
+          type: type,
+          status: 'refunded', // Ví dụ, nếu bạn muốn cập nhật trạng thái của notification
+          room_id: notification.room_id, // Giữ nguyên room_id nếu cần
+          user_id: userRenting.id, // Cập nhật lại thông tin người thuê nếu cần
+          // Bạn có thể thêm hoặc chỉnh sửa thêm các trường khác tùy theo yêu cầu
+        });
       } else {
         return res.status(400).json({ 
           success: false, 
@@ -96,6 +115,7 @@ const getUserNotifications = async (req, res) => {
         deposit,
         notificationUpdated: notification,
         notifyTenant,
+        type:"notification"
       });
   
     } catch (error) {
@@ -103,5 +123,5 @@ const getUserNotifications = async (req, res) => {
       return res.status(500).json({ success: false, message: "Lỗi server." });
     }
   };
-
+  
   module.exports = { getUserNotifications , confirmRentalByOwner };
