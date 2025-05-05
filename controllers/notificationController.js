@@ -5,8 +5,6 @@ const { getUserNotificationsQuery ,
   findDepositByNotificationId,
   updateDepositStatus,
   findUserById,
-  createNotification,
-  getUserNotificationsWithType
 } = require("../queries/notificationQuery");
 const { processRefund } = require("./paymentController");
 
@@ -125,3 +123,4 @@ const getUserNotifications = async (req, res) => {
   };
   
   module.exports = { getUserNotifications , confirmRentalByOwner };
+  

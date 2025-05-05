@@ -5,7 +5,7 @@ const getUserProfile = async (userId) => {
     console.log('Querying for userId:', userId); // Debug log
     const userProfile = await db.User.findOne({
       where: { id: userId },
-      attributes: ["id", "email", "lastName", "phone_number"],
+      attributes: ["id", "email", "lastName", "phone_number", "profile_picture"],
     });
     console.log('Query result:', userProfile); // Debug log
     return userProfile;

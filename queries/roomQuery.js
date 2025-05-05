@@ -1,4 +1,6 @@
 const db = require("../models/index");
+const sequelize = require('sequelize');
+
  
 const getListRoom = async (roomData) => {
   try {
@@ -11,7 +13,7 @@ const getListRoom = async (roomData) => {
           model: db.RentPost,
           include: {
             model: db.User,
-            attributes: ["id", "lastName", "email"], // Chỉ lấy các thông tin cần thiết
+            attributes: ["id", "lastName", "email","profile_picture"], // Chỉ lấy các thông tin cần thiết
           },
         },
       ],
@@ -47,6 +49,35 @@ const getRoomById = async (id) => {
   }
 };
 
+const getNearbyRooms = async ({ latitude, longitude, radius }) => {
+  return await db.Room.findAll({
+    attributes: {
+      include: [
+        [
+          sequelize.literal(`
+            6371 * acos(
+              cos(radians(${latitude}))
+              * cos(radians(latitude))
+              * cos(radians(longitude) - radians(${longitude}))
+              + sin(radians(${latitude})) * sin(radians(latitude))
+            )
+          `),
+          'distance'
+        ]
+      ]
+    },
+    include: [
+      {
+        model: db.RentPost,
+        include: {
+          model: db.User,
+          attributes: ["id", "lastName", "email", "phone_number"], // Chỉ lấy các thông tin cần thiết
+        },
+      },
+    ],
+    having: sequelize.literal(`distance <= ${radius}`),
+    order: sequelize.literal('distance ASC')
+  });
+};
 
-
-module.exports = {getListRoom , getRoomById};
+module.exports = {getListRoom , getRoomById, getNearbyRooms};

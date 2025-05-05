@@ -51,6 +51,14 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.INTEGER,
     type: DataTypes.STRING,
     address : DataTypes.TEXT,
+    latitude: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
+    longitude: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
   }, {
     sequelize,
     modelName: 'Room',

@@ -217,70 +217,85 @@ const updatePost = async (id, postData) => {
     throw error;
   }
 };
+ const getPostByUser = async (userId) => {
+  try {
+    const posts = await db.RentPost.findAll({
+      where: { user_id: userId },
+      include: [
+        {
+          model: db.User,
+          attributes: ["id", "email", "lastName", "phone_number"],
+        },
+        {
+          model: db.Room,
+          attributes: [
+            "id",
+            "room_name",
+            "description",
+            "price_per_month",
+            "type",
+            "area",
+            "address",
+            "room_images",
+          ],
+        },
+      ],
+    });
+    const postSum = posts.length;
+    return { posts, postSum };
+  } catch (error) {
+    console.error("Error fetching posts by user:", error);
+    throw error;
+  }
+ }
 
-// // Query để lấy thông tin post với đầy đủ thông tin liên quan
-// const getPostDetails = async (postId) => {
-//   try {
-//     const post = await db.RentPost.findOne({
-//       where: { id: postId },
-//       include: [
-//         {
-//           model: db.User,
-//           attributes: ["id", "email", "lastName", "phone_number"],
-//         },
-//         {
-//           model: db.Room,
-//           attributes: [
-//             "id",
-//             "room_name",
-//             "description",
-//             "price_per_month",
-//             "type",
-//             "area",
-//             "address",
-//           ],
-//         },
-//       ],
-//     });
+ const UpdatePostInformationByUser = async (userId, postId, postData) => {
+  try {
+    // Tìm RentPost để xác thực quyền và lấy room_id
+    const rentPost = await db.RentPost.findOne({
+      where: {
+        id: postId,
+        user_id: userId,
+      }
+    });
 
-//     return post;
-//   } catch (error) {
-//     console.error("Error getting post details:", error);
-//     throw error;
-//   }
-// };
+    if (!rentPost) {
+      throw new Error('Người dùng không có quyền chỉnh sửa bài đăng này.');
+    }
 
-// // Query để lấy danh sách posts của một user
-// const getUserPosts = async (userId) => {
-//   try {
-//     const posts = await db.RentPost.findAll({
-//       where: { user_id: userId },
-//       include: [
-//         {
-//           model: db.Room,
-//           attributes: [
-//             "room_name",
-//             "description",
-//             "price_per_month",
-//             "type",
-//             "area",
-//             "address",
-//           ],
-//         },
-//       ],
-//       order: [["created_at", "DESC"]],
-//     });
+    const roomId = rentPost.room_id;
 
-//     return posts;
-//   } catch (error) {
-//     console.error("Error getting user posts:", error);
-//     throw error;
-//   }
-// };
+    // Tìm phòng
+    const room = await db.Room.findOne({
+      where: { id: roomId }
+    });
+
+    if (!room) {
+      throw new Error('Không tìm thấy phòng.');
+    }
+
+    // Cập nhật thông tin phòng
+    await room.update({
+      room_name: postData.room_name,
+      description: postData.description,
+      price_per_month: postData.price_per_month,
+      area: postData.area,
+      address: postData.address,
+      room_images: JSON.stringify(postData.room_images), // MySQL TEXT
+      type: postData.type,
+    });
+
+    return { success: true, message: 'Cập nhật thông tin phòng thành công.' };
+
+  } catch (error) {
+    console.error('Lỗi cập nhật phòng:', error);
+    return { success: false, message: error.message };
+  }
+};
 
 module.exports = {
   createPost,
   updatePost,
-  //   getPostDetails,
-  //   getUserPosts,
+  getPostByUser,
+  UpdatePostInformationByUser
 };

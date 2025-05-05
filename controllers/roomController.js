@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { getListRoom ,getRoomById } = require("../queries/roomQuery");
+const { getListRoom ,getRoomById ,getNearbyRooms} = require("../queries/roomQuery");
 
 
 const getListRoomController = async (req, res) => {
@@ -37,5 +37,25 @@ const getDetailRoomById = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
+
+  const findNearbyRooms = async (req, res) => {
+    const { latitude, longitude, radius  } = req.query;
   
-module.exports = { getListRoomController, getDetailRoomById };
+    if (!latitude || !longitude) {
+      return res.status(400).json({ message: 'Missing coordinates' });
+    }
+  
+    try {
+      const rooms = await getNearbyRooms({
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude),
+        radius: parseFloat(radius)
+      });
+      res.json(rooms);
+    } catch (error) {
+      console.error('Error finding nearby rooms:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };
+
+module.exports = { getListRoomController, getDetailRoomById ,findNearbyRooms};
