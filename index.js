@@ -5,6 +5,8 @@ const cors = require("cors");
 const sequelize = require("./config/dbConfig");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
+const path = require('path');
+const bodyParser = require("body-parser");
 // const importRooms = require('./crawl_data/importRoom');
 
 
@@ -22,6 +24,8 @@ const io = new Server(server, {
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: "10mb" })); // Tăng giới hạn JSON payload lên 10MB
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 app.use(morgan("combined"));
 app.use(
   cors({
@@ -29,6 +33,17 @@ app.use(
     credentials: true,
   })
 );
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
+
+// Serve static files from uploads directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Thêm socket.io vào request object (ĐẶT TRƯỚC CÁC ROUTES)
 app.use((req, res, next) => {
@@ -48,6 +63,7 @@ const roomSearchRoutes = require("./routes/roomSearchRoutes");
 const depositRoutes = require("./routes/depositRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const contractRoutes = require("./routes/contractRoutes");
+const uploadRoutes = require('./routes/uploadRoutes');
 
 // Định nghĩa route
 app.use("/api/v1/auth", authRoutes);
@@ -61,6 +77,7 @@ app.use("/api/v1", roomSearchRoutes);
 app.use("/api/v1/deposit", depositRoutes);
 app.use("/api/v1/notification", notificationRoutes);
 app.use("/api/v1/contract", contractRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // Kết nối database
 const connectDB = async () => {

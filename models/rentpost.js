@@ -31,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       defaultValue: "pending", // Giá trị mặc định cho bản ghi mới
     },
+    priority: {
+      type: DataTypes.STRING,  // Dạng chuỗi
+    }
   }, {
     sequelize,
     modelName: 'RentPost',

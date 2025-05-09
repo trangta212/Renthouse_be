@@ -8,10 +8,13 @@ const {
 
 } = require("../controllers/postController");
 const { authenticateJWT } = require('../middlewares/auth'); 
+const upload = require("../middlewares/uploadMiddleware");
+
+
 
 
 // Route để tạo post mới
-router.post("/create-post", createPostController);
+router.post("/create-post",authenticateJWT, upload.array("room_images", 5),createPostController);
 
 // Route để update post
 router.put("/update-post/:id", updatePostController);

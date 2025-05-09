@@ -23,7 +23,9 @@ module.exports = (sequelize, DataTypes) => {
       Room.hasMany(models.Notification, {
         foreignKey: 'room_id'
       });
-      
+      Room.belongsTo(models.Utilities, {
+        foreignKey: 'utilities_id',
+      });
     }
   }
   Room.init({

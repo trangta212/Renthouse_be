@@ -1,48 +1,76 @@
 const db = require("../models/index");
 
-const createPost = async (postData) => {
+
+const createPost = async (postData, userId) => {
   try {
     const {
-      email,
-      lastName,
+      fullNameIndentify,
+      identifyNumber,
+      date_of_birth,
       phone_number,
+      electricity_bill,
+      water_bill,
+      extensions,
+      full_furnishing,
       room_name,
       description,
       price_per_month,
       type,
       area,
       address,
-      status,
-      room_images = [],
+      user_address,
+      room_images,
+      start_date,
+      expire,
+      priority,
+      latitude,
+      longitude,
     } = postData;
-console.log("📦 Post postData:", postData)
+
+    console.log("📦 Post postData:", postData);
+
     const result = await db.sequelize.transaction(async (t) => {
-      let user = await db.User.findOne({ where: { email }, transaction: t });
+      // 1. Cập nhật/thêm thông tin người dùng
+      let user = await db.User.findOne({ where: { id: userId }, transaction: t });
 
       if (!user) {
-        // Nếu không tìm thấy user, tạo mới
         user = await db.User.create(
           {
-            email,
-            lastName,
-            phone_number,
+            fullNameIndentify:fullNameIndentify,
+            identifyNumber:identifyNumber,
+            date_of_birth:date_of_birth,
+            address: user_address,
+            phone_number:phone_number,
             password: "123456",
           },
           { transaction: t }
         );
       } else {
-        // Nếu đã có user, cập nhật thông tin
         await db.User.update(
           {
-            lastName,
-            phone_number,
+            fullNameIndentify:fullNameIndentify,
+            identifyNumber:identifyNumber,
+            date_of_birth:date_of_birth,
+            address: user_address,
+            phone_number:phone_number,
             updated_at: new Date(),
           },
-          { where: { id: user.id }, transaction: t }
+          { where: { id: userId }, transaction: t }
         );
       }
 
-      // 2. Tạo phòng mới
+      // 2. Tạo utilities
+      const utilities = await db.Utilities.create(
+        {
+          electricity_bill,
+          water_bill,
+          extensions,
+          full_furnishing,
+        },
+        { transaction: t }
+      );
+
+      // 3. Tạo room và gán utilities_id
       const room = await db.Room.create(
         {
           room_name,
@@ -51,17 +79,24 @@ console.log("📦 Post postData:", postData)
           type,
           area,
           address,
-          room_images
+          room_images,
+          latitude,
+          longitude,
+          utilities_id: utilities.id,
+
         },
         { transaction: t }
       );
 
-      // 3. Tạo bài đăng
+      // 4. Tạo bài đăng
       const post = await db.RentPost.create(
         {
-          user_id: user.id,
+          user_id: userId,
           room_id: room.id,
           status: "pending",
+          start_date: start_date,
+          expire: expire,
+          priority: priority,
           created_at: new Date(),
           updated_at: new Date(),
         },

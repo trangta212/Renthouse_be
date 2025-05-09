@@ -13,6 +13,23 @@ const getUserProfile = async (userId) => {
     throw error;
   }
 };
+
+const updateUserProfile = async (userId,userInformation) => {
+  try {
+    const userProfile = await db.User.findOne({
+      where: { id: userId },
+    });
+    if (!userProfile) {
+      throw new Error("User not found");
+    }
+    await userProfile.update(userInformation);
+    return userProfile;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   getUserProfile,
+  updateUserProfile
 };
