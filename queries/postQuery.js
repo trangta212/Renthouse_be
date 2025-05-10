@@ -1,4 +1,5 @@
 const db = require("../models/index");
+const { Op } = require("sequelize");
 
 
 const createPost = async (postData, userId) => {
@@ -277,14 +278,27 @@ const updatePost = async (id, postData) => {
       ],
     });
     const postSum = posts.length;
-    return { posts, postSum };
+
+    const today = new Date();
+
+    // Đếm số bài còn hạn (ngày hiện tại nằm giữa start_date và expire)
+    const activePosts = posts.filter((post) => {
+      const startDate = new Date(post.start_date);
+      const expireDate = new Date(post.expire);
+      return today >= startDate && today <= expireDate;
+    });
+
+    const activePostCount = activePosts.length;
+    const expiredPostCount = postSum - activePostCount;
+
+    return { posts, postSum, activePostCount, expiredPostCount };
   } catch (error) {
     console.error("Error fetching posts by user:", error);
     throw error;
   }
  }
 
- const UpdatePostInformationByUser = async (userId, postId, postData) => {
+const UpdatePostInformationByUser = async (userId, postId, postData) => {
   try {
     // Tìm RentPost để xác thực quyền và lấy room_id
     const rentPost = await db.RentPost.findOne({
@@ -298,6 +312,11 @@ const updatePost = async (id, postData) => {
       throw new Error('Người dùng không có quyền chỉnh sửa bài đăng này.');
     }
 
+    // Kiểm tra trạng thái của RentPost là 'pending'
+    if (rentPost.status !== 'pending') {
+      throw new Error('Chỉ các bài đăng có trạng thái "pending" mới được cập nhật.');
+    }
+
     const roomId = rentPost.room_id;
 
     // Tìm phòng
@@ -309,16 +328,41 @@ const updatePost = async (id, postData) => {
       throw new Error('Không tìm thấy phòng.');
     }
 
-    // Cập nhật thông tin phòng
-    await room.update({
-      room_name: postData.room_name,
-      description: postData.description,
-      price_per_month: postData.price_per_month,
-      area: postData.area,
-      address: postData.address,
-      room_images: JSON.stringify(postData.room_images), // MySQL TEXT
-      type: postData.type,
-    });
+    // Cập nhật thông tin phòng nếu có trường cần update
+    const roomUpdateData = {};
+    if (postData.room_name !== undefined) roomUpdateData.room_name = postData.room_name;
+    if (postData.description !== undefined) roomUpdateData.description = postData.description;
+    if (postData.price_per_month !== undefined) roomUpdateData.price_per_month = postData.price_per_month;
+    if (postData.area !== undefined) roomUpdateData.area = postData.area;
+    if (postData.address !== undefined) roomUpdateData.address = postData.address;
+    if (postData.type !== undefined) roomUpdateData.type = postData.type;
+    if (postData.room_images && postData.room_images.length > 0) roomUpdateData.room_images = postData.room_images;
+
+    await room.update(roomUpdateData);
+
+    // Kiểm tra có tồn tại thông tin tiện ích liên kết không
+    if (room.utilities_id) {
+      const utilities = await db.Utilities.findOne({
+        where: { id: room.utilities_id }
+      });
+
+      if (!utilities) {
+        throw new Error('Không tìm thấy thông tin tiện ích.');
+      }
+
+      // Cập nhật thông tin tiện ích nếu có trường cần update
+      const utilitiesUpdateData = {};
+      if (postData.electricity_bill !== undefined) utilitiesUpdateData.electricity_bill = postData.electricity_bill;
+      if (postData.water_bill !== undefined) utilitiesUpdateData.water_bill = postData.water_bill;
+      if (postData.extensions !== undefined) utilitiesUpdateData.extensions = postData.extensions;
+      if (postData.full_furnishing !== undefined) utilitiesUpdateData.full_furnishing = postData.full_furnishing;
+
+      await utilities.update(utilitiesUpdateData);
+    } else {
+      // Nếu không có tiện ích liên kết, có thể xử lý theo yêu cầu của bạn
+      console.log('Không có thông tin tiện ích liên kết với phòng.');
+      // Bạn có thể chọn tạo tiện ích mới nếu cần
+    }
 
     return { success: true, message: 'Cập nhật thông tin phòng thành công.' };
 

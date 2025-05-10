@@ -22,6 +22,6 @@ router.put("/update-post/:id", updatePostController);
 router.get("/get-post-by-user", authenticateJWT,getPostByUserController);
 
 // Route để update thông tin bài đăng
-router.put("/update-post-by-user/:id", authenticateJWT, updatePostInformationByUserController);
+router.put("/update-post-by-user/:id", authenticateJWT,upload.array("room_images", 5), updatePostInformationByUserController);
 
 module.exports = router;

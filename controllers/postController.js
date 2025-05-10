@@ -319,7 +319,32 @@ const updatePostInformationByUserController = async (req, res) => {
     const userId = req.user.id;
     const { id } = req.params; // id là postId
     const postId = id;
-    const postData = req.body;
+    const {
+      room_name,
+      description,
+      price_per_month,
+      type,
+      area,
+      address,
+      electricity_bill,
+      water_bill,
+      extensions,
+      full_furnishing,
+    } = req.body;
+    
+    const postData = {
+      room_name,
+      description,
+      price_per_month,
+      type,
+      area,
+      address,
+      electricity_bill,
+      water_bill,
+      extensions,
+      full_furnishing,
+      room_images: req.files ? req.files.map((file) => file.filename) : [],
+    };
 
     if (!userId || !postId) {
       return res.status(400).json({ error: "ID người dùng hoặc ID bài đăng không hợp lệ" });

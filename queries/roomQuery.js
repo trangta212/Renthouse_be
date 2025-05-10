@@ -1,42 +1,75 @@
 const db = require("../models/index");
 const sequelize = require('sequelize');
-
+const { Op } = require("sequelize");
+const moment = require("moment");
  
-const getListRoom = async (roomData) => {
+// const getListRoom = async () => {
+//   try {
+//     const existroom = await db.Room.findAll({
+//       where: {
+//          status: 'available',
+//       },
+//       include: [
+//         {
+//           model: db.RentPost,
+//           include: {
+//             model: db.User,
+//             attributes: ["id", "lastName", "email","profile_picture"], // Chỉ lấy các thông tin cần thiết
+//           },
+//         },
+//       ],
+//     });
+//     return existroom; 
+//   } catch (error) {
+//     throw error;
+//   }
+// }
+const getListRoom = async () => {
   try {
+    const today = moment().startOf("day").toDate();
+
     const existroom = await db.Room.findAll({
-      where: {
-         status: 'available',
-      },
       include: [
         {
           model: db.RentPost,
+          where: {
+            status: "pending",
+            start_date: { [Op.lte]: today },
+            expire: { [Op.gte]: today },
+          },
+          required: true,
           include: {
             model: db.User,
-            attributes: ["id", "lastName", "email","profile_picture"], // Chỉ lấy các thông tin cần thiết
+            attributes: ["id", "lastName", "email", "profile_picture"],
           },
         },
       ],
+      order: [[db.RentPost, "priority", "ASC"]],
     });
-    return existroom; 
+
+    return existroom;
   } catch (error) {
     throw error;
   }
-}
+};
  
 const getRoomById = async (id) => {
   try {
     const room = await db.Room.findOne({
       where: { id: id },
-      include: {
+      include: [
+      {
         model: db.RentPost,
         include: {
           model: db.User,
           attributes: ["id", "lastName", "email","phone_number"], // Chỉ lấy các thông tin cần thiết
         },
       },
+      {
+        model: db.Utilities, // Lấy thông tin tiện ích
+      }
+    ]
     });
-
     if (!room) {
       console.log("Room not found");
       return null;

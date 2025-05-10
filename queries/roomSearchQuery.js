@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
-const { Room } = require('../models');
+const { Room, RentPost, User } = require('../models');
+const moment = require('moment');
 
 // Hàm chuyển slug thành chuỗi chuẩn để so sánh (vd: ho-chi-minh -> Hồ Chí Minh)
 const normalizeLocation = (locationSlug) => {
@@ -11,6 +12,7 @@ const normalizeLocation = (locationSlug) => {
 
 const getFilteredRooms = async ({ location, type, priceRange, area, q }) => {
   const where = {};
+  const today = moment().startOf('day').toDate();
 
   // Xử lý location
   if (location !== 'all') {
@@ -40,23 +42,34 @@ const getFilteredRooms = async ({ location, type, priceRange, area, q }) => {
     where[Op.or] = [
       { room_name: { [Op.like]: `%${q}%` } },
       { description: { [Op.like]: `%${q}%` } },
-      {address: { [Op.like]: `%${q}%` } },
-        { type: { [Op.like]: `%${q}%` } },
+      { address: { [Op.like]: `%${q}%` } },
+      { type: { [Op.like]: `%${q}%` } },
     ];
   }
 
-  // Trả về kết quả phòng lọc theo điều kiện
+  // Trả về kết quả phòng lọc theo điều kiện + lọc theo RentPost
   return await Room.findAll({
     where,
     include: [
       {
-        association: 'RentPost',
-        include: ['User'],
+        model: RentPost,
+        required: true,
+        where: {
+          status: 'pending',
+          start_date: { [Op.lte]: today },
+          expire: { [Op.gte]: today },
+        },
+        include: [
+          {
+            model: User,
+            attributes: ['id', 'lastName', 'email', 'profile_picture', 'phone_number'],
+          },
+        ],
       },
     ],
+    order: [[RentPost, 'priority', 'ASC']],
   });
 };
-
 module.exports = {
   getFilteredRooms,
 };
