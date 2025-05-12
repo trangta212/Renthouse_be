@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer');
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const path = require('path');
+const db = require('../models');
 
 // Khởi tạo transporter từ .env
 const transporter = nodemailer.createTransport({
@@ -134,8 +135,14 @@ const generateContractPDF = async (contractData) => {
       .text(`Hình thức thanh toán: ${contractData.payment_method || 'Chuyển khoản'}`)
       .moveDown(0.5);
     doc
-      .text(`Tiền điện: ${contractData.electricity_price ? contractData.electricity_price.toLocaleString('vi-VN') : '...'} đ/kWh, thanh toán vào cuối tháng`)
-      .text(`Tiền nước: ${contractData.water_price ? contractData.water_price.toLocaleString('vi-VN') : '...'} đ/người, thanh toán vào đầu tháng`)
+    .text(`Tiền điện: ${contractData.electricity_bill != null 
+      ? `${contractData.electricity_bill.toLocaleString('vi-VN')} đ/kWh` 
+      : 'không có'}, thanh toán vào cuối tháng`)
+    
+    .text(`Tiền nước: ${contractData.water_bill != null 
+      ? `${contractData.water_bill.toLocaleString('vi-VN')} đ/người` 
+      : 'không có'}, thanh toán vào đầu tháng`)
+    
       .moveDown(0.5);
     doc
       .text(`Tiền đặt cọc: ${contractData.deposit_amount ? contractData.deposit_amount.toLocaleString('vi-VN') : '...'} đ`)
@@ -226,24 +233,30 @@ const handleContactAction = async (notificationId, action) => {
     }
 
     let newStatus;
+    let messageNotification;
     if (action === 'confirm') {
       newStatus = 'confirmed';
+      messageNotification = 'Hợp đồng đã được thiết lập';
     } else if (action === 'cancel') {
       newStatus = 'cancelled';
+      messageNotification = 'Phòng đã được hủy';
     } else {
       throw new Error("Hành động không hợp lệ");
     }
 
     await deposit.update({ status: newStatus });
-
+  
     if (action === 'confirm') {
       const rentPost = await RentPost.findOne({
         where: { id: deposit.post_id },
       });
-
+   
       if (!rentPost) {
         throw new Error("Không tìm thấy bài đăng thuê liên quan");
       }
+      if(rentPost) {
+          await rentPost.update({ status: 'cancel' });
+        }
       const today = new Date();
       
       const tenantInfo = await User.findOne({
@@ -262,7 +275,15 @@ const handleContactAction = async (notificationId, action) => {
       if (!roomInfo) {
         throw new Error("Không tìm thấy thông tin phòng.");
       }
-
+      const utilitiesInfo = await db.Utilities.findOne({
+        where: { id: roomInfo.utilities_id },
+      }) || {
+        electricity_bill: 4000,
+        water_price: 20000,
+        extensions: 0,
+        full_furnising: 0,
+      };
+      
       const contractInformation = {
         start_date: rentPost.start_date || new Date(),
         end_date: rentPost.expire_date || new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
@@ -270,8 +291,10 @@ const handleContactAction = async (notificationId, action) => {
         rental_price: roomInfo.price_per_month || 0,
         deposit_amount: deposit.deposit_amount || 0,
         payment_method: deposit.payment_method || 'Chuyển khoản',
-        electricity_price: roomInfo.electricity_price || 4000,
-        water_price: roomInfo.water_price || 20000,
+        electricity_bill: utilitiesInfo.electricity_bill || 4000,
+        water_bill: utilitiesInfo.water_price || 20000,
+        extensions: utilitiesInfo.extensions || 0,
+        full_furnising: utilitiesInfo.full_furnising || 0,
         landlord_name: landlordInfo.fullNameIndentify || 'Không xác định',
         landlord_birthday: formatDate(landlordInfo.date_of_birth) || 'Không xác định',
         landlord_address: landlordInfo.address || 'Không xác định',
@@ -311,7 +334,18 @@ const handleContactAction = async (notificationId, action) => {
       const landlord = await User.findOne({
         where: { id: rentPost.user_id },
       });
-
+      const notification = await Notification.findOne({
+        where: { id: notificationId},
+      });
+      if (!notification) {
+        throw new Error("Không tìm thấy thông báo liên quan");
+      }
+    
+       await notification.update({
+        message: action === 'confirm' ? "Người thuê đã đồng ý xác nhận hợp đồng thuê phòng. Vui lòng kiểm tra email để xem chi tiết hợp đồng. Tiền đặt cọc sẽ được chuyển đến bạn." : "Người thuê đã hủy đặt cọc. Tiền đặt cọc sẽ được hoàn trả cho người thuê và bài đăng của bạn sẽ được hiển thị trở lại.",
+        user_id: landlord.id, // Cập nhật lại thông tin người thuê nếu cần
+      });
+  
       if (!renter || !landlord) {
         throw new Error("Không tìm thấy thông tin người thuê hoặc chủ trọ");
       }
@@ -321,13 +355,20 @@ const handleContactAction = async (notificationId, action) => {
       await sendContractEmail(emailList, pdfPath);
 
       console.log("✅ Đã gửi hợp đồng tới email người thuê và chủ trọ.");
+      
     }
 
     if (action === 'cancel') {
-      const refundResult = await processRefund(deposit);
-      if (!refundResult.success) {
-        throw new Error(`Lỗi khi hoàn tiền: ${refundResult.message}`);
+      const rentPost = await RentPost.findOne({
+        where: { id: deposit.post_id },
+      });
+
+      if (!rentPost) {
+        throw new Error("Không tìm thấy bài đăng thuê liên quan");
       }
+      if(rentPost) {
+          await rentPost.update({ status: 'pending' });
+        }
     }
 
     return {

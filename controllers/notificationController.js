@@ -7,6 +7,7 @@ const { getUserNotificationsQuery ,
   findUserById,
 } = require("../queries/notificationQuery");
 const { processRefund } = require("./paymentController");
+const db = require("../models");
 
 const getUserNotifications = async (req, res) => {
     try {
@@ -24,6 +25,7 @@ const getUserNotifications = async (req, res) => {
       return res.status(500).json({ success: false, error: "Lỗi server" });
     }
   };
+
   const confirmRentalByOwner = async (req, res) => {
     try {
       const notificationId = req.params.notificationId;
@@ -48,9 +50,13 @@ const getUserNotifications = async (req, res) => {
 
       let message = '';
       let notifyTenant;
-  
+      let rentPost;
       if (action === 'accept') {
         await updateDepositStatus(deposit, 'accept');
+        rentPost = await db.RentPost.findOne({ where: { room_id: notification.room_id } });
+        if (rentPost) {
+          await rentPost.update({ status: 'deposited' });
+        }
         message = `Đặt cọc của bạn đã được chủ trọ chấp nhận. Vui lòng xác nhận và tiến hành thiết lập hợp đồng.`;
         type ="contract"
         notifyTenant 
@@ -63,6 +69,7 @@ const getUserNotifications = async (req, res) => {
           user_id: userRenting.id, // Cập nhật lại thông tin người thuê nếu cần
           // Bạn có thể thêm hoặc chỉnh sửa thêm các trường khác tùy theo yêu cầu
         });
+
       } else if (action === 'refund') {
         // Process refund
         const refundResult = await processRefund(deposit);
