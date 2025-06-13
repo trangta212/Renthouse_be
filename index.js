@@ -7,7 +7,9 @@ const { createServer } = require("http");
 const { Server } = require("socket.io");
 const path = require('path');
 const bodyParser = require("body-parser");
-// const importRooms = require('./crawl_data/importRoom');
+const startBrowser = require('./crawl_data/browser');
+const scrapeController = require('./crawl_data/scrapeController');
+// const importRooms = require('./crawl_datacrawl_data/importRoom');
 
 
 const app = express();

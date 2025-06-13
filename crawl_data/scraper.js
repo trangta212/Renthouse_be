@@ -67,26 +67,36 @@ const scrapeCategory = (browser, url) =>
                         //   (images) => images.map(img => img.src) // Lấy danh sách src của tất cả ảnh trong button
                         // );
                         
-                        const room_images = await pageDetails.$$eval('#carousel_Photos .carousel-indicators button', (els) => {
-                            return els.map(el => {
-                                const imgElement = el.querySelector('img');
-                                return imgElement ? imgElement.getAttribute('data-src') : null // Lấy data-src thay vì src
-                            });
-                        });
+                        const room_images = await pageDetails.$$eval(
+                            '#carousel_Photos .carousel-inner .carousel-item',
+                            (els) => {
+                              return els
+                                .map((el) => {
+                                  const imgElement = el.querySelector('img');
+                                  return imgElement ? imgElement.getAttribute('src') : null;
+                                })
+                                .filter(Boolean); // Loại bỏ null
+                            }
+                          );
+                          
                       detailData.room_images = room_images;
                       //  header cua detail
                       const headerDetail = await pageDetails.$$eval('div.row.mt-3 > div.col-md-9.col-lg-8 > div.bg-white.shadow-sm.rounded.p-4.mb-3 > header', (els) => {
                         return els.map(el => {
                             return {
                                 room_name: el.querySelector('h1')?.innerText || '', // Sử dụng optional chaining
-                                address: el.querySelector('address')?.innerText || '', // Sửa lỗi cú pháp
+                                address: el.querySelector('.mt-2 table tbody tr:nth-child(3) td:nth-child(2)').innerText || '',
+                                start_date : el.querySelector('.mt-2 table tbody tr:nth-child(5) td:nth-child(2) time')?.innerText || '',
+                                expire : el.querySelector('.mt-2 table tbody tr:nth-child(6) td:nth-child(2) time')?.innerText || '',
                                 rating: el.querySelector('div.badge.d-inline-flex.align-items-center.fs-11.fw-normal.text-uppercase.mb-1 > div')?.className.match(/star-(\d+)/)?.[1] || '',
                                 price_per_month: el.querySelector('div.d-flex.justify-content-between > div.d-flex > span')?.innerText || '', // Sử dụng optional chaining
                                 area: el.querySelectorAll('div.d-flex.justify-content-between > div.d-flex > span')[2]?.innerText || ''
 
                             };
                         });
-                    });
+                    }
+                    
+                );
                     const firstDetail = headerDetail[0] || {};
 
                     // Gán từng giá trị vào detailData
@@ -95,6 +105,13 @@ const scrapeCategory = (browser, url) =>
                     detailData.rating = firstDetail.rating;
                     detailData.price_per_month = firstDetail.price_per_month;
                     detailData.area = firstDetail.area;
+                    detailData.start_date = firstDetail.start_date;
+                    detailData.expire = firstDetail.expire;
+
+                    const randomElectricityBill = (Math.random() * (5000 - 3000) + 3000).toFixed(0);
+                    detailData.electricity_bill = randomElectricityBill
+                    const randomWaterBill = (Math.random() * (35000 - 20000) + 20000).toFixed(0);
+                    detailData.water_bill= randomWaterBill
                     // Thong tin mo ta
                     const description = await pageDetails.$$eval(
                         'div.row.mt-3 > div.col-md-9.col-lg-8 > div.bg-white.shadow-sm.rounded.p-4.mb-3 > div.border-bottom.pb-3.mb-4 >p',
@@ -105,7 +122,47 @@ const scrapeCategory = (browser, url) =>
                     detailData.description = description;
 
                     
+                   // Thông tin về nội thất
+                   const full_furnishing  = await pageDetails.$$eval(
+                    'div.row.mt-3 > div.col-md-9.col-lg-8 > div.bg-white.shadow-sm.rounded.p-4.mb-3 > div.border-bottom.pb-3.mb-4:nth-of-type(2) > div.row .col-3:first-of-type .text-body',
+                    elements => {
+                        return elements.length > 0 
+                            ? elements[0].innerText.trim() // chỉ lấy innerText của phần tử đầu tiên
+                            : "Không đầy đủ nội thất"; // trả về null nếu không tìm thấy phần tử
+                    }
+                );
+                
 
+                detailData.full_furnishing = full_furnishing;        
+                // Thông tin về tiện ích
+                const extensions = await pageDetails.$$eval(
+                    'div.row.mt-3 > div.col-md-9.col-lg-8 > div.bg-white.shadow-sm.rounded.p-4.mb-3 > div.border-bottom.pb-3.mb-4:nth-of-type(2) > div.row .col-3',
+                    elements => {
+                      const results = [];
+                  
+                      // Bỏ qua phần tử đầu tiên
+                      const filteredElements = Array.from(elements).slice(1);
+                  
+                      for (const el of filteredElements) {
+                        const icon = el.querySelector('.text-body i');
+                  
+                        if (icon) {
+                          const classList = icon.className;
+                  
+                          if (classList.includes('green')) {
+                            results.push(el.innerText.trim());
+                          } else if (classList.includes('light')) {
+                            continue; // Bỏ qua
+                          }
+                        }
+                      }
+                  
+                        return results;
+                    }
+                  );
+                  
+                  detailData.extensions = extensions;
+                  
                     // Thông tin liên hệ
                     const contactData = await pageDetails.$$eval(
                         'div.row.mt-3 > div.col-md-9.col-lg-8 > div.bg-white.shadow-sm.rounded.p-4.mb-3 > div.mb-4',
@@ -120,7 +177,7 @@ const scrapeCategory = (browser, url) =>
                         }
                     );
                     const firstContact = contactData[0] || {};
-
+                    detailData.type = "chungcu";
                     detailData.lastName = firstContact.nameAcc;
                     detailData.phone_number = firstContact.phoneAcc;
                     detailData.profile_picture = firstContact.imageAcc;
@@ -129,12 +186,6 @@ const scrapeCategory = (browser, url) =>
                     // detailData.contactData = contactData;
                    // thông tin về thời gian đăng bài 
                    
-                    const createdAt  = await pageDetails.$$eval(
-                        'div.row.mt-3 > div.col-md-9.col-lg-8 > div.bg-white.shadow-sm.rounded.p-4.mb-3 > div.border-bottom.pb-4.mb-4 >div > div.col-6 > div  > span.ms-2',
-                        (els) => 
-                            els.map(el=>el.innerText)
-                    )
-                    detailData.createdAt = createdAt;
 
                         await pageDetails.close(); // Đóng tab
                         console.log('Đã xong');

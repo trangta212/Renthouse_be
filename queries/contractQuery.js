@@ -6,6 +6,7 @@ const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const path = require('path');
 const db = require('../models');
+const { uploadToCloudinary } = require('../utils/cloudinary');
 
 // Khởi tạo transporter từ .env
 const transporter = nodemailer.createTransport({
@@ -26,8 +27,9 @@ const formatDate = (date) => {
   };
 
 const generateContractPDF = async (contractData) => {
-    // Định nghĩa đường dẫn lưu file PDF
-    const pdfPath = path.join(__dirname, `../contracts/contract_${contractData.deposit_id}.pdf`);
+    // Tạo tên file duy nhất
+    const timestamp = Date.now();
+    const pdfPath = path.join(__dirname, `../contracts/contract_${timestamp}.pdf`);
     
     // Đảm bảo thư mục contracts tồn tại
     const contractDir = path.dirname(pdfPath);
@@ -129,7 +131,7 @@ const generateContractPDF = async (contractData) => {
     doc
        .text(`Giá thuê: ${
         contractData.rental_price 
-          ? (parseFloat(String(contractData.rental_price).replace(',', '.')) * 1000000).toLocaleString('vi-VN', { maximumFractionDigits: 0 }) 
+          ? (parseFloat(String(contractData.rental_price).replace(',', '.')) ).toLocaleString('vi-VN', { maximumFractionDigits: 0 }) 
           : '...'
       } đ/tháng`)
       .text(`Hình thức thanh toán: ${contractData.payment_method || 'Chuyển khoản'}`)
@@ -200,25 +202,44 @@ const generateContractPDF = async (contractData) => {
 
     // Kết thúc tài liệu
     doc.end();
-  
-    return pdfPath;
-  };
-// Hàm gửi mail đính kèm file
-const sendContractEmail = async (emailList, pdfPath) => {
-  const mailOptions = {
-    from: process.env.MAIL_FROM,
-    to: emailList,
-    subject: 'Hợp đồng thuê phòng',
-    text: 'Xin chào, đây là HomeNest. Chúng tôi đã gửi đến bạn file hợp đồng thuê phòng. Vui lòng kiểm tra thông tin chi tiết trong file đính kèm và xác nhận giúp chúng tôi. Xin cảm ơn bạn đã tin tưởng lựa chọn HomeNest!',
-    attachments: [
-      {
-        filename: path.basename(pdfPath),
-        path: pdfPath
-      }
-    ]
-  };
 
-  await transporter.sendMail(mailOptions);
+    // Đợi file được ghi xong
+    await new Promise((resolve, reject) => {
+      doc.on('end', resolve);
+      doc.on('error', reject);
+    });
+
+    // Upload file lên Cloudinary
+    const uploadResult = await uploadToCloudinary(pdfPath);
+    if (!uploadResult.success) {
+      throw new Error(`Lỗi khi upload file lên Cloudinary: ${uploadResult.message}`);
+    }
+  
+    return uploadResult.url;
+};
+// Hàm gửi mail đính kèm file
+const sendContractEmail = async (emailList, cloudinaryUrl) => {
+  try {
+    const mailOptions = {
+      from: process.env.MAIL_FROM,
+      to: emailList,
+      subject: 'Hợp đồng thuê phòng',
+      text: 'Xin chào, đây là HomeNest. Chúng tôi đã gửi đến bạn file hợp đồng thuê phòng. Vui lòng kiểm tra thông tin chi tiết trong file đính kèm và xác nhận giúp chúng tôi. Xin cảm ơn bạn đã tin tưởng lựa chọn HomeNest!',
+      attachments: [
+        {
+          filename: 'hop_dong_thue_phong.pdf',
+          path: cloudinaryUrl
+        }
+      ]
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully:', info.messageId);
+    return true;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
+  }
 };
 
 // Hàm xử lý confirm/cancel
@@ -226,6 +247,22 @@ const handleContactAction = async (notificationId, action) => {
   try {
     const deposit = await Deposit.findOne({
       where: { notification_id: notificationId },
+      attributes: [
+        'id', 
+        'user_id', 
+        'post_id', 
+        'deposit_amount', 
+        'deposit_day', 
+        'status', 
+        'created_at', 
+        'updated_at', 
+        'notification_id', 
+        'payment_method', 
+        'trans_id', 
+        'refund_status', 
+        'refund_reason', 
+        'partnerCode'
+      ]
     });
 
     if (!deposit) {
@@ -308,23 +345,19 @@ const handleContactAction = async (notificationId, action) => {
         renter_id_number: tenantInfo.identifyNumber || 'Không xác định',
       };
 
-
-
       const contract = await Contract.create({
         deposit_id: deposit.id,
         post_id: deposit.post_id,
-        // start_date: new Date(rentPost.start_date),
-        // end_date: new Date(rentPost.expire_date),
         start_date: today,
         end_date: today,
         contract_file: '',
         created_at: new Date(),
       });
        
-      const pdfPath = await generateContractPDF(contractInformation);
+      const pdfUrl = await generateContractPDF(contractInformation);
 
       await contract.update({
-        contract_file: pdfPath,
+        contract_file: pdfUrl,
       });
 
       const renter = await User.findOne({
@@ -343,7 +376,7 @@ const handleContactAction = async (notificationId, action) => {
     
        await notification.update({
         message: action === 'confirm' ? "Người thuê đã đồng ý xác nhận hợp đồng thuê phòng. Vui lòng kiểm tra email để xem chi tiết hợp đồng. Tiền đặt cọc sẽ được chuyển đến bạn." : "Người thuê đã hủy đặt cọc. Tiền đặt cọc sẽ được hoàn trả cho người thuê và bài đăng của bạn sẽ được hiển thị trở lại.",
-        user_id: landlord.id, // Cập nhật lại thông tin người thuê nếu cần
+        user_id: landlord.id,
       });
   
       if (!renter || !landlord) {
@@ -352,7 +385,7 @@ const handleContactAction = async (notificationId, action) => {
 
       const emailList = [renter.email, landlord.email];
 
-      await sendContractEmail(emailList, pdfPath);
+      await sendContractEmail(emailList, pdfUrl);
 
       console.log("✅ Đã gửi hợp đồng tới email người thuê và chủ trọ.");
       
@@ -382,6 +415,96 @@ const handleContactAction = async (notificationId, action) => {
   }
 };
 
+const getContractList = async (userId) => {
+  try {
+    // Tìm tất cả hợp đồng liên quan đến user (cả người thuê và chủ trọ)
+    const contracts = await Contract.findAll({
+      include: [
+        {
+          model: Deposit,
+          as: 'deposit',
+          required: true,
+          attributes: ['id', 'user_id', 'post_id', 'status', 'created_at'],
+          include: [
+            {
+              model: RentPost,
+              as: 'rentPost',
+              required: true,
+              include: [
+                {
+                  model: User,
+                  attributes: ['id', 'fullNameIndentify', 'email', 'phone_number']
+                },
+                {
+                  model: Room,
+                  attributes: ['id', 'room_name', 'address', 'price_per_month']
+                }
+              ]
+            },
+            {
+              model: User,
+              as: 'user',
+              attributes: ['id', 'fullNameIndentify', 'email', 'phone_number']
+            }
+          ]
+        }
+      ]
+    });
+
+    // Lọc các hợp đồng liên quan đến user
+    const userContracts = contracts.filter(contract => {
+      const isRenter = contract.deposit?.user_id === userId;
+      const isLandlord = contract.deposit?.rentPost?.user_id === userId;
+      return isRenter || isLandlord;
+    });
+
+    // Format dữ liệu trả về
+    const formattedContracts = userContracts.map(contract => {
+      const isRenter = contract.deposit?.user_id === userId;
+      const room = contract.deposit?.rentPost?.Room;
+      const landlord = contract.deposit?.rentPost?.User;
+      const renter = contract.deposit?.user;
+
+      return {
+        contract_id: contract.id,
+        contract_file: contract.contract_file,
+        start_date: contract.start_date,
+        end_date: contract.end_date,
+        created_at: contract.created_at,
+        role: isRenter ? 'renter' : 'landlord',
+        room_info: {
+          room_name: room?.room_name || 'Không xác định',
+          address: room?.address || 'Không xác định',
+          price_per_month: room?.price_per_month || 0
+        },
+        other_party: {
+          name: isRenter 
+            ? landlord?.fullNameIndentify || 'Không xác định'
+            : renter?.fullNameIndentify || 'Không xác định',
+          email: isRenter 
+            ? landlord?.email || 'Không xác định'
+            : renter?.email || 'Không xác định',
+          phone: isRenter 
+            ? landlord?.phone_number || 'Không xác định'
+            : renter?.phone_number || 'Không xác định'
+        }
+      };
+    });
+
+    return {
+      success: true,
+      data: formattedContracts
+    };
+  } catch (error) {
+    console.error("Error getting contract list:", error);
+    return {
+      success: false,
+      message: error.message
+    };
+  }
+};
+
 module.exports = {
-  handleContactAction
+  handleContactAction,
+  getContractList
 };

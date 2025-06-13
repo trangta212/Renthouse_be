@@ -24,9 +24,31 @@ const markNotificationAsRead = async (notification) => {
 };
 
 const findDepositByNotificationId = async (notificationId) => {
-  return await Deposit.findOne({
-    where: { notification_id: notificationId }
-  });
+  try {
+    const deposit = await Deposit.findOne({
+      where: { notification_id: notificationId },
+      attributes: [
+        'id', 
+        'user_id', 
+        'post_id', 
+        'deposit_amount', 
+        'deposit_day', 
+        'status', 
+        'created_at', 
+        'updated_at', 
+        'notification_id', 
+        'payment_method', 
+        'trans_id', 
+        'refund_status', 
+        'refund_reason', 
+        'partnerCode'
+      ]
+    });
+    return deposit;
+  } catch (error) {
+    console.error('Error finding deposit:', error);
+    throw error;
+  }
 };
 
 const updateDepositStatus = async (deposit, status) => {

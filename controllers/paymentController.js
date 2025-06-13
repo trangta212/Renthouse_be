@@ -68,6 +68,7 @@ const paymentReturn = (req, res) => {
 const processRefund = async (deposit) => {
   try {
     const { payment_method, trans_id, order_id, partnerCode, deposit_amount } = deposit;
+    const new_order_id = order_id || `refund_${Date.now()}`;
 
     console.log("Dữ liệu deposit gửi vào processRefund:", {
       payment_method,
@@ -80,7 +81,7 @@ const processRefund = async (deposit) => {
     if (payment_method === "momo") {
       const refundResponse = await momoRefund({
         trans_id, // 3300750913
-        order_id, // MOMO1745571997570
+        order_id: new_order_id, // ✅ ID hoàn tiền mới
         partnerCode, // MOMO
         deposit_amount, // 500000
       });

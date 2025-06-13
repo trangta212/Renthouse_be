@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       comment: 'Transaction ID từ MoMo hoặc VNPay'
     },
-    order_id: {
+    orded: {
       type: DataTypes.STRING,
       comment: 'Mã đơn hàng gửi đi'
     },

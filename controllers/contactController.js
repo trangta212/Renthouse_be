@@ -1,4 +1,4 @@
-const { handleContactAction } = require('../queries/contractQuery');
+const { handleContactAction,getContractList } = require('../queries/contractQuery');
 
 const processContactAction = async (req, res) => {
   try {
@@ -45,6 +45,26 @@ const processContactAction = async (req, res) => {
   }
 };
 
+const getContractListController = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const result = await getContractList(userId);
+    
+    if (result.success) {
+      res.status(200).json(result);
+    } else {
+      res.status(400).json(result);
+    }
+  } catch (error) {
+    console.error("Error in getContractListController:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
 module.exports = {
-  processContactAction
+  processContactAction,
+  getContractListController
 }; 

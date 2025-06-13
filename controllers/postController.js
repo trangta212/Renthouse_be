@@ -1,7 +1,8 @@
 require("dotenv").config();
-const { createPost, updatePost,getPostByUser,UpdatePostInformationByUser} = require("../queries/postQuery");
+const { createPost, updatePost,getPostByUser,UpdatePostInformationByUser,getMonthlyPostCount,deletePost} = require("../queries/postQuery");
 const moment = require("moment");
 const axios = require("axios");
+
 
 // const createPostController = async (req, res) => {
 //   try {
@@ -365,12 +366,60 @@ const updatePostInformationByUserController = async (req, res) => {
     });
   }
 };
+const getMonthlyPostCountController = async (req, res) => {
+  try {
+    const userId = req.user.id; // Assuming you're using authentication middleware
+    const result = await getMonthlyPostCount(userId);
+    
+    // Format the data for the frontend
+    const formattedData = Object.entries(result.monthlyPostCount).map(([monthKey, count]) => {
+      const [year, month] = monthKey.split('-');
+      return {
+        month: `${month}/${year}`,
+        count: count
+      };
+    });
 
+    res.status(200).json({
+      success: true,
+      data: formattedData
+    });
+  } catch (error) {
+    console.error("Error in getMonthlyPostCountController:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error fetching monthly post count",
+      error: error.message
+    });
+  }
+};
+
+const deletePostController = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { roomId } = req.params;
+    
+    const result = await deletePost(userId, roomId);
+    
+    if (result.success) {
+      res.status(200).json(result);
+    } else {
+      res.status(400).json(result);
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
 
 module.exports = {
   createPostController,
   updatePostController,
   getPostByUserController,
-  updatePostInformationByUserController
+  updatePostInformationByUserController,
+  getMonthlyPostCountController,
+  deletePostController
 };
 

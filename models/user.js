@@ -36,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'user_id',
         as: 'deposit'
       });
+      User.hasMany(models.LlmQuery, {
+        foreignKey: 'user_id',
+      });
     }
   }
   User.init({

@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { getListRoom ,getRoomById ,getNearbyRooms} = require("../queries/roomQuery");
+const { getListRoom ,getRoomById ,getNearbyRooms,roomRelate } = require("../queries/roomQuery");
 
 
 const getListRoomController = async (req, res) => {
@@ -57,5 +57,24 @@ const getDetailRoomById = async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   };
+  const getRelatedRooms = async (req, res) => {
+    const { address, type, excludeId } = req.query;
+  
+    if (!address || !type || !excludeId) {
+      return res.status(400).json({ message: 'Missing address or type' });
+    }
+  
+    try {
+      const relatedRooms = await roomRelate({
+        address,
+        type,
+        excludeId
+      });
+      res.json(relatedRooms);
+    } catch (error) {
+      console.error('Error finding related rooms:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };
 
-module.exports = { getListRoomController, getDetailRoomById ,findNearbyRooms};
+module.exports = { getListRoomController, getDetailRoomById ,findNearbyRooms,getRelatedRooms};

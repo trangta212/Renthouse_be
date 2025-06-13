@@ -297,22 +297,31 @@ const updatePost = async (id, postData) => {
     throw error;
   }
  }
-
 const UpdatePostInformationByUser = async (userId, postId, postData) => {
   try {
-    // Tìm RentPost để xác thực quyền và lấy room_id
+    console.log('Debug - User ID:', userId);
+    console.log('Debug - Room ID:', postId);
+
+    // Tìm RentPost dựa trên room_id và user_id
     const rentPost = await db.RentPost.findOne({
       where: {
-        id: postId,
+        room_id: postId,
         user_id: userId,
       }
     });
+
+    console.log('Debug - Found RentPost:', rentPost ? {
+      id: rentPost.id,
+      room_id: rentPost.room_id,
+      user_id: rentPost.user_id,
+      status: rentPost.status
+    } : 'Not found');
 
     if (!rentPost) {
       throw new Error('Người dùng không có quyền chỉnh sửa bài đăng này.');
     }
 
-    // Kiểm tra trạng thái của RentPost là 'pending'
+    // Kiểm tra trạng thái bài đăng
     if (rentPost.status !== 'pending') {
       throw new Error('Chỉ các bài đăng có trạng thái "pending" mới được cập nhật.');
     }
@@ -320,15 +329,12 @@ const UpdatePostInformationByUser = async (userId, postId, postData) => {
     const roomId = rentPost.room_id;
 
     // Tìm phòng
-    const room = await db.Room.findOne({
-      where: { id: roomId }
-    });
-
+    const room = await db.Room.findOne({ where: { id: roomId } });
     if (!room) {
       throw new Error('Không tìm thấy phòng.');
     }
 
-    // Cập nhật thông tin phòng nếu có trường cần update
+    // Cập nhật thông tin phòng
     const roomUpdateData = {};
     if (postData.room_name !== undefined) roomUpdateData.room_name = postData.room_name;
     if (postData.description !== undefined) roomUpdateData.description = postData.description;
@@ -340,28 +346,56 @@ const UpdatePostInformationByUser = async (userId, postId, postData) => {
 
     await room.update(roomUpdateData);
 
-    // Kiểm tra có tồn tại thông tin tiện ích liên kết không
+    // Cập nhật tiện ích nếu có
     if (room.utilities_id) {
-      const utilities = await db.Utilities.findOne({
-        where: { id: room.utilities_id }
-      });
-
+      const utilities = await db.Utilities.findOne({ where: { id: room.utilities_id } });
       if (!utilities) {
         throw new Error('Không tìm thấy thông tin tiện ích.');
       }
 
-      // Cập nhật thông tin tiện ích nếu có trường cần update
+      // Chuẩn bị dữ liệu update tiện ích
       const utilitiesUpdateData = {};
-      if (postData.electricity_bill !== undefined) utilitiesUpdateData.electricity_bill = postData.electricity_bill;
-      if (postData.water_bill !== undefined) utilitiesUpdateData.water_bill = postData.water_bill;
-      if (postData.extensions !== undefined) utilitiesUpdateData.extensions = postData.extensions;
-      if (postData.full_furnishing !== undefined) utilitiesUpdateData.full_furnishing = postData.full_furnishing;
 
-      await utilities.update(utilitiesUpdateData);
+      if (
+        postData.electricity_bill !== undefined &&
+        postData.electricity_bill !== null &&
+        postData.electricity_bill !== 'undefined'
+      ) {
+        utilitiesUpdateData.electricity_bill = Number(postData.electricity_bill);
+      }
+
+      if (
+        postData.water_bill !== undefined &&
+        postData.water_bill !== null &&
+        postData.water_bill !== 'undefined'
+      ) {
+        utilitiesUpdateData.water_bill = Number(postData.water_bill);
+      }
+
+      if (
+        postData.extensions !== undefined &&
+        postData.extensions !== null &&
+        postData.extensions !== 'undefined'
+      ) {
+        utilitiesUpdateData.extensions = Number(postData.extensions);
+      }
+
+      if (
+        postData.full_furnishing !== undefined &&
+        postData.full_furnishing !== null &&
+        postData.full_furnishing !== 'undefined'
+      ) {
+        utilitiesUpdateData.full_furnishing = postData.full_furnishing ? 1 : 0;
+      }
+
+      if (Object.keys(utilitiesUpdateData).length > 0) {
+        await utilities.update(utilitiesUpdateData);
+      } else {
+        console.log("Không có dữ liệu tiện ích nào hợp lệ để cập nhật.");
+      }
+
     } else {
-      // Nếu không có tiện ích liên kết, có thể xử lý theo yêu cầu của bạn
       console.log('Không có thông tin tiện ích liên kết với phòng.');
-      // Bạn có thể chọn tạo tiện ích mới nếu cần
     }
 
     return { success: true, message: 'Cập nhật thông tin phòng thành công.' };
@@ -372,9 +406,144 @@ const UpdatePostInformationByUser = async (userId, postId, postData) => {
   }
 };
 
+const getMonthlyPostCount = async (userId) => {
+  try {
+    const posts = await db.RentPost.findAll({
+      where: { user_id: userId },
+      include: [
+        {
+          model: db.User,
+          attributes: ["id", "email", "lastName", "phone_number"],
+        },
+        {
+          model: db.Room,
+          attributes: [
+            "id",
+            "room_name",
+            "description",
+            "price_per_month",
+            "type",
+            "area",
+            "address",
+            "room_images",
+          ],
+        },
+      ],
+    });
+
+    // Initialize an object to store the count of posts for each month
+    const monthlyPostCount = {};
+
+    // Iterate through each post
+    posts.forEach((post) => {
+      if (!post.start_date || !post.expire) return; // Skip if dates are missing
+
+      const startDate = new Date(post.start_date);
+      const expireDate = new Date(post.expire);
+
+      // Skip if dates are invalid
+      if (isNaN(startDate.getTime()) || isNaN(expireDate.getTime())) return;
+
+      // Iterate through each month between start_date and expire
+      const currentDate = new Date(startDate);
+      while (currentDate <= expireDate) {
+        const monthKey = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
+        monthlyPostCount[monthKey] = (monthlyPostCount[monthKey] || 0) + 1;
+        
+        // Move to next month
+        currentDate.setMonth(currentDate.getMonth() + 1);
+      }
+    });
+
+    // Sort months chronologically
+    const sortedMonths = Object.entries(monthlyPostCount)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .reduce((obj, [key, value]) => {
+        obj[key] = value;
+        return obj;
+      }, {});
+
+    return { monthlyPostCount: sortedMonths };
+  } catch (error) {
+    console.error("Error fetching monthly post count:", error);
+    throw error;
+  }
+};
+
+const deletePost = async (userId, roomId) => {
+  try {
+    console.log('Debug - User ID:', userId);
+    console.log('Debug - Room ID:', roomId);
+
+    // Tìm RentPost dựa trên room_id và user_id
+    const rentPost = await db.RentPost.findOne({
+      where: {
+        room_id: roomId,
+        user_id: userId,
+      },
+      include: [
+        {
+          model: db.Room,
+          attributes: ['id', 'utilities_id']
+        }
+      ]
+    });
+
+    console.log('Debug - Found RentPost:', rentPost ? {
+      id: rentPost.id,
+      room_id: rentPost.room_id,
+      user_id: rentPost.user_id,
+      status: rentPost.status
+    } : 'Not found');
+
+    if (!rentPost) {
+      throw new Error('Người dùng không có quyền xóa bài đăng này.');
+    }
+
+    // Kiểm tra trạng thái bài đăng
+    if (rentPost.status !== 'pending') {
+      throw new Error('Chỉ các bài đăng có trạng thái "pending" mới được xóa.');
+    }
+
+    const result = await db.sequelize.transaction(async (t) => {
+      // 1. Xóa RentPost
+      await db.RentPost.destroy({
+        where: { room_id: roomId },
+        transaction: t
+      });
+
+      // 2. Xóa Room
+      if (rentPost.Room) {
+        await db.Room.destroy({
+          where: { id: roomId },
+          transaction: t
+        });
+
+        // 3. Xóa Utilities nếu có
+        if (rentPost.Room.utilities_id) {
+          await db.Utilities.destroy({
+            where: { id: rentPost.Room.utilities_id },
+            transaction: t
+          });
+        }
+      }
+
+      return { success: true, message: 'Xóa bài đăng thành công.' };
+    });
+
+    return result;
+
+  } catch (error) {
+    console.error('Lỗi xóa bài đăng:', error);
+    return { success: false, message: error.message };
+  }
+};
+
 module.exports = {
   createPost,
   updatePost,
   getPostByUser,
-  UpdatePostInformationByUser
+  UpdatePostInformationByUser,
+  getMonthlyPostCount,
+  deletePost
 };

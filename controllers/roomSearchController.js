@@ -6,11 +6,26 @@ const roomSearchController = async (req, res) => {
     const { location, type, priceRange, area } = req.params;
     const { q } = req.query;
 
-    const rooms = await getFilteredRooms({ location, type, priceRange, area, q });
-    res.status(200).json(rooms);
+    const searchParams = {
+      location,
+      type,
+      priceRange,
+      area,
+      q
+    };
+
+    const rooms = await getFilteredRooms(searchParams);
+    res.status(200).json({
+      success: true,
+      data: rooms
+    });
   } catch (error) {
-    console.error('Lỗi khi lọc phòng:', error);
-    res.status(500).json({ message: 'Lỗi server' });
+    console.error('Error in roomSearchController:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error',
+      error: error.message
+    });
   }
 };
 
