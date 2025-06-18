@@ -101,6 +101,49 @@ const createPostController = async (req, res) => {
     } = req.body;
 
     // Hàm lấy longitude và latitude từ address bằng PositionStack
+    // const getCoordinates = async (address) => {
+    //   try {
+    //     if (!address || address.trim().length < 5) {
+    //       console.warn("Address is too short or empty:", address);
+    //       return { longitude: null, latitude: null };
+    //     }
+    
+    //     console.log("Sending geocoding request for address:", address);
+    
+    //     const response = await axios.get("http://api.positionstack.com/v1/forward", {
+    //       params: {
+    //         access_key: "134f8263c1046f546b9bde8aed3ef677", // thay bằng .env nếu có
+    //         query: address, // KHÔNG cần encodeURIComponent
+    //         limit: 1,
+    //         country: "VN",
+    //       },
+    //       timeout: 5000,
+    //       headers: {
+    //         "User-Agent": "RentHouseApp/1.0 (contact@renthouse.vn)" // thêm cho đúng chuẩn gọi API
+    //       }
+    //     });
+    
+    //     console.log("responsePositionStack :", response.data);
+    
+    //     const results = response.data.data;
+    //     if (results && results.length > 0) {
+    //       const { latitude, longitude } = results[0];
+    //       console.log(`Found coordinates: latitude=${latitude}, longitude=${longitude}`);
+    //       return { longitude, latitude };
+    //     } else {
+    //       console.warn(`No results found for address: ${address}`);
+    //       return { longitude: null, latitude: null };
+    //     }
+    //   } catch (error) {
+    //     console.error("Error fetching coordinates from PositionStack:", {
+    //       message: error.message,
+    //       status: error.response?.status,
+    //       data: error.response?.data,
+    //       code: error.code,
+    //     });
+    //     return { longitude: null, latitude: null };
+    //   }
+    // };
     const getCoordinates = async (address) => {
       try {
         if (!address || address.trim().length < 5) {
@@ -110,24 +153,26 @@ const createPostController = async (req, res) => {
     
         console.log("Sending geocoding request for address:", address);
     
-        const response = await axios.get("http://api.positionstack.com/v1/forward", {
-          params: {
-            access_key: "134f8263c1046f546b9bde8aed3ef677", // thay bằng .env nếu có
-            query: address, // KHÔNG cần encodeURIComponent
-            limit: 1,
-            country: "VN",
-          },
-          timeout: 5000,
-          headers: {
-            "User-Agent": "RentHouseApp/1.0 (contact@renthouse.vn)" // thêm cho đúng chuẩn gọi API
+        const response = await axios.get(
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json`,
+          {
+            params: {
+              access_token: process.env.MAP_BOX, // Dùng biến môi trường
+              limit: 1,
+              country: "VN",
+            },
+            timeout: 5000,
+            headers: {
+              "User-Agent": "RentHouseApp/1.0 (contact@renthouse.vn)"
+            }
           }
-        });
+        );
     
-        console.log("responsePositionStack :", response.data);
+        console.log("responseMapbox:", response.data);
     
-        const results = response.data.data;
+        const results = response.data.features;
         if (results && results.length > 0) {
-          const { latitude, longitude } = results[0];
+          const [longitude, latitude] = results[0].center;
           console.log(`Found coordinates: latitude=${latitude}, longitude=${longitude}`);
           return { longitude, latitude };
         } else {
@@ -135,7 +180,7 @@ const createPostController = async (req, res) => {
           return { longitude: null, latitude: null };
         }
       } catch (error) {
-        console.error("Error fetching coordinates from PositionStack:", {
+        console.error("Error fetching coordinates from Mapbox:", {
           message: error.message,
           status: error.response?.status,
           data: error.response?.data,

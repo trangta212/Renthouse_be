@@ -377,6 +377,7 @@ const handleContactAction = async (notificationId, action) => {
        await notification.update({
         message: action === 'confirm' ? "Người thuê đã đồng ý xác nhận hợp đồng thuê phòng. Vui lòng kiểm tra email để xem chi tiết hợp đồng. Tiền đặt cọc sẽ được chuyển đến bạn." : "Người thuê đã hủy đặt cọc. Tiền đặt cọc sẽ được hoàn trả cho người thuê và bài đăng của bạn sẽ được hiển thị trở lại.",
         user_id: landlord.id,
+        type: action === 'confirm' ? 'contract_landlord' : 'contract_renter_cancel'
       });
   
       if (!renter || !landlord) {
