@@ -4,77 +4,6 @@ const moment = require("moment");
 const axios = require("axios");
 
 
-// const createPostController = async (req, res) => {
-//   try {
-//     const userId = req.user.id; 
-//     const {  
-//       fullNameIndentify,
-//       identifyNumber,
-//       date_of_birth,
-//       phone_number,
-//       electricity_bill,
-//       water_bill,
-//       extensions,
-//       full_furnishing,
-//       room_name,
-//       description,
-//       price_per_month,
-//       type,
-//       area,
-//       address,
-//       user_address,
-//       start_date,
-//       expire,
-//       priority
-//     } = req.body;
-    
-//       const postData = {
-//       fullNameIndentify,
-//       identifyNumber,
-//       date_of_birth,
-//       phone_number,
-//       electricity_bill,
-//       water_bill,
-//       extensions,
-//       full_furnishing,
-//       room_name,
-//       description,
-//       price_per_month,
-//       type,
-//       area,
-//       address,
-//       user_address,
-//       room_images: req.files
-//        ? req.files.map(file => file.filename) // hoặc thêm prefix nếu cần
-//       : [],
-//       start_date,
-//       expire,
-//       priority
-//     };
-//     console.log("req.file:", req.file);
-
-//     if (!postData) {
-//       return res.status(400).json({ error: "Dữ liệu đầu vào không hợp lệ" });
-//     }
-    
-//     const newPost = await createPost(postData,userId).catch((err) => {
-//       console.error("Error in createPost function:", err);
-//       throw new Error("Database operation failed");
-//     });
-
-//     return res.status(200).json({
-//       success: true,
-//       message: "Bài đăng đã được tạo thành công!",
-//       data: newPost,
-//     });
-//   } catch (error) {
-//     console.error("Lỗi khi tạo bài đăng:", error);
-//     return res.status(500).json({
-//       success: false,
-//       error: "Đã xảy ra lỗi khi tạo bài đăng. Vui lòng thử lại!",
-//     });
-//   }
-// };
 
 const createPostController = async (req, res) => {
   try {
@@ -98,52 +27,11 @@ const createPostController = async (req, res) => {
       start_date,
       expire,
       priority,
+      start_date_contract,
+      end_date_contract,
+      date_cccd
     } = req.body;
 
-    // Hàm lấy longitude và latitude từ address bằng PositionStack
-    // const getCoordinates = async (address) => {
-    //   try {
-    //     if (!address || address.trim().length < 5) {
-    //       console.warn("Address is too short or empty:", address);
-    //       return { longitude: null, latitude: null };
-    //     }
-    
-    //     console.log("Sending geocoding request for address:", address);
-    
-    //     const response = await axios.get("http://api.positionstack.com/v1/forward", {
-    //       params: {
-    //         access_key: "134f8263c1046f546b9bde8aed3ef677", // thay bằng .env nếu có
-    //         query: address, // KHÔNG cần encodeURIComponent
-    //         limit: 1,
-    //         country: "VN",
-    //       },
-    //       timeout: 5000,
-    //       headers: {
-    //         "User-Agent": "RentHouseApp/1.0 (contact@renthouse.vn)" // thêm cho đúng chuẩn gọi API
-    //       }
-    //     });
-    
-    //     console.log("responsePositionStack :", response.data);
-    
-    //     const results = response.data.data;
-    //     if (results && results.length > 0) {
-    //       const { latitude, longitude } = results[0];
-    //       console.log(`Found coordinates: latitude=${latitude}, longitude=${longitude}`);
-    //       return { longitude, latitude };
-    //     } else {
-    //       console.warn(`No results found for address: ${address}`);
-    //       return { longitude: null, latitude: null };
-    //     }
-    //   } catch (error) {
-    //     console.error("Error fetching coordinates from PositionStack:", {
-    //       message: error.message,
-    //       status: error.response?.status,
-    //       data: error.response?.data,
-    //       code: error.code,
-    //     });
-    //     return { longitude: null, latitude: null };
-    //   }
-    // };
     const getCoordinates = async (address) => {
       try {
         if (!address || address.trim().length < 5) {
@@ -189,7 +77,7 @@ const createPostController = async (req, res) => {
         return { longitude: null, latitude: null };
       }
     };
-    
+
 
     // Lấy tọa độ từ address
     const coordinates = await getCoordinates(address);
@@ -217,6 +105,9 @@ const createPostController = async (req, res) => {
       priority,
       longitude: coordinates.longitude,
       latitude: coordinates.latitude,
+      start_date_contract,
+      end_date_contract,
+      date_cccd
     };
 
     console.log("req.files:", req.files);

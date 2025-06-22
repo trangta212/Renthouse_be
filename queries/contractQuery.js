@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../models');
 const { uploadToCloudinary } = require('../utils/cloudinary');
+const {findNotificationById,markNotificationAsRead} = require('../queries/notificationQuery')
 
 // Khởi tạo transporter từ .env
 const transporter = nodemailer.createTransport({
@@ -102,8 +103,10 @@ const generateContractPDF = async (contractData) => {
       .text(`Ông/bà: ${contractData.landlord_name || '...'}`)
       .text(`Sinh ngày: ${contractData.landlord_birthday || '...'}`)
       .text(`Nơi đăng ký HK: ${contractData.landlord_address || '...'}`)
-      .text(`CMND số: ${contractData.landlord_id_number || '...'} cấp ngày ${contractData.landlord_id_date || '...'} tại: ${contractData.landlord_id_place || '...'}`)
-      .text(`Số điện thoại: ${contractData.landlord_phone || '...'}`)
+      .text(`CCCD số: ${contractData.landlord_id_number || '...'} cấp ngày ${contractData.cccd_date_landlord 
+        ? new Date(contractData.cccd_date_landlord).toLocaleDateString('vi-VN') 
+        : '...'} tại: Cục Cảnh sát Quản lý hành chính về trật tự xã hội`)
+      .text(`Số điện thoại: 0${contractData.landlord_phone || '...'}`)
       .moveDown(1);
   
     // Thông tin Bên B (Bên thuê)
@@ -118,8 +121,10 @@ const generateContractPDF = async (contractData) => {
       .text(`Ông/bà: ${contractData.renter_name || '...'}`)
       .text(`Sinh ngày: ${contractData.renter_birthday || '...'}`)
       .text(`Nơi đăng ký HK: ${contractData.renter_address || '...'}`)
-      .text(`CMND số: ${contractData.renter_id_number || '...'} cấp ngày ${contractData.renter_id_date || '...'} tại: ${contractData.renter_id_place || '...'}`)
-      .text(`Số điện thoại: ${contractData.renter_phone || '...'}`)
+      .text(`CCCD số: ${contractData.renter_id_number || '...'} cấp ngày ${contractData.cccd_date_tenant 
+        ? new Date(contractData.cccd_date_tenant).toLocaleDateString('vi-VN') 
+        : '...'} tại: Cục Cảnh sát Quản lý hành chính về trật tự xã hội`)
+      .text(`Số điện thoại: 0${contractData.renter_phone || '...'}`)
       .moveDown(1);
   
     // Điều khoản thuê
@@ -150,7 +155,7 @@ const generateContractPDF = async (contractData) => {
       .text(`Tiền đặt cọc: ${contractData.deposit_amount ? contractData.deposit_amount.toLocaleString('vi-VN') : '...'} đ`)
       .moveDown(0.5);
     doc
-      .text(`Hợp đồng có giá trị từ ngày ${contractData.start_date ? new Date(contractData.start_date).toLocaleDateString('vi-VN') : '...'} đến ngày ${contractData.end_date ? new Date(contractData.end_date).toLocaleDateString('vi-VN') : '...'}`)
+      .text(`Hợp đồng có giá trị từ ngày ${contractData.start_date_contract ? new Date(contractData.start_date_contract).toLocaleDateString('vi-VN') : '...'} đến ngày ${contractData.end_date_contract? new Date(contractData.end_date_contract).toLocaleDateString('vi-VN') : '...'}`)
       .moveDown(1.5);
   
     // Trách nhiệm của các bên
@@ -167,9 +172,11 @@ const generateContractPDF = async (contractData) => {
     doc
       .text('2. Trách nhiệm của Bên B:')
       .text('   - Thanh toán đầy đủ các khoản tiền theo đúng thỏa thuận.')
-      .text('   - Bảo quản các trang thiết bị và cơ sở vật chất của Bên A trong suốt thời gian thuê.')
-      .text('   - Không được tự ý sửa chữa, thay đổi cơ sở vật chất khi chưa được sự đồng ý của Bên A.')
+      .text('   - Bảo quản các trang thiết bị và cơ sở vật chất của bên A trong suốt thời gian thuê.(làm hỏng phải sửa, mất phải đền).')
+      .text('   - Không được tự ý sửa chữa, thay đổi cơ sở vật chất khi chưa được sự đồng ý của bên A.')
       .text('   - Giữ gìn vệ sinh chung và ngoài khuôn viên phòng trọ.')
+      .text('   - Bên B phải chấp hành mọi quy định của pháp luật Nhà nước và quy định của địa phương.')
+      .text('   - Nếu bên B cho khách ở qua đêm thì phải báo trước và được sự đồng ý của bên A, đồng thời phải chịu trách nhiệm về các hành vi vi phạm pháp luật của khách trong thời gian ở lại (nếu có).')
       .moveDown(1);
   
     // Trách nhiệm chung
@@ -180,9 +187,10 @@ const generateContractPDF = async (contractData) => {
       .moveDown(0.5);
     doc
       .text('- Hai bên phải tạo điều kiện cho nhau thực hiện hợp đồng.')
-      .text('- Trong thời gian hợp đồng còn hiệu lực, nếu bên nào vi phạm phải chịu trách nhiệm.')
-      .text('- Nếu hợp đồng bị đơn phương chấm dứt, bên vi phạm phải bồi thường thiệt hại cho bên còn lại.')
-      .text('- Một trong hai bên muốn chấm dứt hợp đồng phải thông báo trước ít nhất 30 ngày.')
+      .text('- Nếu một trong hai bên vi phạm hợp đồng trong thời gian hợp đồng vẫn còn hiệu lực thì bên còn lại có quyền đơn phương chấm dứt hợp đồng thuê nhà trọ. Ngoài ra, nếu hành vi vi phạm đó gây tổn thất cho bên bị vi phạm thì bên vi phạm sẽ phải bồi thường mọi thiệt hại đã gây ra.')
+      .text('- Trong trường hợp muốn chấm dứt hợp đồng trước thời hạn, cần phải báo trước cho bên kia ít nhất 30 ngày và hai bên phải có sự thống nhất với nhau. ')
+      .text('- Kết thúc hợp đồng, Bên A phải trả lại đầy đủ tiền đặt cọc cho bên B.')
+      .text('- Bên nào vi phạm các điều khoản chung thì phải chịu trách nhiệm trước pháp luật.')
       .moveDown(0.5);
     doc
       .text('Hợp đồng được lập thành 02 bản có giá trị pháp lý như nhau, mỗi bên giữ 01 bản.')
@@ -244,9 +252,15 @@ const sendContractEmail = async (emailList, cloudinaryUrl) => {
 
 // Hàm xử lý confirm/cancel
 const handleContactAction = async (notificationId, action) => {
+
+  const notification = await findNotificationById(notificationId);
+  if (!notification) {
+    return res.status(404).json({ success: false, message: "Notification không tồn tại." });
+  }
+  await markNotificationAsRead(notification);
   try {
     const deposit = await Deposit.findOne({
-      where: { notification_id: notificationId },
+      where: { id: notification.deposit_id },
       attributes: [
         'id', 
         'user_id', 
@@ -343,6 +357,10 @@ const handleContactAction = async (notificationId, action) => {
         renter_address: tenantInfo.address || 'Không xác định',
         renter_phone: tenantInfo.phone_number || 'Không xác định',
         renter_id_number: tenantInfo.identifyNumber || 'Không xác định',
+        start_date_contract: rentPost.start_date_contract || 'Không xác định',
+        end_date_contract: rentPost.end_date_contract || " Không xác định",
+        cccd_date_landlord:landlordInfo.date_cccd || "Không xác định",
+        cccd_date_tenant:tenantInfo.date_cccd || "Không xác định"
       };
 
       const contract = await Contract.create({
@@ -367,17 +385,20 @@ const handleContactAction = async (notificationId, action) => {
       const landlord = await User.findOne({
         where: { id: rentPost.user_id },
       });
-      const notification = await Notification.findOne({
-        where: { id: notificationId},
-      });
-      if (!notification) {
-        throw new Error("Không tìm thấy thông báo liên quan");
-      }
     
-       await notification.update({
-        message: action === 'confirm' ? "Người thuê đã đồng ý xác nhận hợp đồng thuê phòng. Vui lòng kiểm tra email để xem chi tiết hợp đồng. Tiền đặt cọc sẽ được chuyển đến bạn." : "Người thuê đã hủy đặt cọc. Tiền đặt cọc sẽ được hoàn trả cho người thuê và bài đăng của bạn sẽ được hiển thị trở lại.",
+      // Tạo thông báo mới cho chủ trọ
+      await Notification.create({
+        message: action === 'confirm' ? 
+          "Người thuê đã đồng ý xác nhận hợp đồng thuê phòng. Vui lòng kiểm tra email để xem chi tiết hợp đồng. Tiền đặt cọc sẽ được chuyển đến bạn." : 
+          "Người thuê đã hủy đặt cọc. Tiền đặt cọc sẽ được hoàn trả cho người thuê và bài đăng của bạn sẽ được hiển thị trở lại.",
+        type: action === 'confirm' ? 'contract_landlord' : 'contract_renter_cancel',
+        room_id: notification.room_id,
         user_id: landlord.id,
-        type: action === 'confirm' ? 'contract_landlord' : 'contract_renter_cancel'
+        created_at: new Date(),
+        updated_at: new Date(),
+        is_read: false,
+        time: new Date(),
+        deposit_id: deposit.id
       });
   
       if (!renter || !landlord) {
@@ -402,6 +423,22 @@ const handleContactAction = async (notificationId, action) => {
       }
       if(rentPost) {
           await rentPost.update({ status: 'pending' });
+        }
+        const landlord = await User.findOne({
+          where: { id: rentPost.user_id },
+        });
+        if (landlord) {
+          await Notification.create({
+            message: "Người thuê đã hủy đặt cọc. Tiền đặt cọc sẽ được chuyển cho bạn và bài đăng của bạn sẽ được hiển thị trở lại.",
+            type: 'contract_renter_cancel',
+            room_id: notification.room_id,
+            user_id: landlord.id,
+            created_at: new Date(),
+            updated_at: new Date(),
+            is_read: false,
+            time: new Date(),
+            deposit_id: deposit.id
+          });
         }
     }
 
@@ -431,6 +468,11 @@ const getContractList = async (userId) => {
               model: RentPost,
               as: 'rentPost',
               required: true,
+              attributes: [
+                'start_date_contract',
+                'end_date_contract'
+                // 👉 Thêm các trường bạn cần ở đây
+              ],
               include: [
                 {
                   model: User,
@@ -465,12 +507,21 @@ const getContractList = async (userId) => {
       const room = contract.deposit?.rentPost?.Room;
       const landlord = contract.deposit?.rentPost?.User;
       const renter = contract.deposit?.user;
+      const start_date_contract = contract.deposit?.rentPost?.start_date_contract;
+      const end_date_contract = contract.deposit?.rentPost?.end_date_contract;
+
 
       return {
         contract_id: contract.id,
         contract_file: contract.contract_file,
         start_date: contract.start_date,
         end_date: contract.end_date,
+        start_date_contract: start_date_contract 
+          ? new Date(start_date_contract).toLocaleDateString('vi-VN') 
+          : null,
+          end_date_contract: end_date_contract 
+          ? new Date(end_date_contract).toLocaleDateString('vi-VN') 
+          : null,
         created_at: contract.created_at,
         role: isRenter ? 'renter' : 'landlord',
         room_info: {
@@ -491,10 +542,21 @@ const getContractList = async (userId) => {
         }
       };
     });
-
+    const today = new Date();
+    const totalContracts = formattedContracts.length;
+    const expiredContracts = formattedContracts.filter(
+      c => c.end_date_contract && new Date(c.end_date_contract.split('/').reverse().join('-')) < today
+    ).length;
+    const activeContracts = formattedContracts.filter(
+      c => c.end_date_contract && new Date(c.end_date_contract.split('/').reverse().join('-')) >= today
+    ).length;
+    
     return {
       success: true,
-      data: formattedContracts
+      data: formattedContracts,
+      totalContracts,
+      expiredContracts,
+      activeContracts
     };
   } catch (error) {
     console.error("Error getting contract list:", error);

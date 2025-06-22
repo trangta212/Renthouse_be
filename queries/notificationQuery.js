@@ -69,7 +69,17 @@ const createNotification = async (userId, roomId, message) => {
     time: new Date(),
   });
 };
-
+const deleteNotificationById = async (notificationId) => {
+  try {
+    const notification = await Notification.findByPk(notificationId);
+    if (!notification) return false;
+    await notification.destroy();
+    return true;
+  } catch (error) {
+    console.error("❌ Error deleting notification:", error);
+    throw error;
+  }
+};
 
 module.exports = {
   getUserNotificationsQuery,
@@ -79,5 +89,6 @@ module.exports = {
   updateDepositStatus,
   findUserById,
   createNotification,
+  deleteNotificationById
 //  getUserNotificationsWithType 
 };

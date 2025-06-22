@@ -33,7 +33,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     priority: {
       type: DataTypes.STRING,  // Dạng chuỗi
-    }
+    },
+    start_date_contract: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    end_date_contract: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
   }, {
     sequelize,
     modelName: 'RentPost',

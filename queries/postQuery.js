@@ -26,6 +26,9 @@ const createPost = async (postData, userId) => {
       priority,
       latitude,
       longitude,
+      start_date_contract,
+      end_date_contract,
+      date_cccd
     } = postData;
 
     console.log("📦 Post postData:", postData);
@@ -43,6 +46,7 @@ const createPost = async (postData, userId) => {
             address: user_address,
             phone_number:phone_number,
             password: "123456",
+            date_cccd:date_cccd
           },
           { transaction: t }
         );
@@ -54,6 +58,7 @@ const createPost = async (postData, userId) => {
             date_of_birth:date_of_birth,
             address: user_address,
             phone_number:phone_number,
+            date_cccd:date_cccd,
             updated_at: new Date(),
           },
           { where: { id: userId }, transaction: t }
@@ -84,7 +89,6 @@ const createPost = async (postData, userId) => {
           latitude,
           longitude,
           utilities_id: utilities.id,
-
         },
         { transaction: t }
       );
@@ -97,6 +101,8 @@ const createPost = async (postData, userId) => {
           status: "pending",
           start_date: start_date,
           expire: expire,
+          start_date_contract:start_date_contract,
+          end_date_contract:end_date_contract,
           priority: priority,
           created_at: new Date(),
           updated_at: new Date(),

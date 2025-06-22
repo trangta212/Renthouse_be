@@ -21,6 +21,7 @@ const createDeposit = async (depositData) => {
       order_id,
       payment_time,
       refund_reason,
+      date_cccd,
       partnerCode
     } = depositData;
 
@@ -37,6 +38,7 @@ const createDeposit = async (depositData) => {
           identifyNumber: identifyNumber,
           address: address,
           cccd_images: cccd_images,
+          date_cccd: date_cccd,
           updated_at: new Date(),
         },
         { transaction: t }
@@ -104,6 +106,7 @@ const room = await db.Room.findByPk(room_id, { transaction: t });
         message: message = `Phòng của bạn đã được đặt cọc trước ${deposit_amount.toLocaleString()} VND vào lúc ${deposit_day} từ ${userName.fullNameIndentify}. Bạn có đồng ý xác nhận việc đặt cọc này không?`,
         is_read: false,
         time: new Date(),
+        deposit_id: deposit.id  // Thêm deposit_id là ID của deposit vừa tạo
       });
 
       // Cập nhật notification_id vào Deposit

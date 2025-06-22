@@ -54,6 +54,10 @@ module.exports = (sequelize, DataTypes) => {
     identifyNumber: DataTypes.BIGINT,
     date_of_birth: DataTypes.DATE,
     cccd_images: DataTypes.TEXT,
+    date_cccd: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
   }, {
     sequelize,
     modelName: 'User',

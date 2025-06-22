@@ -19,10 +19,15 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'room_id',
         as: 'room'
       });
-      Notification.hasMany(models.Deposit, {
-        foreignKey: 'notification_id',
-        as: 'deposit'
+      // Notification.hasMany(models.Deposit, {
+      //   foreignKey: 'notification_id',
+      //   as: 'deposit'
+      // });
+      Notification.belongsTo(models.Deposit, {
+        foreignKey: 'deposit_id',
+        as: 'deposit',
       });
+  
     }
   }
   Notification.init({
@@ -31,7 +36,11 @@ module.exports = (sequelize, DataTypes) => {
     message: DataTypes.TEXT,
     is_read: DataTypes.BOOLEAN,
     time: DataTypes.DATE,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    deposit_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   }, {
     sequelize,
     modelName: 'Notification',

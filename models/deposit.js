@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       Deposit.hasOne(models.Contract, {
         foreignKey: 'deposit_id',
       });
+      Deposit.hasMany(models.Notification, {
+        foreignKey: 'deposit_id',
+      });
     }
   }
   Deposit.init({
@@ -38,10 +41,10 @@ module.exports = (sequelize, DataTypes) => {
     updated_at: DataTypes.DATE,
     notification_id: {
       type: DataTypes.INTEGER,
-      references: {
-        model: 'Notification', // Tên bảng Notifications
-        key: 'id', // Khóa chính của bảng Notifications
-      },
+      // references: {
+      //   model: 'Notification', // Tên bảng Notifications
+      //   key: 'id', // Khóa chính của bảng Notifications
+      // },
       allowNull: true, // Cho phép null vì không phải lúc nào cũng có thông báo
     },
     payment_method: {

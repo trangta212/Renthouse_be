@@ -5,6 +5,7 @@ const { getUserNotificationsQuery ,
   findDepositByNotificationId,
   updateDepositStatus,
   findUserById,
+  deleteNotificationById
 } = require("../queries/notificationQuery");
 const { processRefund } = require("./paymentController");
 const db = require("../models");
@@ -15,10 +16,12 @@ const getUserNotifications = async (req, res) => {
   
       // Gọi query để lấy thông báo cho chủ trọ
       const notifications = await getUserNotificationsQuery(currentUserId);
+      const unreadCount = notifications.filter(noti => !noti.is_read).length;
   
       return res.status(200).json({
         success: true,
         data: notifications,
+        unreadCount
       });
     } catch (error) {
       console.error("❌ Error retrieving notifications:", error);
@@ -38,7 +41,13 @@ const getUserNotifications = async (req, res) => {
   
       await markNotificationAsRead(notification);
   
-      const deposit = await findDepositByNotificationId(notification.id);
+      const deposit = await db.Deposit.findOne({
+        where: { id: notification.deposit_id },
+        attributes: {
+          exclude: ['orded'] // hoặc 'ordered' nếu đó là tên đúng
+        }
+      });
+
       if (!deposit) {
         return res.status(404).json({ success: false, message: "Không tìm thấy deposit tương ứng." });
       }
@@ -58,16 +67,18 @@ const getUserNotifications = async (req, res) => {
           await rentPost.update({ status: 'deposited' });
         }
         message = `Đặt cọc của bạn đã được chủ trọ chấp nhận. Vui lòng xác nhận và tiến hành thiết lập hợp đồng.`;
-        type ="contract"
-        notifyTenant 
-        // = await createNotification(userRenting.id, notification.room_id, message , type);
-        = await notification.update({
+        type = "contract"
+        notifyTenant = await db.Notification.create({
           message: message,
           type: type,
-          status: 'accepted', // Ví dụ, nếu bạn muốn cập nhật trạng thái của notification
-          room_id: notification.room_id, // Giữ nguyên room_id nếu cần
-          user_id: userRenting.id, // Cập nhật lại thông tin người thuê nếu cần
-          // Bạn có thể thêm hoặc chỉnh sửa thêm các trường khác tùy theo yêu cầu
+          status: 'accepted',
+          room_id: notification.room_id,
+          user_id: userRenting.id,
+          deposit_id: deposit.id,
+          created_at: new Date(),
+          updated_at: new Date(),
+          is_read: false,
+          time: new Date(),
         });
 
       } else if (action === 'refund') {
@@ -96,14 +107,17 @@ const getUserNotifications = async (req, res) => {
         });
         type = "cancel"
         message = `Đặt cọc của bạn đã bị từ chối. Số tiền ${deposit.deposit_amount.toLocaleString()} VND đã được hoàn trả về tài khoản của bạn.`;
-        notifyTenant
-        = await notification.update({
+        notifyTenant = await db.Notification.create({
           message: message,
           type: type,
-          status: 'refunded', // Ví dụ, nếu bạn muốn cập nhật trạng thái của notification
-          room_id: notification.room_id, // Giữ nguyên room_id nếu cần
-          user_id: userRenting.id, // Cập nhật lại thông tin người thuê nếu cần
-          // Bạn có thể thêm hoặc chỉnh sửa thêm các trường khác tùy theo yêu cầu
+          status: 'refunded',
+          room_id: notification.room_id,
+          user_id: userRenting.id,
+          deposit_id: deposit.id,
+          created_at: new Date(),
+          updated_at: new Date(),
+          is_read: false,
+          time: new Date(),
         });
       } else {
         return res.status(400).json({ 
@@ -120,7 +134,7 @@ const getUserNotifications = async (req, res) => {
         deposit,
         notificationUpdated: notification,
         notifyTenant,
-        type:"notification"
+        type:"notification",
       });
   
     } catch (error) {
@@ -128,6 +142,30 @@ const getUserNotifications = async (req, res) => {
       return res.status(500).json({ success: false, message: "Lỗi server." });
     }
   };
-  
-  module.exports = { getUserNotifications , confirmRentalByOwner };
+  const deleteNotificationController =  async (req, res) => {
+    try{
+    const notificationId = req.params.notificationId;
+    if (!notificationId) {
+      return res.status(400).json({ message: 'Không có thông báo này' });
+    }
+    const deleteNoti = await deleteNotificationById(notificationId);
+    if (!deleteNoti) {
+      console.error("❌ Không thể xoá được thông báo", deleteNoti);
+      return res.status(404).json({ error: "Không thể xoá được" });
+  }
+
+  return res.status(200).json({
+      success: true,
+      message: "Xoá thông báo thành công"
+  });
+} catch (error) {
+  console.error("❌ Lỗi ", error.message);
+  console.error("❌ Chi tiết lỗi:", error.stack);
+  return res.status(500).json({
+      success: false,
+      error: "Đã xảy ra lỗi",
+  });
+}
+  }
+  module.exports = { getUserNotifications , confirmRentalByOwner,deleteNotificationController };
   

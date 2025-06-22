@@ -4,7 +4,8 @@ const {
   getUserNotifications,
   markNotificationAsRead,
   confirmRentalByOwner,
-  getUserNotificationsWithTypeController
+  getUserNotificationsWithTypeController,
+  deleteNotificationController
 } = require('../controllers/notificationController');
 const { authenticateJWT } = require("../middlewares/auth");
 
@@ -12,5 +13,6 @@ const { authenticateJWT } = require("../middlewares/auth");
 // router.get('/send-notification', authenticateJWT, sendDepositNotificationController);
 router.get('/notifications', authenticateJWT, getUserNotifications);
 router.post('/confirm-rental/:notificationId', authenticateJWT, confirmRentalByOwner);
+router.delete('/delete-noti/:notificationId',authenticateJWT,deleteNotificationController)
 // router.get('/type', authenticateJWT, getUserNotificationsWithTypeController);
 module.exports = router;
